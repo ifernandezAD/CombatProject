@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2161.384, g: 2265.4045, b: 3288.5474, a: 1}
+  m_IndirectSpecularColor: {r: 2161.384, g: 2265.385, b: 3288.5435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16299514}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.42971095, y: -0.015178166, z: -0.007224359, w: 0.90281004}
+  m_LocalRotation: {x: 0.06462584, y: 0.6192389, z: -0.051249772, w: 0.78085864}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 0.4, z: -1.3}
+  m_FollowOffset: {x: 0, y: 2.5, z: -3}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -732,7 +732,7 @@ Transform:
   m_GameObject: {fileID: 1286313330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.043699246, y: 0.4, z: -1.2992653}
+  m_LocalPosition: {x: -2.9211006, y: 2.5, z: -0.6834998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -788,7 +788,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0
+    Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 2
     m_AccelTime: 0.2
@@ -878,7 +878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339946240}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13066566, y: -0.016665643, z: 0.0021967744, w: 0.991284}
+  m_LocalRotation: {x: 0.050411724, y: 0.62006867, z: -0.039977655, w: 0.78190494}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414229916}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11266082, y: -0.016702749, z: 0.0018940732, w: 0.9934913}
+  m_LocalRotation: {x: 0.23979512, y: 0.5915415, z: -0.19016309, w: 0.7459323}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 2, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 0.4, z: -1.3}
+  m_FollowOffset: {x: 0, y: 2.5, z: -3}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1272,8 +1272,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.112660825, y: -0.01670277, z: 0.0018940753, w: 0.99349135}
-  m_LocalPosition: {x: 0.043699246, y: 0.4, z: -1.2992653}
+  m_LocalRotation: {x: 0.050411727, y: 0.6200687, z: -0.039977662, w: 0.7819049}
+  m_LocalPosition: {x: -2.9211006, y: 2.5, z: -0.6834998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 0.4, z: -1.3}
+  m_FollowOffset: {x: 0, y: 2.5, z: -3}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1722,8 +1722,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2370eb542ee96fe4ab93b52ae9044f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: -7000281613216482971, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  speed: 4
+  movementMode: 0
   move: {fileID: 7927898987670981862, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  jump: {fileID: -7000281613216482971, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
