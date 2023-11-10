@@ -9,21 +9,41 @@ public class PlayerController : MonoBehaviour
         CameraDirection,
     }
 
+    public enum OrientationMode
+    {
+        CameraForward,
+        MovementForward,
+        LookToTarget,
+    }
+
     [Header("Movement")]
     [SerializeField] float speed = 4f;
     [SerializeField] MovementMode movementMode = MovementMode.PlayerDirection;
+
+    [Header("Vertical Movement")]
+    [SerializeField] float jumpSpeed = 5f;
+
+    [Header("Orientation")]
+    [SerializeField] OrientationMode orientationMode = OrientationMode.MovementForward;
+    [SerializeField] float orientationSpeed = 360f;
+    [SerializeField] float smoothingSpeed = 10f;
 
     [Header("Input")]
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
 
     CharacterController characterController;
+    float verticalVelocity = 0f;
+    private float gravity = -9.8f;
+    Vector3 smoothedLocalXZPlaneVelocity;
 
-
+    Animator animator;
+  
 
     private void Awake()
     {
         characterController = GetComponentInChildren<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
@@ -36,10 +56,12 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 rawMoveValue = move.action.ReadValue<Vector2>();
         Vector3 xzPlanetMovement = (Vector3.right * rawMoveValue.x) + (Vector3.forward * rawMoveValue.y);
+        Vector3 xzPlaneVelocity = Vector3.zero;
 
         switch (movementMode)
         {
             case MovementMode.PlayerDirection:
+                xzPlaneVelocity = xzPlanetMovement * speed;
                 characterController.Move(xzPlanetMovement * speed * Time.deltaTime);
                 break;
             case MovementMode.CameraDirection:
@@ -47,15 +69,54 @@ public class PlayerController : MonoBehaviour
                     Transform mainCameraTransform = Camera.main.transform;
                     Vector3 xzPlanetMovementForCamera = mainCameraTransform.TransformDirection(xzPlanetMovement);
                     float oldMagnitude = xzPlanetMovementForCamera.magnitude;
+
                     xzPlanetMovementForCamera = Vector3.ProjectOnPlane(xzPlanetMovementForCamera, Vector3.up);
                     xzPlanetMovementForCamera = xzPlanetMovementForCamera.normalized * oldMagnitude;
 
-                    characterController.Move(xzPlanetMovementForCamera * speed * Time.deltaTime);
+                    xzPlaneVelocity = xzPlanetMovementForCamera * speed;
                 }
+                break;
+
+
+        }
+        characterController.Move(xzPlaneVelocity * Time.deltaTime);
+
+        verticalVelocity += gravity * Time.deltaTime;
+        characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+
+        if (characterController.isGrounded)
+        { verticalVelocity = 0f; }
+
+        if (jump.action.WasPerformedThisFrame() && characterController.isGrounded)
+        { verticalVelocity = jumpSpeed; }
+
+        Vector3 desiredDirection = Vector3.zero;
+
+        switch (orientationMode)
+        {
+            case OrientationMode.CameraForward:
+                break;
+            case OrientationMode.MovementForward:
+                desiredDirection = xzPlaneVelocity;
+                break;
+            case OrientationMode.LookToTarget:
                 break;
         }
 
+        float angularDistance = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+        float angleToApply = orientationSpeed * Time.deltaTime;
+        angleToApply = Mathf.Min(angleToApply, Mathf.Abs(angularDistance)) * Mathf.Sign(angularDistance);
 
+        Quaternion rotationToApply = Quaternion.AngleAxis(angleToApply, Vector3.up);
+        transform.rotation = rotationToApply * transform.rotation;
+
+        Vector3 localXZPlaneVelocity = transform.InverseTransformDirection(xzPlaneVelocity);
+        Vector3 distance = localXZPlaneVelocity - smoothedLocalXZPlaneVelocity;
+        float linearDistance = distance.magnitude;
+        smoothedLocalXZPlaneVelocity += distance.normalized * Mathf.Min(smoothingSpeed * Time.deltaTime , linearDistance);
+
+        animator.SetFloat("ForwardVelocity", smoothedLocalXZPlaneVelocity.z);
+        animator.SetFloat("SidewardVelocity", smoothedLocalXZPlaneVelocity.x);
     }
 
     private void OnDisable()
