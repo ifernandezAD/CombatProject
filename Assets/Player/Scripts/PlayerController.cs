@@ -117,6 +117,9 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("ForwardVelocity", smoothedLocalXZPlaneVelocity.z);
         animator.SetFloat("SidewardVelocity", smoothedLocalXZPlaneVelocity.x);
+        animator.SetBool("IsGrounded", characterController.isGrounded);
+        animator.SetFloat("VerticalVelocityNormalized", Mathf.Clamp01(Mathf.InverseLerp(jumpSpeed, -jumpSpeed, verticalVelocity)));
+
     }
 
     private void OnDisable()
