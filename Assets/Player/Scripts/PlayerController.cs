@@ -54,6 +54,65 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Vector3 xzPlaneVelocity = UpdateMovementOnPlane();
+
+        UpdateVerticalMovement();
+
+        UpdateOrientation(xzPlaneVelocity);
+
+        UpdateAnimation(xzPlaneVelocity);
+    }
+
+    private void UpdateAnimation(Vector3 xzPlaneVelocity)
+    {
+        Vector3 localXZPlaneVelocity = transform.InverseTransformDirection(xzPlaneVelocity);
+        Vector3 distance = localXZPlaneVelocity - smoothedLocalXZPlaneVelocity;
+        float linearDistance = distance.magnitude;
+        smoothedLocalXZPlaneVelocity += distance.normalized * Mathf.Min(smoothingSpeed * Time.deltaTime, linearDistance);
+
+        animator.SetFloat("ForwardVelocity", smoothedLocalXZPlaneVelocity.z);
+        animator.SetFloat("SidewardVelocity", smoothedLocalXZPlaneVelocity.x);
+        animator.SetBool("IsGrounded", characterController.isGrounded);
+        animator.SetFloat("VerticalVelocityNormalized", Mathf.Clamp01(Mathf.InverseLerp(jumpSpeed, -jumpSpeed, verticalVelocity)));
+    }
+
+    private void UpdateOrientation(Vector3 xzPlaneVelocity)
+    {
+        Vector3 desiredDirection = Vector3.zero;
+
+        switch (orientationMode)
+        {
+            case OrientationMode.CameraForward:
+                break;
+            case OrientationMode.MovementForward:
+                desiredDirection = xzPlaneVelocity;
+                break;
+            case OrientationMode.LookToTarget:
+                break;
+        }
+
+        float angularDistance = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+        float angleToApply = orientationSpeed * Time.deltaTime;
+        angleToApply = Mathf.Min(angleToApply, Mathf.Abs(angularDistance)) * Mathf.Sign(angularDistance);
+
+        Quaternion rotationToApply = Quaternion.AngleAxis(angleToApply, Vector3.up);
+        transform.rotation = rotationToApply * transform.rotation;
+    }
+
+    private void UpdateVerticalMovement()
+    {
+        verticalVelocity += gravity * Time.deltaTime;
+        characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+
+        if (characterController.isGrounded)
+        { verticalVelocity = 0f; }
+
+        if (jump.action.WasPerformedThisFrame() && characterController.isGrounded)
+        { verticalVelocity = jumpSpeed; }
+    }
+
+    private Vector3 UpdateMovementOnPlane()
+    {
         Vector2 rawMoveValue = move.action.ReadValue<Vector2>();
         Vector3 xzPlanetMovement = (Vector3.right * rawMoveValue.x) + (Vector3.forward * rawMoveValue.y);
         Vector3 xzPlaneVelocity = Vector3.zero;
@@ -76,50 +135,9 @@ public class PlayerController : MonoBehaviour
                     xzPlaneVelocity = xzPlanetMovementForCamera * speed;
                 }
                 break;
-
-
         }
         characterController.Move(xzPlaneVelocity * Time.deltaTime);
-
-        verticalVelocity += gravity * Time.deltaTime;
-        characterController.Move(Vector3.up * verticalVelocity * Time.deltaTime);
-
-        if (characterController.isGrounded)
-        { verticalVelocity = 0f; }
-
-        if (jump.action.WasPerformedThisFrame() && characterController.isGrounded)
-        { verticalVelocity = jumpSpeed; }
-
-        Vector3 desiredDirection = Vector3.zero;
-
-        switch (orientationMode)
-        {
-            case OrientationMode.CameraForward:
-                break;
-            case OrientationMode.MovementForward:
-                desiredDirection = xzPlaneVelocity;
-                break;
-            case OrientationMode.LookToTarget:
-                break;
-        }
-
-        float angularDistance = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
-        float angleToApply = orientationSpeed * Time.deltaTime;
-        angleToApply = Mathf.Min(angleToApply, Mathf.Abs(angularDistance)) * Mathf.Sign(angularDistance);
-
-        Quaternion rotationToApply = Quaternion.AngleAxis(angleToApply, Vector3.up);
-        transform.rotation = rotationToApply * transform.rotation;
-
-        Vector3 localXZPlaneVelocity = transform.InverseTransformDirection(xzPlaneVelocity);
-        Vector3 distance = localXZPlaneVelocity - smoothedLocalXZPlaneVelocity;
-        float linearDistance = distance.magnitude;
-        smoothedLocalXZPlaneVelocity += distance.normalized * Mathf.Min(smoothingSpeed * Time.deltaTime , linearDistance);
-
-        animator.SetFloat("ForwardVelocity", smoothedLocalXZPlaneVelocity.z);
-        animator.SetFloat("SidewardVelocity", smoothedLocalXZPlaneVelocity.x);
-        animator.SetBool("IsGrounded", characterController.isGrounded);
-        animator.SetFloat("VerticalVelocityNormalized", Mathf.Clamp01(Mathf.InverseLerp(jumpSpeed, -jumpSpeed, verticalVelocity)));
-
+        return xzPlaneVelocity;
     }
 
     private void OnDisable()
@@ -127,5 +145,4 @@ public class PlayerController : MonoBehaviour
         move.action.Disable();
         jump.action.Disable();
     }
-
 }
