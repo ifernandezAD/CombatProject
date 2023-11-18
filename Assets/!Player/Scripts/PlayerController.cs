@@ -28,28 +28,44 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float orientationSpeed = 360f;
     [SerializeField] float smoothingSpeed = 10f;
 
+    [Header("MeleeAttack")]
+    [SerializeField] InputActionReference attack;
+
     [Header("Input")]
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
+
+    [Header("WeaponSelection")]
+    [SerializeField] InputActionReference changeWeapons;
+    [SerializeField] InputActionReference[] selectWeapons;
 
     CharacterController characterController;
     float verticalVelocity = 0f;
     private float gravity = -9.8f;
     Vector3 smoothedLocalXZPlaneVelocity;
 
+    EntityWeapons entityWeapons;
+
     Animator animator;
-  
+
 
     private void Awake()
     {
         characterController = GetComponentInChildren<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        entityWeapons = GetComponent<EntityWeapons>();
     }
 
     private void OnEnable()
     {
         move.action.Enable();
         jump.action.Enable();
+        attack.action.Enable();
+        changeWeapons.action.Enable();
+        foreach (InputActionReference iar in selectWeapons)
+        {
+            iar.action.Enable();
+        }
     }
 
     void Update()
@@ -61,6 +77,38 @@ public class PlayerController : MonoBehaviour
         UpdateOrientation(xzPlaneVelocity);
 
         UpdateAnimation(xzPlaneVelocity);
+
+        UpdateAttack();
+
+        UpdateWeaponSelection();
+    }
+
+    void UpdateWeaponSelection()
+    {
+        Vector2 changeWeaponValue = changeWeapons.action.ReadValue<Vector2>();
+
+        if (changeWeaponValue.y > 0f)
+        {
+            entityWeapons.SelectNextWeapon();
+        }else if(changeWeaponValue.y <0f)
+        {
+            entityWeapons.SelectPreviousWeapon();
+        }
+        for (int i = 0; i < selectWeapons.Length; i++)
+        {
+            if (selectWeapons[i].action.WasPerformedThisFrame())
+            {
+                entityWeapons.SelectWeapon(i == 0 ? -1 : i);         
+            }
+        }
+    }
+
+    void UpdateAttack()
+    {
+        if (attack.action.WasPerformedThisFrame())
+        {
+            entityWeapons.MeleeAttack();
+        }
     }
 
     private void UpdateAnimation(Vector3 xzPlaneVelocity)
@@ -144,5 +192,11 @@ public class PlayerController : MonoBehaviour
     {
         move.action.Disable();
         jump.action.Disable();
+        attack.action.Disable();
+        changeWeapons.action.Disable();
+        foreach (InputActionReference iar in selectWeapons)
+        {
+            iar.action.Disable();
+        }
     }
 }
