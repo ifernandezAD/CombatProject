@@ -19,7 +19,7 @@ public class EntityWeapons : MonoBehaviour
     Animator animator;
     RuntimeAnimatorController originalRuntimeAnimatorController;
 
-    private void OnValidate() //Solo funciona en el editor no en runtime
+    private void OnValidate() //Solo funciona en el editor no en runtime, ideal para pruebas
     {
         if (debugNextWeapon)
         {
@@ -50,7 +50,6 @@ public class EntityWeapons : MonoBehaviour
     private void Start()
     {
         SelectWeapon(startingWeaponIndex);
-
     }
 
     public void SelectWeapon(int weaponIndex)
@@ -58,54 +57,48 @@ public class EntityWeapons : MonoBehaviour
         for (int i = 0; i < weapons.Length; i++)
         {
             weapons[i].gameObject.SetActive(weaponIndex == i);
-
-            if ((weaponIndex != -1) && (weapons[weaponIndex].animatorForWeapon != null))
-            {
-
-
-                if (weapons[i].animatorForWeapon)
-                {
-                    animator.runtimeAnimatorController = weapons[i].animatorForWeapon;
-                } else
-                {
-                    animator.runtimeAnimatorController = originalRuntimeAnimatorController;
-                }
-
-            }
-            currentWeapon = weaponIndex;
         }
+
+        if (weaponIndex < -1 || weaponIndex > weapons.Length-1)
+        {
+            weaponIndex = -1;
+        }
+
+        if ((weaponIndex != -1) && (weapons[weaponIndex].animatorForWeapon != null))
+        {
+            animator.runtimeAnimatorController = weapons[weaponIndex].animatorForWeapon;
+        }
+        else
+        {
+            animator.runtimeAnimatorController = originalRuntimeAnimatorController;
+        }
+        currentWeapon = weaponIndex;
     }
 
-        public void SelectNextWeapon()
-        {
-            currentWeapon++;
-            int nextWeapon = CycleWeapon(currentWeapon);
-            SelectWeapon(nextWeapon);
-        }
+    public void SelectNextWeapon()
+    {
+        currentWeapon++;
+        int nextWeapon = CycleWeapon(currentWeapon);
+        SelectWeapon(nextWeapon);
+    }
 
-        public void SelectPreviousWeapon()
-        {
-            currentWeapon--;
-            int previousWeapon = CycleWeapon(currentWeapon);
-            SelectWeapon(previousWeapon);
-        }
+    public void SelectPreviousWeapon()
+    {
+        currentWeapon--;
+        int previousWeapon = CycleWeapon(currentWeapon);
+        SelectWeapon(previousWeapon);
+    }
 
-        private int CycleWeapon(int i)
-        {
-            if (i >= weapons.Length)
-            {
-                i = -1;
-            }
-            else if (i < -1)
-            {
-                i = weapons.Length - 1;
-            }
-            return i;
-        }
+    public int CycleWeapon(int i)
+    {
+        if (i >= weapons.Length) { i = -1; }
+        else if (i < -1) { i = weapons.Length - 1; }
+        return i;
+    }
 
-        public void MeleeAttack()
-        {
-            animator.SetBool("MeleeAttack", true);
-        }
-    } 
+    public void MeleeAttack()
+    {
+        animator.SetTrigger("MeleeAttack");
+    }
+}
 

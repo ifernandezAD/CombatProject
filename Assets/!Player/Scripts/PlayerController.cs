@@ -19,9 +19,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float speed = 4f;
     [SerializeField] MovementMode movementMode = MovementMode.PlayerDirection;
+    [SerializeField] InputActionReference move;
 
     [Header("Vertical Movement")]
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] InputActionReference jump;
 
     [Header("Orientation")]
     [SerializeField] OrientationMode orientationMode = OrientationMode.MovementForward;
@@ -31,17 +33,13 @@ public class PlayerController : MonoBehaviour
     [Header("MeleeAttack")]
     [SerializeField] InputActionReference attack;
 
-    [Header("Input")]
-    [SerializeField] InputActionReference move;
-    [SerializeField] InputActionReference jump;
-
     [Header("WeaponSelection")]
     [SerializeField] InputActionReference changeWeapons;
     [SerializeField] InputActionReference[] selectWeapons;
 
     CharacterController characterController;
     float verticalVelocity = 0f;
-    private float gravity = -9.8f;
+    float gravity = -9.8f;
     Vector3 smoothedLocalXZPlaneVelocity;
 
     EntityWeapons entityWeapons;
@@ -98,17 +96,14 @@ public class PlayerController : MonoBehaviour
         {
             if (selectWeapons[i].action.WasPerformedThisFrame())
             {
-                entityWeapons.SelectWeapon(i == 0 ? -1 : i);         
+                entityWeapons.SelectWeapon(i == 0 ? -1 : i);   
             }
         }
     }
 
     void UpdateAttack()
     {
-        if (attack.action.WasPerformedThisFrame())
-        {
-            entityWeapons.MeleeAttack();
-        }
+        if (attack.action.WasPerformedThisFrame()){ entityWeapons.MeleeAttack();}
     }
 
     private void UpdateAnimation(Vector3 xzPlaneVelocity)

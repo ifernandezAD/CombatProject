@@ -5,7 +5,4 @@ using UnityEngine;
 public class MeleeWeapon : MonoBehaviour
 {
     [SerializeField] public RuntimeAnimatorController animatorForWeapon;
-
-
-
 }
