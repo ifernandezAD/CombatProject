@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
         {
             if (selectWeapons[i].action.WasPerformedThisFrame())
             {
-                entityWeapons.SelectWeapon(i == 0 ? -1 : i);   
+                entityWeapons.SelectWeapon(i == 0 ? -1 : i-1);   
             }
         }
     }

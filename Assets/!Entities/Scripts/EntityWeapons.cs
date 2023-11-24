@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EntityWeapons : MonoBehaviour
@@ -11,7 +12,6 @@ public class EntityWeapons : MonoBehaviour
     [Space(10)]
     [SerializeField] bool debugSelectWeapon;
     [SerializeField] int debugWeaponIndexToSelect;
-
 
     MeleeWeapon[] weapons;
     int currentWeapon = -1;
@@ -100,5 +100,7 @@ public class EntityWeapons : MonoBehaviour
     {
         animator.SetTrigger("MeleeAttack");
     }
+
+    public MeleeWeapon GetCurrentWeapon() { return weapons[currentWeapon]; }
 }
 
