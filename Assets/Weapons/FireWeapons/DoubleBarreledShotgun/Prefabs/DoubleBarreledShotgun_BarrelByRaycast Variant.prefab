@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6497111980452883268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8824787991523426482, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8824787991523426482, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: shotTrailPrefab
+      value: 
+      objectReference: {fileID: 6262090137091903710, guid: cd10958363eb8ba4fbb30e8b34791ef3,
+        type: 3}
+    - target: {fileID: -8824787991523426482, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: -8824787991523426482, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: verticalDispersionAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8824787991523426482, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: horizontalDispersionAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964505700775617655, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_Name
+      value: DoubleBarreledShotgun_BarrelByRaycast Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0163
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6077
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250348790320964054, guid: 93fc37183e344c4439d608f343890963,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 93fc37183e344c4439d608f343890963, type: 3}

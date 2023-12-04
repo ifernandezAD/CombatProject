@@ -1,19 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
-public class MeleeWeaponByRaycast : MeleeWeapon
+public class MeleeWeaponByRaycast : MeleeWeapon, IOffender
 {
     [SerializeField] float maxPositionsDistance = 0.05f;
     [SerializeField] LayerMask layerMask = Physics.DefaultRaycastLayers;
     [SerializeField] Transform rayDefinitionsParent;
 
+    Vector3 hitDirection = Vector3.zero;
 
     protected override void InternalStart()
     {
        //Nothing yet
     }
 
-    public override void NotifyAttack(string itemsToActivate)
+    public override void NotifyMeleeAttack(string itemsToActivate)
     {
         string[] itemNames = itemsToActivate.Split(' ');
 
@@ -51,10 +52,22 @@ public class MeleeWeaponByRaycast : MeleeWeapon
                 Vector3 direction = endPosition - startPosition;
                 if (Physics.Raycast(startPosition, direction, out RaycastHit hit, direction.magnitude, layerMask))
                 {
+                    hitDirection = endPosition - oldStartPosition;
                     HurtCollider hurtCollider = hit.collider.GetComponent<HurtCollider>();
                     hurtCollider?.NotifyHit(this);
                 }
             }
         }
     }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public Vector3 GetDirection()
+    {
+        return hitDirection;
+    }
+
 }

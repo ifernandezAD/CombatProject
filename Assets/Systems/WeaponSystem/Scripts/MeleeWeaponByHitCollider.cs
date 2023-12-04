@@ -13,7 +13,7 @@ public class MeleeWeaponByHitCollider : MeleeWeapon
         foreach (Transform t in hitCollidersParent){t.gameObject.SetActive(false);}
     }
 
-    public override void NotifyAttack(string collidersToActivate)
+    public override void NotifyMeleeAttack(string collidersToActivate)
     {
         string[] colliderNames = collidersToActivate.Split(' ');
         foreach (string s in colliderNames)

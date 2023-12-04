@@ -13,7 +13,7 @@ public class EntityWeapons : MonoBehaviour
     [SerializeField] bool debugSelectWeapon;
     [SerializeField] int debugWeaponIndexToSelect;
 
-    MeleeWeapon[] weapons;
+    Weapon[] weapons;
     int currentWeapon = -1;
 
     Animator animator;
@@ -42,7 +42,7 @@ public class EntityWeapons : MonoBehaviour
 
     private void Awake()
     {
-        weapons = weaponsParent.GetComponentsInChildren<MeleeWeapon>();
+        weapons = weaponsParent.GetComponentsInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
         originalRuntimeAnimatorController = animator.runtimeAnimatorController;
     }
@@ -101,6 +101,11 @@ public class EntityWeapons : MonoBehaviour
         animator.SetTrigger("MeleeAttack");
     }
 
-    public MeleeWeapon GetCurrentWeapon() { return weapons[currentWeapon]; }
+    public void Shot()
+    {
+        weapons[currentWeapon].Shot();
+    }
+
+    public Weapon GetCurrentWeapon() { return weapons[currentWeapon]; }
 }
 

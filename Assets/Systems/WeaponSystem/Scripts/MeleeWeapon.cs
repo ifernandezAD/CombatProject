@@ -1,14 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-public abstract class MeleeWeapon : MonoBehaviour
+public abstract class MeleeWeapon : Weapon
 {
-    [SerializeField] public RuntimeAnimatorController animatorForWeapon;
-    [SerializeField] protected float hitDuration = 0.5f;
-
-    private void Start(){InternalStart();}
-    protected abstract void InternalStart();
-
-    public abstract void NotifyAttack(string collidersToActivate);
-
+    public override AttackType GetPrimaryAttackType()
+    {
+        return AttackType.Melee;
+    }
 }

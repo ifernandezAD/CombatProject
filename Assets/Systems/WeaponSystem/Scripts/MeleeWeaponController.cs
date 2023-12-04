@@ -14,6 +14,6 @@ public class MeleeWeaponController : MonoBehaviour
 
     internal void Attack(string collidersToActivate)
     {
-        entityWeapons.GetCurrentWeapon().NotifyAttack(collidersToActivate);
+        entityWeapons.GetCurrentWeapon().NotifyMeleeAttack(collidersToActivate);
     }
 }

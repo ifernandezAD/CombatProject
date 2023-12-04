@@ -30,8 +30,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float orientationSpeed = 360f;
     [SerializeField] float smoothingSpeed = 10f;
 
-    [Header("MeleeAttack")]
-    [SerializeField] InputActionReference attack;
+    [Header("Attack")]
+    [SerializeField] InputActionReference primaryAttack;
+    [SerializeField] InputActionReference secondaryAttack;
 
     [Header("WeaponSelection")]
     [SerializeField] InputActionReference changeWeapons;
@@ -58,7 +59,8 @@ public class PlayerController : MonoBehaviour
     {
         move.action.Enable();
         jump.action.Enable();
-        attack.action.Enable();
+        primaryAttack.action.Enable();
+        secondaryAttack.action.Enable();
         changeWeapons.action.Enable();
         foreach (InputActionReference iar in selectWeapons)
         {
@@ -101,10 +103,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void UpdateAttack()
-    {
-        if (attack.action.WasPerformedThisFrame()){ entityWeapons.MeleeAttack();}
-    }
+
+
+
+     void UpdateAttack()
+     {
+         if (primaryAttack.action.WasPerformedThisFrame())
+         {
+            PerformAttack(entityWeapons.GetCurrentWeapon().GetPrimaryAttackType());       
+         }
+         if (secondaryAttack.action.WasPerformedThisFrame())
+         {
+            PerformAttack(entityWeapons.GetCurrentWeapon().GetPrimaryAttackType());       
+         }
+     }
+     
+     private void PerformAttack(Weapon.AttackType attackType)
+     {
+         switch (attackType)
+         {
+             case Weapon.AttackType.None:
+                 break;
+             case Weapon.AttackType.Melee:
+                 entityWeapons.MeleeAttack();
+                 break;
+             case Weapon.AttackType.Shot:
+                 entityWeapons.Shot();
+                 break;
+             case Weapon.AttackType.Burst:
+                //entityweapons.Burst();
+                 break;
+             case Weapon.AttackType.ContinousShot:
+                //entityweapons.ContinousShot();
+                break;
+         }
+     }
 
     private void UpdateAnimation(Vector3 xzPlaneVelocity)
     {
@@ -187,7 +220,8 @@ public class PlayerController : MonoBehaviour
     {
         move.action.Disable();
         jump.action.Disable();
-        attack.action.Disable();
+        primaryAttack.action.Disable();
+        secondaryAttack.action.Disable();
         changeWeapons.action.Disable();
         foreach (InputActionReference iar in selectWeapons)
         {
