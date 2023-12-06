@@ -34,6 +34,9 @@ public class BarrelByRaycast : Barrel, IOffender
         }
     }
 
+    public override void StartContinuousShooting() { }
+    public override void StopContinuousShooting() { }
+
     public Vector3 GetDirection()
     {
         return hitDirection;

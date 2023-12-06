@@ -10,4 +10,7 @@ public class BarrelByInstantiation : Barrel
     {
         Instantiate(prefabToInstantiate, transform.position, Quaternion.LookRotation(direction));
     }
+
+    public override void StartContinuousShooting() { }
+    public override void StopContinuousShooting() { }
 }

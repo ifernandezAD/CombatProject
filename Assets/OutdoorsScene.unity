@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.554, g: 2263.344, b: 3286.3755, a: 1}
+  m_IndirectSpecularColor: {r: 2159.7473, g: 2263.6213, b: 3286.6138, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11757,7 +11757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339946240}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06813753, y: 0.92134994, z: 0.18847242, w: 0.33309123}
+  m_LocalRotation: {x: -0.06813753, y: 0.92134994, z: 0.1884724, w: 0.33309126}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12975,6 +12975,7 @@ GameObject:
   - component: {fileID: 1921389919}
   - component: {fileID: 1921389920}
   - component: {fileID: 1921389921}
+  - component: {fileID: 1921389924}
   - component: {fileID: 1921389922}
   - component: {fileID: 1921389923}
   m_Layer: 0
@@ -13046,23 +13047,9 @@ MonoBehaviour:
   orientationMode: 1
   orientationSpeed: 360
   smoothingSpeed: 10
-  primaryAttack: {fileID: 1150484395884904351, guid: bb21bad4989813b44aaaab22afbee14b,
-    type: 3}
-  secondaryAttack: {fileID: -5766263616403442267, guid: bb21bad4989813b44aaaab22afbee14b,
-    type: 3}
-  changeWeapons: {fileID: -4959446179262324147, guid: bb21bad4989813b44aaaab22afbee14b,
-    type: 3}
-  selectWeapons:
-  - {fileID: 5293827117512702098, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: -3351262884640498479, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: -5302128008277599224, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: 1657451001765206522, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: 4485204966242096230, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: -5372952577304399326, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: 565438421561867783, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: -971080926852002293, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: -2094023954354042996, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
-  - {fileID: -132924841940837105, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  onPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1921389922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13093,6 +13080,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2721bfe014f6c274186507e2f80558df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1921389924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921389918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44097bd36fb5e344d9dfe8d246347536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeWeapons: {fileID: -4959446179262324147, guid: bb21bad4989813b44aaaab22afbee14b,
+    type: 3}
+  selectWeapons:
+  - {fileID: 5293827117512702098, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: -3351262884640498479, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: -5302128008277599224, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: 1657451001765206522, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: 4485204966242096230, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: -5372952577304399326, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: 565438421561867783, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: -971080926852002293, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: -2094023954354042996, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  - {fileID: -132924841940837105, guid: bb21bad4989813b44aaaab22afbee14b, type: 3}
+  primaryAttack: {fileID: 1150484395884904351, guid: bb21bad4989813b44aaaab22afbee14b,
+    type: 3}
+  secondaryAttack: {fileID: -5766263616403442267, guid: bb21bad4989813b44aaaab22afbee14b,
+    type: 3}
 --- !u!1 &1927411700
 GameObject:
   m_ObjectHideFlags: 0

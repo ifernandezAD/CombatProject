@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -30,114 +31,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float orientationSpeed = 360f;
     [SerializeField] float smoothingSpeed = 10f;
 
-    [Header("Attack")]
-    [SerializeField] InputActionReference primaryAttack;
-    [SerializeField] InputActionReference secondaryAttack;
-
-    [Header("WeaponSelection")]
-    [SerializeField] InputActionReference changeWeapons;
-    [SerializeField] InputActionReference[] selectWeapons;
+    [Header("Events")]
+    public UnityEvent<PlayerController> onPlayerDeath;
 
     CharacterController characterController;
     float verticalVelocity = 0f;
     float gravity = -9.8f;
-    Vector3 smoothedLocalXZPlaneVelocity;
-
-    EntityWeapons entityWeapons;
+    Vector3 smoothedLocalXZPlaneVelocity; 
 
     Animator animator;
-
 
     private void Awake()
     {
         characterController = GetComponentInChildren<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        entityWeapons = GetComponent<EntityWeapons>();
     }
 
     private void OnEnable()
     {
         move.action.Enable();
         jump.action.Enable();
-        primaryAttack.action.Enable();
-        secondaryAttack.action.Enable();
-        changeWeapons.action.Enable();
-        foreach (InputActionReference iar in selectWeapons)
-        {
-            iar.action.Enable();
-        }
     }
 
     void Update()
     {
         Vector3 xzPlaneVelocity = UpdateMovementOnPlane();
-
         UpdateVerticalMovement();
-
         UpdateOrientation(xzPlaneVelocity);
-
         UpdateAnimation(xzPlaneVelocity);
-
-        UpdateAttack();
-
-        UpdateWeaponSelection();
     }
-
-    void UpdateWeaponSelection()
-    {
-        Vector2 changeWeaponValue = changeWeapons.action.ReadValue<Vector2>();
-
-        if (changeWeaponValue.y > 0f)
-        {
-            entityWeapons.SelectNextWeapon();
-        }else if(changeWeaponValue.y <0f)
-        {
-            entityWeapons.SelectPreviousWeapon();
-        }
-        for (int i = 0; i < selectWeapons.Length; i++)
-        {
-            if (selectWeapons[i].action.WasPerformedThisFrame())
-            {
-                entityWeapons.SelectWeapon(i == 0 ? -1 : i-1);   
-            }
-        }
-    }
-
-
-
-
-     void UpdateAttack()
-     {
-         if (primaryAttack.action.WasPerformedThisFrame())
-         {
-            PerformAttack(entityWeapons.GetCurrentWeapon().GetPrimaryAttackType());       
-         }
-         if (secondaryAttack.action.WasPerformedThisFrame())
-         {
-            PerformAttack(entityWeapons.GetCurrentWeapon().GetPrimaryAttackType());       
-         }
-     }
-     
-     private void PerformAttack(Weapon.AttackType attackType)
-     {
-         switch (attackType)
-         {
-             case Weapon.AttackType.None:
-                 break;
-             case Weapon.AttackType.Melee:
-                 entityWeapons.MeleeAttack();
-                 break;
-             case Weapon.AttackType.Shot:
-                 entityWeapons.Shot();
-                 break;
-             case Weapon.AttackType.Burst:
-                //entityweapons.Burst();
-                 break;
-             case Weapon.AttackType.ContinousShot:
-                //entityweapons.ContinousShot();
-                break;
-         }
-     }
 
     private void UpdateAnimation(Vector3 xzPlaneVelocity)
     {
@@ -220,12 +142,5 @@ public class PlayerController : MonoBehaviour
     {
         move.action.Disable();
         jump.action.Disable();
-        primaryAttack.action.Disable();
-        secondaryAttack.action.Disable();
-        changeWeapons.action.Disable();
-        foreach (InputActionReference iar in selectWeapons)
-        {
-            iar.action.Disable();
-        }
     }
 }

@@ -27,5 +27,7 @@ public abstract class Weapon : MonoBehaviour
     protected abstract void InternalStart();
 
     public virtual void Shot() {}
+    public virtual void StartContinuousShooting() { }
+    public virtual void StopContinuousShooting() { }
 
 }

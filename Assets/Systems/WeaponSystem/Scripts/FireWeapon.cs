@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class FireWeapon : Weapon
 {
+    [SerializeField] AttackType primaryAttackType = AttackType.Shot;
+    [SerializeField] AttackType secondaryAttackType = AttackType.None;
+
     [Header("Debug")]
     [SerializeField] bool debugShot;
+    [SerializeField] bool debugContinuousShot;
 
+    protected bool continuousShooting;
     Barrel[] barrels;
 
     private void OnValidate()
@@ -15,6 +20,17 @@ public class FireWeapon : Weapon
         {
             debugShot = false;
             Shot();
+        }
+
+        if (debugContinuousShot != continuousShooting)
+        {
+            if (debugContinuousShot)
+            {
+                StartContinuousShooting();
+            }else
+            {
+                StopContinuousShooting();
+            }
         }
     }
 
@@ -28,14 +44,26 @@ public class FireWeapon : Weapon
         foreach (Barrel b in barrels) { b.Shot();}
     }
 
+    public override void StartContinuousShooting()
+    {
+        continuousShooting = true;
+        foreach (Barrel b in barrels) { b.StartContinuousShooting(); }
+    }
+
+    public override void StopContinuousShooting()
+    {
+        continuousShooting = false;
+        foreach (Barrel b in barrels) { b.StopContinuousShooting(); }
+    }
+
     public override AttackType GetPrimaryAttackType()
     {
-        return AttackType.Shot;
+        return primaryAttackType;
     }
 
     public override AttackType GetSecondaryAttackType()
     {
-        return AttackType.Melee;
+        return secondaryAttackType;
     }
 
     protected override void InternalStart()

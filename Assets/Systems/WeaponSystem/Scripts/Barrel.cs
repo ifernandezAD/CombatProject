@@ -4,6 +4,8 @@ public abstract class Barrel : MonoBehaviour
 {
     [Header("Debug")]
     [SerializeField] bool debugShot;
+    [SerializeField] bool debugStartContinuousShooting;
+    [SerializeField] bool debugStopContinuousShooting;
     [SerializeField] float horizontalDispersionAngle = 5f;
     [SerializeField] float verticalDispersionAngle = 5f;
 
@@ -13,6 +15,18 @@ public abstract class Barrel : MonoBehaviour
         {
             debugShot = false;
             Shot();
+        }
+
+        if (debugStartContinuousShooting)
+        {
+            debugStartContinuousShooting = false;
+            StartContinuousShooting();
+        }
+
+        if (debugStopContinuousShooting)
+        {
+            debugStopContinuousShooting = false;
+            StopContinuousShooting();
         }
     }
 
@@ -30,4 +44,7 @@ public abstract class Barrel : MonoBehaviour
     }
 
     public abstract void Shot(Vector3 direction);
+    public abstract void StartContinuousShooting();
+    public abstract void StopContinuousShooting();
+
 }

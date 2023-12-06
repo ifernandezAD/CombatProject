@@ -107,5 +107,15 @@ public class EntityWeapons : MonoBehaviour
     }
 
     public Weapon GetCurrentWeapon() { return weapons[currentWeapon]; }
+
+    internal void StartShooting()
+    {
+        weapons[currentWeapon].StartContinuousShooting();
+    }
+
+    internal void StopShooting()
+    {
+        weapons[currentWeapon].StopContinuousShooting();
+    }
 }
 
