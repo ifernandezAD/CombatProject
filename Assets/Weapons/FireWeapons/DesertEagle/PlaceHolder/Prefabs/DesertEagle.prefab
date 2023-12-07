@@ -46,6 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7292652e9baa41c4aaf9d46d0d470f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animatorForWeapon: {fileID: 0}
+  hitDuration: 0.5
+  primaryAttackType: 2
+  secondaryAttackType: 0
+  debugShot: 0
+  debugContinuousShot: 0
 --- !u!1 &6447167453085087707
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +199,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesertEaglePlaceHolderVisuals
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7015568825027917249, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 2457652772893667450, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 6771028085294678460, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 2699470270874725421, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 3733156064796730047, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 7285319250687571095, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 5852333525221415306, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
+    - {fileID: 5971231515991334781, guid: ead41276df6e4db4690fa91834d55afc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
