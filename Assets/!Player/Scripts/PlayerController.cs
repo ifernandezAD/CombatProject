@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] OrientationMode orientationMode = OrientationMode.MovementForward;
     [SerializeField] float orientationSpeed = 360f;
     [SerializeField] float smoothingSpeed = 10f;
+    [SerializeField] Transform target;
 
     [Header("Events")]
     public UnityEvent<PlayerController> onPlayerDeath;
@@ -86,6 +87,8 @@ public class PlayerController : MonoBehaviour
                 desiredDirection = xzPlaneVelocity;
                 break;
             case OrientationMode.LookToTarget:
+                desiredDirection = target.position - transform.position;
+                desiredDirection.y = 0;
                 break;
         }
 
