@@ -18,7 +18,7 @@ public class BarrelByRaycast : Barrel, IOffender
         if (Physics.Raycast(transform.position, direction, out RaycastHit hit, range, layerMask))
         {
             hitDirection = direction;
-            hit.collider.GetComponent<HurtCollider>().NotifyHit(this);
+            hit.collider.GetComponent<HurtCollider>()?.NotifyHit(this);
             finalShotPoint = hit.point;
         }
         else
