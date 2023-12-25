@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] MovementMode movementMode = MovementMode.PlayerDirection;
     [SerializeField] InputActionReference move;
 
-    [Header("Vertical Movement")]
-    
+    [Header("Vertical Movement")] 
     [SerializeField] InputActionReference jump;
 
     [Header("Orientation")]
