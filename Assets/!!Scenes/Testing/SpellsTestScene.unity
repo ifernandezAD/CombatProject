@@ -506,6 +506,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellWheel: {fileID: -6603348571028801833, guid: 60e09293508098d4b9d418a28b40b223,
     type: 3}
+  onSpellCasted:
+    m_PersistentCalls:
+      m_Calls: []
   spellType: 2
 --- !u!95 &503845621
 Animator:
@@ -1134,6 +1137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellWheel: {fileID: -6603348571028801833, guid: 60e09293508098d4b9d418a28b40b223,
     type: 3}
+  onSpellCasted:
+    m_PersistentCalls:
+      m_Calls: []
   spellType: 1
 --- !u!95 &1144621736
 Animator:
@@ -1304,8 +1310,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1114575187998448854, guid: 7781afa95608bcc4d994ccb7d547cdf8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1211649402}
   m_SourcePrefab: {fileID: 100100000, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+--- !u!1 &1211649401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1114575187998448854, guid: 7781afa95608bcc4d994ccb7d547cdf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1211649400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1211649402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211649401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56396474f1ce35f4fa258dd2936f9f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250042937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1510,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellWheel: {fileID: -6603348571028801833, guid: 60e09293508098d4b9d418a28b40b223,
     type: 3}
+  onSpellCasted:
+    m_PersistentCalls:
+      m_Calls: []
   spellType: 3
 --- !u!95 &1353087073
 Animator:
@@ -1959,6 +1990,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellWheel: {fileID: -6603348571028801833, guid: 60e09293508098d4b9d418a28b40b223,
     type: 3}
+  onSpellCasted:
+    m_PersistentCalls:
+      m_Calls: []
   spellType: 0
 --- !u!95 &9041132336754502371
 Animator:
