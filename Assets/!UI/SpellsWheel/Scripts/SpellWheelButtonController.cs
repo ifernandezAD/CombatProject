@@ -2,12 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class SpellWheelButtonController : MonoBehaviour
 {
     [Header("References")]
     private Animator animator;
     [SerializeField] InputActionReference spellWheel;
+    public Image spellIcon;
 
     [Header("Events")]
     public static Action onIllusionSpellNotified;
@@ -65,12 +67,24 @@ public class SpellWheelButtonController : MonoBehaviour
     {
         animator.SetBool("Hover", true);
         selected = true;
+        ShowHoverColor();
     }
 
     public void HoverExit()
     {
         animator.SetBool("Hover", false);
         selected = false;
+        HideHoverColor();
+    }
+
+    private void ShowHoverColor()
+    {
+        spellIcon.color = Color.magenta;
+    }
+
+    private void HideHoverColor()
+    {
+        spellIcon.color = Color.black;
     }
 
     private void OnDisable()
