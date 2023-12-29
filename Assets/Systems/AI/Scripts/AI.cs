@@ -3,8 +3,7 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-    [Header("Target")]
-    [SerializeField] Transform target;
+    Transform target;
 
     [Header("Path Calculation")]
     [SerializeField] float pathCalculationThresoldDistance = 1f;
@@ -17,19 +16,26 @@ public class AI : MonoBehaviour
     [Header("Path Following")]
     [SerializeField] float cornerReachThresholdDistance = 1.5f;
 
+    [Header("Senses")]
+    [SerializeField] Transform sensesParent;
+
     NavMeshPath path;
     EntityMovement entityMovement;
 
     Vector3 lastSeekedPosition = Vector3.zero;
 
+    Sight sight;
+
     private void Awake()
     {
         entityMovement = GetComponent<EntityMovement>();
+        sight = sensesParent.GetComponentInChildren<Sight>();
         path = new();
     }
 
     void Update()
     {
+        target = sight.GetSenseable()?.transform;
         if (target)
         {
             if (Vector3.Distance(lastSeekedPosition, target.position) > pathCalculationThresoldDistance)
@@ -72,7 +78,6 @@ public class AI : MonoBehaviour
     Vector3 FollowPath()
     {
         Vector3 xzPlaneVelocity = Vector3.zero;
-
         if (HasPath())
         {
             Vector3 nextPoint = path.corners[nextCorner];
@@ -92,6 +97,4 @@ public class AI : MonoBehaviour
 
         return xzPlaneVelocity;
     }
-
-
 }

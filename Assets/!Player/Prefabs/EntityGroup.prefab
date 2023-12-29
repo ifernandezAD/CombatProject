@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 197457874248065183}
   - component: {fileID: 4994417378025366135}
   - component: {fileID: 2592186250033556305}
+  - component: {fileID: 6878096032560414098}
   - component: {fileID: 2914070804464937558}
-  - component: {fileID: 7473033308439207927}
   - component: {fileID: 7939717998976837245}
+  - component: {fileID: 7473033308439207927}
   - component: {fileID: 7698308056516839721}
   - component: {fileID: 807361065088966068}
   m_Layer: 0
@@ -85,6 +86,23 @@ MonoBehaviour:
   onPlayerDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6878096032560414098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114575187998448854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c235bf10701c9794b9865c74d48397c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  pathCalculationThresoldDistance: 1
+  areaMask: -1
+  speed: 4
+  cornerReachThresholdDistance: 1.5
 --- !u!114 &2914070804464937558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +119,24 @@ MonoBehaviour:
   jumpSpeed: 5
   orientationSpeed: 360
   smoothingSpeed: 10
+--- !u!114 &7939717998976837245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114575187998448854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee2887f9bf495b4693448a1e7ed51f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponsParent: {fileID: 81996086601962410}
+  startingWeaponIndex: -1
+  debugNextWeapon: 0
+  debugPreviousWeapon: 0
+  debugSelectWeapon: 0
+  debugWeaponIndexToSelect: 0
 --- !u!114 &7473033308439207927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,24 +166,6 @@ MonoBehaviour:
     type: 3}
   secondaryAttack: {fileID: -5766263616403442267, guid: bb21bad4989813b44aaaab22afbee14b,
     type: 3}
---- !u!114 &7939717998976837245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114575187998448854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee2887f9bf495b4693448a1e7ed51f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponsParent: {fileID: 81996086601962410}
-  startingWeaponIndex: -1
-  debugNextWeapon: 0
-  debugPreviousWeapon: 0
-  debugSelectWeapon: 0
-  debugWeaponIndexToSelect: 0
 --- !u!114 &7698308056516839721
 MonoBehaviour:
   m_ObjectHideFlags: 0
