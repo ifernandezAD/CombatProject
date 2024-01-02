@@ -9,7 +9,8 @@ public class SpellWheelButtonController : MonoBehaviour
     [Header("References")]
     private Animator animator;
     [SerializeField] InputActionReference spellWheel;
-    public Image spellIcon;
+    [SerializeField] Image spellIcon;
+    [SerializeField] GameObject shineParticle;
 
     [Header("Events")]
     public static Action onIllusionSpellNotified;
@@ -67,24 +68,26 @@ public class SpellWheelButtonController : MonoBehaviour
     {
         animator.SetBool("Hover", true);
         selected = true;
-        ShowHoverColor();
+        ShowHoverVfx();
     }
 
     public void HoverExit()
     {
         animator.SetBool("Hover", false);
         selected = false;
-        HideHoverColor();
+        HideHoverVfx();
     }
 
-    private void ShowHoverColor()
+    private void ShowHoverVfx()
     {
         spellIcon.color = Color.magenta;
+        shineParticle.SetActive(true);
     }
 
-    private void HideHoverColor()
+    private void HideHoverVfx()
     {
         spellIcon.color = Color.black;
+        shineParticle.SetActive(false);
     }
 
     private void OnDisable()
