@@ -8,6 +8,7 @@ public class SpellWheelController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] InputActionReference spellWheel;
+    [SerializeField] GameObject postprocessEffects;
 
     private bool spellWheelButtonPressed;
 
@@ -23,11 +24,23 @@ public class SpellWheelController : MonoBehaviour
         if (spellWheelButtonPressed)
         {
             animator.SetBool("OpenSpellWheel", true);
+            ShowSpellWheelEffects();
         }
         else
         {
             animator.SetBool("OpenSpellWheel", false);
+            HideSpellWheelEffects();
         }
+    }
+
+    void ShowSpellWheelEffects()
+    {
+        postprocessEffects.SetActive(true);
+    }
+
+    void HideSpellWheelEffects()
+    {
+        postprocessEffects.SetActive(false);
     }
 
     private void OnDisable()
