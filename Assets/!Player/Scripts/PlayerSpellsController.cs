@@ -2,10 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerSpellsController : MonoBehaviour
 {
     Animator animator;
+
+    [Header("Shield Spell")]
+    [SerializeField] GameObject magicShield;
+    [SerializeField] float magicShieldSpellAnimationDelay = 1.7f;
+    [SerializeField] float magicShieldDuration = 10f;
 
     private void Awake()
     {
@@ -38,6 +44,15 @@ public class PlayerSpellsController : MonoBehaviour
     private void CastShieldSpell()
     {
         animator.SetTrigger("ShieldSpell");
+        StartCoroutine(DoShieldSpellEffectCorroutine());
+    }
+
+    IEnumerator DoShieldSpellEffectCorroutine()
+    {
+        yield return new WaitForSeconds(magicShieldSpellAnimationDelay);
+        magicShield.SetActive(true);
+        yield return new WaitForSeconds(magicShieldDuration);
+        magicShield.SetActive(false);
     }
 
     private void OnDisable()
