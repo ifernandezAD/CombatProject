@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class PlayerSpellsController : MonoBehaviour
 {
+    Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     private void OnEnable()
     {
         SpellWheelButtonController.onIllusionSpellNotified += CastIllusionSpell;
@@ -15,22 +22,22 @@ public class PlayerSpellsController : MonoBehaviour
 
     private void CastIllusionSpell()
     {
-        Debug.Log("Illusion Spell Casted");
+        animator.SetTrigger("IllusionSpell");
     }
 
     private void CastHypnosisSpell()
     {
-        Debug.Log("Hypnosis Spell Casted");
+        animator.SetTrigger("HypnosisSpell");
     }
 
     private void CastNigromancySpell()
     {
-        Debug.Log("Nigromancy Spell Casted");
+        animator.SetTrigger("NecromancySpell");
     }
 
     private void CastShieldSpell()
     {
-        Debug.Log("Shield Spell Casted");
+        animator.SetTrigger("ShieldSpell");
     }
 
     private void OnDisable()
