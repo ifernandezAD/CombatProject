@@ -259,6 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56396474f1ce35f4fa258dd2936f9f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicShield: {fileID: 8716114693272898145}
+  magicShieldSpellAnimationDelay: 1.7
+  magicShieldDuration: 10
 --- !u!114 &7119332238249033692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2298,7 +2301,12 @@ PrefabInstance:
     - target: {fileID: 6424583148328831481, guid: cfb9032437f17f54f89a57c71d82f328,
         type: 3}
       propertyPath: m_Name
-      value: Magic shield violet
+      value: MagicShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424583148328831481, guid: cfb9032437f17f54f89a57c71d82f328,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047901910090771416, guid: cfb9032437f17f54f89a57c71d82f328,
         type: 3}
@@ -2343,8 +2351,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6424583148328831481, guid: cfb9032437f17f54f89a57c71d82f328,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2659932413318836905}
   m_SourcePrefab: {fileID: 100100000, guid: cfb9032437f17f54f89a57c71d82f328, type: 3}
+--- !u!1 &8716114693272898145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6424583148328831481, guid: cfb9032437f17f54f89a57c71d82f328,
+    type: 3}
+  m_PrefabInstance: {fileID: 2440221435831108504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1773428102 &2659932413318836905
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716114693272898145}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0.02, z: 0}
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: 0, z: 0}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 197457874248065183}
+    weight: 1
 --- !u!4 &8766720503417379796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6373945520302479436, guid: cfb9032437f17f54f89a57c71d82f328,
