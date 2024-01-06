@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 7698308056516839721}
   - component: {fileID: 807361065088966068}
   - component: {fileID: 7119332238249033692}
+  - component: {fileID: 5046002374823979678}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -278,6 +279,36 @@ MonoBehaviour:
   isAudible: 1
   isTouchable: 1
   allegiance: 0
+--- !u!114 &5046002374823979678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114575187998448854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ce264309c02254695fccb2803f073a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1114575187998448854}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHitWithOffender:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1702489475379957468
 GameObject:
   m_ObjectHideFlags: 3

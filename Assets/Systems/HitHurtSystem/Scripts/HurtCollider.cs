@@ -10,7 +10,7 @@ public class HurtCollider : MonoBehaviour
     public UnityEvent<IOffender> onHitWithOffender;
 
 
-    internal void NotifyHit(IOffender offennder) 
+    public void NotifyHit(IOffender offennder) 
     {
         onHit.Invoke();
         onHitWithOffender.Invoke(offennder);
