@@ -11,6 +11,7 @@ public class SpellWheelButtonController : MonoBehaviour
     [SerializeField] InputActionReference spellWheel;
     [SerializeField] Image spellIcon;
     [SerializeField] GameObject shineParticle;
+    Button button;
 
     [Header("Events")]
     public static Action onIllusionSpellNotified;
@@ -33,6 +34,7 @@ public class SpellWheelButtonController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        button = GetComponent<Button>();
     }
 
     private void OnEnable()
@@ -44,8 +46,6 @@ public class SpellWheelButtonController : MonoBehaviour
     {
         if (spellWheel.action.WasReleasedThisFrame() && selected)
         {
-            Debug.Log("Spell is done with success!!");
-
             switch (spellType)
             {
                 case SpellType.Illusion:

@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Audition : MonoBehaviour
+public class Audition : Sense
 {
     [Header("Settings")]
     [SerializeField] float timeToForget = 1f;
@@ -29,18 +27,31 @@ public class Audition : MonoBehaviour
     private void Update()
     {
         heardAudibles.RemoveAll(x => (Time.time - x.hearingTime) > timeToForget);
+        heardAudibles.Sort(
+            (x, y) =>
+        (Vector3.Distance(transform.position, x.senseable.transform.position) <
+        Vector3.Distance(transform.position, y.senseable.transform.position)) ? 1 : 0
+        );
     }
 
     public void NotifyAudibleInRange(AudibleBase audible, Senseable senseable)
     {
-        HeardAudible heardAudible = heardAudibles.Find(x => x.audible == audible);
-        if (heardAudible == null)
+        if (senseable != GetMySenseable())
         {
-            heardAudible = new HeardAudible();
-            heardAudibles.Add(heardAudible);
+            HeardAudible heardAudible = heardAudibles.Find(x => x.audible == audible);
+            if (heardAudible == null)
+            {
+                heardAudible = new HeardAudible();
+                heardAudibles.Add(heardAudible);
+            }
+            heardAudible.audible = audible;
+            heardAudible.senseable = senseable;
+            heardAudible.hearingTime = Time.time;
         }
-        heardAudible.audible = audible;
-        heardAudible.senseable = senseable;
-        heardAudible.hearingTime = Time.time;
+    }
+
+    public override Senseable GetSenseable()
+    {
+        return heardAudibles.Count == 0 ? null : heardAudibles[0].senseable;
     }
 }

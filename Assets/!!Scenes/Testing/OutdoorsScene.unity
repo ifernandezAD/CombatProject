@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.1184, g: 2264.4983, b: 3287.9224, a: 1}
+  m_IndirectSpecularColor: {r: 2160.5403, g: 2266.9104, b: 3297.1567, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1508,6 +1508,7 @@ GameObject:
   - component: {fileID: 1736739327}
   - component: {fileID: 1736739331}
   - component: {fileID: 1736739332}
+  - component: {fileID: 1736739333}
   m_Layer: 0
   m_Name: AITarget
   m_TagString: Untagged
@@ -1595,7 +1596,7 @@ Transform:
   m_GameObject: {fileID: 1736739326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.41, y: 0.84, z: 3.44}
+  m_LocalPosition: {x: 9.44, y: 0.84, z: 5.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1624,7 +1625,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736739326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17e64fe562cd13438dae9e3a6f61008, type: 3}
   m_Name: 
@@ -1636,6 +1637,22 @@ MonoBehaviour:
   maxVelocity: 8
   rangeOnMinVelocity: 2
   rangeOnMaxVelocity: 10
+--- !u!114 &1736739333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736739326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35b8a71f69418d46b0abc96d337a739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2147483699
+  range: 5
 --- !u!4 &1788746647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3667946887678727147, guid: 5e05a980bb54323488c2ff26caf313b4,
@@ -2558,6 +2575,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2724141526296838973, guid: 67ebbac232df39642b3a2f156097ddcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6007723514876516052, guid: 67ebbac232df39642b3a2f156097ddcd,
         type: 3}
       propertyPath: m_LocalPosition.x

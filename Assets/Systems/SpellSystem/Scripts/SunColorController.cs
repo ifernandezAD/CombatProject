@@ -29,6 +29,14 @@ public class SunColorController : MonoBehaviour
         sun = GetComponent<Light>();
     }
 
+    private void OnEnable()
+    {
+        SpellWheelButtonController.onIllusionSpellNotified += IncreaseSunColorIndicator;
+        SpellWheelButtonController.onHypnosisSpellNotified += IncreaseSunColorIndicator;
+        SpellWheelButtonController.onNigromancySpellNotified += IncreaseSunColorIndicator;
+        SpellWheelButtonController.onShieldSpellNotified += IncreaseSunColorIndicator;
+    }
+
     private void Start()
     {
         currentSunColorIndicator = 0;
@@ -63,5 +71,14 @@ public class SunColorController : MonoBehaviour
         float t = (float)currentSunColorIndicator / (float)maxSunColorIndicator;
         Color skyColor = Color.Lerp(Color.white, Color.red, t);
         sun.color = skyColor;
+    }
+
+
+    private void OnDisable()
+    {
+        SpellWheelButtonController.onIllusionSpellNotified -= IncreaseSunColorIndicator;
+        SpellWheelButtonController.onHypnosisSpellNotified -= IncreaseSunColorIndicator;
+        SpellWheelButtonController.onNigromancySpellNotified -= IncreaseSunColorIndicator;
+        SpellWheelButtonController.onShieldSpellNotified -= IncreaseSunColorIndicator;
     }
 }

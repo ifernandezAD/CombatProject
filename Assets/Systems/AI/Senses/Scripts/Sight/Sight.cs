@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sight : MonoBehaviour
+public class Sight : Sense
 {
     [SerializeField] Vector3 sightSize = new Vector3(10f, 10f, 30f);
     [SerializeField] LayerMask sightMask = Physics.DefaultRaycastLayers;
@@ -22,7 +22,7 @@ public class Sight : MonoBehaviour
         foreach (Collider c in colliders)
         {
             Senseable senseable = c.GetComponent<Senseable>();
-            if (senseable && senseable.isVisible)
+            if (senseable && senseable!=GetMySenseable() && senseable.isVisible)
             {             
                 if (HasLineOfSight(this, c))
                 {
@@ -47,7 +47,7 @@ public class Sight : MonoBehaviour
         return hasLineOfSight;
     }
 
-    public Senseable GetSenseable()
+    public override Senseable GetSenseable()
     {
         return senseablesInSight.Count > 0 ? senseablesInSight[0]: null;
     }
