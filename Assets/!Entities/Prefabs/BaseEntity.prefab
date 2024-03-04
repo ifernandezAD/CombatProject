@@ -674,17 +674,21 @@ ParentConstraint:
   m_Weight: 1
   m_TranslationAtRest: {x: -0.407, y: 1.163, z: 0.187}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets: []
-  m_RotationOffsets: []
+  m_TranslationOffsets:
+  - {x: -0.407, y: 1.163, z: 0.18700004}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
-  m_Sources: []
+  m_Sources:
+  - sourceTransform: {fileID: 197457874248065183}
+    weight: 1
 --- !u!1 &1387407026499202084
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,17 +785,21 @@ ParentConstraint:
   m_Weight: 1
   m_TranslationAtRest: {x: 0.49, y: 1.163, z: 0.187}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets: []
-  m_RotationOffsets: []
+  m_TranslationOffsets:
+  - {x: 0.49, y: 1.163, z: 0.18700004}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
-  m_Sources: []
+  m_Sources:
+  - sourceTransform: {fileID: 197457874248065183}
+    weight: 1
 --- !u!1 &1702489475379957468
 GameObject:
   m_ObjectHideFlags: 3
@@ -2583,17 +2591,21 @@ ParentConstraint:
   m_Weight: 1
   m_TranslationAtRest: {x: -0.079, y: 1.358, z: 0.519}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets: []
-  m_RotationOffsets: []
+  m_TranslationOffsets:
+  - {x: -0.079, y: 1.358, z: 0.51899993}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
-  m_Sources: []
+  m_Sources:
+  - sourceTransform: {fileID: 197457874248065183}
+    weight: 1
 --- !u!1 &7327629191321354026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,17 +2855,21 @@ ParentConstraint:
   m_Weight: 1
   m_TranslationAtRest: {x: 0.085, y: 1.358, z: 0.519}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets: []
-  m_RotationOffsets: []
+  m_TranslationOffsets:
+  - {x: 0.085, y: 1.358, z: 0.51899993}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_Active: 0
+  m_Active: 1
   m_IsLocked: 0
-  m_Sources: []
+  m_Sources:
+  - sourceTransform: {fileID: 197457874248065183}
+    weight: 1
 --- !u!1 &8789184833315765254
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,7 +4556,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ikGrabPointsParent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 640222018273033100}
     - target: {fileID: 1061420989418229152, guid: c3cd8685bed7375428c854cc0e1c47b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4617,6 +4633,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3cd8685bed7375428c854cc0e1c47b1, type: 3}
+--- !u!4 &640222018273033100 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2837841014216958451, guid: c3cd8685bed7375428c854cc0e1c47b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3422893863770233471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2394335077951166431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1061420989418229152, guid: c3cd8685bed7375428c854cc0e1c47b1,
