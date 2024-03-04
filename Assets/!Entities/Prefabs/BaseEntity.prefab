@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 5959690114334737806}
   - component: {fileID: 2687244045989440502}
   - component: {fileID: 215449402372473102}
-  - component: {fileID: 6529031664014097343}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -534,29 +533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4acf594e92d17424abbeb756058a3165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1773428102 &6529031664014097343
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114575187998448854}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets: []
-  m_RotationOffsets: []
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 0
-  m_IsLocked: 0
-  m_Sources: []
 --- !u!1 &1210682276110186892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,6 +4536,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 81996086601962410}
     m_Modifications:
+    - target: {fileID: 888328913110108738, guid: c3cd8685bed7375428c854cc0e1c47b1,
+        type: 3}
+      propertyPath: ikGrabPointsParent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1061420989418229152, guid: c3cd8685bed7375428c854cc0e1c47b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4631,7 +4612,8 @@ PrefabInstance:
       value: DesertEagle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5262633348549860151, guid: c3cd8685bed7375428c854cc0e1c47b1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3cd8685bed7375428c854cc0e1c47b1, type: 3}
