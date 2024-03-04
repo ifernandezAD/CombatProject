@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: John_MeleeLongSword
+  m_Controller: {fileID: 9100000, guid: 751e2dfa66c11a14a9e1c5fa18dd0070, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 7a3e169688ab4a045a5e8d1cc19ee49b,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 7c49cfafef8e65f4f8e8f36b1eafc44e,
+      type: 3}
+  - m_OriginalClip: {fileID: 4061839508520268033, guid: 11c491a896e063a48950b0ea839c061d,
+      type: 3}
+    m_OverrideClip: {fileID: 4061839508520268033, guid: 8fe912f21576b2e429344091875689b5,
+      type: 3}
+  - m_OriginalClip: {fileID: -2061910772549006292, guid: 11c491a896e063a48950b0ea839c061d,
+      type: 3}
+    m_OverrideClip: {fileID: -2061910772549006292, guid: 8fe912f21576b2e429344091875689b5,
+      type: 3}
+  - m_OriginalClip: {fileID: -6556537087697243763, guid: 11c491a896e063a48950b0ea839c061d,
+      type: 3}
+    m_OverrideClip: {fileID: -6556537087697243763, guid: 8fe912f21576b2e429344091875689b5,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: b4dcaecc554cf9545ae52b13b9f71b0c,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 41b1323e47dceed4984d34f2d6748987,
+      type: 3}

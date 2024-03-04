@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812f799a0c098b443a691a60f885e002, type: 3}
+  m_Name: ExplosionAudio
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 25c10672da0edd545a54c20f23f13a84, type: 3}
+  volume:
+    minValue: 0.899276
+    maxValue: 1
+  pitch:
+    minValue: 0.8489141
+    maxValue: 1
+  distance:
+    minValue: 1
+    maxValue: 1000
+  mixer: {fileID: 5316595120584038726, guid: 41aff873969110345af081e9d84bd21d, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812f799a0c098b443a691a60f885e002, type: 3}
+  m_Name: SpellShoutAudio
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 4f38cfc057803284a8ce039fd8f26215, type: 3}
+  - {fileID: 8300000, guid: 33b254c7c6a9bd544942d22f9324246a, type: 3}
+  - {fileID: 8300000, guid: 7d7fc97b142add344bdaa7c64e9c8673, type: 3}
+  volume:
+    minValue: 0.85472155
+    maxValue: 1
+  pitch:
+    minValue: 0.9031478
+    maxValue: 1.1975095
+  distance:
+    minValue: 1
+    maxValue: 1000
+  mixer: {fileID: 0}
