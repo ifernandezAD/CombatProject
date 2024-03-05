@@ -5,28 +5,11 @@ using Cinemachine;
 using UnityEngine.Events;
 using DG.Tweening;
 
-//Command
+//Command Pattern
 public class CameraEvent : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera camera;
-    [SerializeField] float duration;
-    [SerializeField] UnityEvent onCameraEventEnter;
-    [SerializeField] UnityEvent onCameraEventExit;
-
-    [Header("Debug")]
-    [SerializeField] bool debugPlay;
-
     static List<CameraEvent> cameraEvents = new();
 
-
-    private void OnValidate()
-    {
-        if (debugPlay)
-        {
-            debugPlay = false;
-            Play();
-        }
-    }
 
     static void Enqueue(CameraEvent cameraEvent)
     {
@@ -38,6 +21,25 @@ public class CameraEvent : MonoBehaviour
     {
         cameraEvents.RemoveAt(0);
         if (cameraEvents.Count > 0) { cameraEvents[0].CameraEventIn(); }
+    }
+
+    [SerializeField] CinemachineVirtualCamera camera;
+    [SerializeField] float duration;
+    [SerializeField] UnityEvent onCameraEventIn;
+    [SerializeField] UnityEvent onCameraEventOut;
+
+
+    [Header("Debug")]
+    [SerializeField] bool debugPlay;
+
+
+    private void OnValidate()
+    {
+        if (debugPlay)
+        {
+            debugPlay = false;
+            Play();
+        }
     }
 
     private void Awake()
@@ -53,12 +55,14 @@ public class CameraEvent : MonoBehaviour
     protected virtual void CameraEventIn()
     {
         camera.gameObject.SetActive(true);
+        onCameraEventIn?.Invoke();
         DOVirtual.DelayedCall(duration, CameraEventOut);
     }
 
     protected virtual void CameraEventOut()
     {
         camera.gameObject.SetActive(false);
+        onCameraEventOut?.Invoke();
         Deque();
     }
 }

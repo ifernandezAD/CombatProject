@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/!!Scenes/Testing/PhysicsTestScene.unity
     guid: 8ef7fedc45b337548a5a965da45a6c84
   - enabled: 1
-    path: Assets/!!Scenes/Testing/Levels/Level1.unity
+    path: Assets/!!Scenes/Levels/Level1.unity
     guid: 7f1c25b952761de4ebb4a9682fc648d5
   m_configObjects: {}
