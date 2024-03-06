@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class ConjurationSpell : Spell
 {
     private readonly int conjurationHash = Animator.StringToHash("ConjurationSpell");
     private readonly int conjurationFinishHash = Animator.StringToHash("ConjurationSpellFinish");
+    [SerializeField] float endAnimationDuration =2f;
 
     protected override void SetSpellAnimation()
     {
@@ -14,11 +16,12 @@ public class ConjurationSpell : Spell
 
     protected override void CastSpell()
     {
-        //Nothing Yet
+        entityWeapons.RemoveWeapon();
     }
 
     protected override void EndSpell()
     {
         animator.SetTrigger(conjurationFinishHash);
+        DOVirtual.DelayedCall(endAnimationDuration,entityWeapons.RecoverWeapon);       
     }
 }

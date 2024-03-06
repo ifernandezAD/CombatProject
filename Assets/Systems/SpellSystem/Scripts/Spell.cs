@@ -11,6 +11,7 @@ public abstract class Spell : MonoBehaviour
     protected EntityLife entityLife;
     [SerializeField] private SimpleAudioEvent audioEvent;
     [SerializeField] private AudioSource audioSource;
+    protected EntityWeapons entityWeapons;
 
     [SerializeField] protected float spellDuration = 5f;
     [SerializeField] protected int spellDyePower = 1;
@@ -22,6 +23,7 @@ public abstract class Spell : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         entityLife = GetComponent<EntityLife>();
+        entityWeapons = GetComponent<EntityWeapons>();
     }
           
     private void OnEnable() { InternalOnEnable(); }
