@@ -16,8 +16,11 @@ public class EntityWeapons : MonoBehaviour
     [Space(10)]
     [SerializeField] bool debugSelectWeapon;
     [SerializeField] int debugWeaponIndexToSelect;
+    [SerializeField] bool debugRemoveWeapon;
+    [SerializeField] bool debugRecoverWeapon;
 
     Weapon[] weapons;
+    int previousWeapon;
     int currentWeapon = -1;
 
     Animator animator;
@@ -41,6 +44,18 @@ public class EntityWeapons : MonoBehaviour
         {
             SelectWeapon(debugWeaponIndexToSelect);
             debugSelectWeapon = false;
+        }
+
+        if (debugRemoveWeapon)
+        {
+            RemoveWeapon();
+            debugRemoveWeapon = false;
+        }
+
+        if (debugRecoverWeapon)
+        {
+            RecoverWeapon();
+            debugRecoverWeapon = false;
         }
     }
 
@@ -123,6 +138,17 @@ public class EntityWeapons : MonoBehaviour
     internal void StopShooting()
     {
         weapons[currentWeapon].StopContinuousShooting();
+    }
+
+    public void RemoveWeapon()
+    {
+        previousWeapon = currentWeapon;
+        SelectWeapon(-1);
+    }
+
+    public void RecoverWeapon()
+    {
+        SelectWeapon(previousWeapon);
     }
 }
 
