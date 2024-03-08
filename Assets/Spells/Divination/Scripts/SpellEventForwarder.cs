@@ -6,6 +6,7 @@ using DG.Tweening;
 public class SpellEventForwarder : MonoBehaviour
 {
     private PlayerController playerController;
+    private EntityWeapons entityWeapons;
 
     [Header("SimpleAudioEvents")]
     [SerializeField] private SimpleAudioEvent voiceAudioEvent;
@@ -26,6 +27,7 @@ public class SpellEventForwarder : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponentInParent<PlayerController>();
+        entityWeapons = GetComponentInParent<EntityWeapons>();
         audioSource = GetComponentInParent<AudioSource>();
     }
 
@@ -37,6 +39,16 @@ public class SpellEventForwarder : MonoBehaviour
     public void DisablePlayerController()
     {
         playerController.enabled = false;
+    }
+
+    public void RequestRemoveWeapon()
+    {
+        entityWeapons.RemoveWeapon();
+    }
+
+    public void RequestRecoverWeapon()
+    {
+        entityWeapons.RecoverWeapon();
     }
 
     public void PlaySpellShoutSound()
