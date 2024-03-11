@@ -5,20 +5,16 @@ public class SpellEventForwarder : MonoBehaviour
     [Header("Spell References")]
     [SerializeField] private ConjurationSpell conjurationSpell;
     [SerializeField] private DivinationSpell divinationSpell;
+    [SerializeField] private TransmutationSpell transmutationSpell;
 
     private PlayerController playerController;
-
-    [Header("Transmutation Spell References")]
-    [SerializeField] private GameObject beerPrefab;
-    [SerializeField] private GameObject beerDummy;
-    [SerializeField] private Transform beerDummyOriginPosition;
-    [SerializeField] private GameObject healingAura;
 
 
     private void Awake()
     {
         conjurationSpell = GetComponentInParent<ConjurationSpell>();
         divinationSpell = GetComponentInParent<DivinationSpell>();
+        transmutationSpell = GetComponentInParent<TransmutationSpell>();
 
         playerController = GetComponentInParent<PlayerController>();
     }
@@ -44,30 +40,15 @@ public class SpellEventForwarder : MonoBehaviour
 
     #region TransmutationSpell
 
-    public void ShowBeer()
-    {
-        beerPrefab.SetActive(true);
-    }
+    public void RequestShowBeer() { transmutationSpell.ShowBeer();}
+    public void RequestHideBeer() { transmutationSpell.HideBeer();}
 
-    public void InstantiateBeerDummy()
-    {
-        Instantiate(beerDummy, beerDummyOriginPosition.position, beerDummyOriginPosition.rotation);
-    }
+    public void RequestInstantiateBeerDummy() { transmutationSpell.InstantiateBeerDummy(); }
 
-    public void HideBeer()
-    {
-        beerPrefab.SetActive(false);
-    }
+    public void RequestShowHealingAura() { transmutationSpell.ShowHealingAura(); }
+    public void RequestHideHealingAura() { transmutationSpell.HideHealingAura(); }
 
-    public void ShowHealingAura()
-    {
-        healingAura.SetActive(true);
-    }
-
-    public void HideHealingAura()
-    {
-        healingAura.SetActive(false);
-    }
+    public void RequestHealing() { transmutationSpell.Healing(); }
 
     #endregion
 }

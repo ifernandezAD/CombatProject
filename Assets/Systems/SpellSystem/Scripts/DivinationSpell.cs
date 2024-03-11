@@ -13,11 +13,8 @@ public class DivinationSpell : Spell
     [SerializeField] GameObject magicArrow;
     [SerializeField] private float animationDuration = 2f;
 
-    protected override void SetSpellAnimation()
-    {
-        animator.SetTrigger(divinationHash);
-    }
-
+    protected override void SetSpellAnimation(){animator.SetTrigger(divinationHash); }
+            
     protected override void BeginSpell()
     {
         magicArrow.SetActive(true);
@@ -34,8 +31,7 @@ public class DivinationSpell : Spell
     {
         magicArrow.SetActive(false);
 
-        if (PortalManager.instance != null) {PortalManager.instance.countdownText.enabled = false;}
-                         
+        if (PortalManager.instance != null) {PortalManager.instance.countdownText.enabled = false;}                       
     }
 }
 
