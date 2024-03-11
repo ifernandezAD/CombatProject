@@ -1,21 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class SpellEventForwarder : MonoBehaviour
 {
+    [Header("Spell References")]
+    [SerializeField] private ConjurationSpell conjurationSpell;
+
     private PlayerController playerController;
-    private EntityWeapons entityWeapons;
-
-    [Header("SimpleAudioEvents")]
-    [SerializeField] private SimpleAudioEvent voiceAudioEvent;
-    [SerializeField] private SimpleAudioEvent smokeAudioEvent;
-    private AudioSource audioSource;
-
-    [Header("Conjuration Spell References")]
-    [SerializeField] private GameObject cigarPrefab;
-    [SerializeField] private GameObject cigarParticle;
 
     [Header("Transmutation Spell References")]
     [SerializeField] private GameObject beerPrefab;
@@ -26,65 +16,22 @@ public class SpellEventForwarder : MonoBehaviour
 
     private void Awake()
     {
+        conjurationSpell = GetComponentInParent<ConjurationSpell>();
         playerController = GetComponentInParent<PlayerController>();
-        entityWeapons = GetComponentInParent<EntityWeapons>();
-        audioSource = GetComponentInParent<AudioSource>();
     }
 
-    public void EnablePlayerController()
-    {
-        playerController.enabled = true;
-    }
-
-    public void DisablePlayerController()
-    {
-        playerController.enabled = false;
-    }
-
-    public void RequestRemoveWeapon()
-    {
-        entityWeapons.RemoveWeapon();
-    }
-
-    public void RequestRecoverWeapon()
-    {
-        entityWeapons.RecoverWeapon();
-    }
-
-    public void PlaySpellShoutSound()
-    {
-        voiceAudioEvent.Play(audioSource);
-    }
+    public void EnablePlayerController() { playerController.enabled = true; }
+    public void DisablePlayerController() { playerController.enabled = false; }
 
     #region ConjurationSpell
 
-    public void PlaySpellCigarSound()
-    {
-        smokeAudioEvent.Play(audioSource);
-    }
-
-    public void ShowCigar()
-    {
-        cigarPrefab.SetActive(true);
-    }
-
-    public void ShowCigarParticle()
-    {
-        cigarParticle.SetActive(true);
-    }
-
-    public void HideCigar()
-    {
-        cigarPrefab.SetActive(false);
-    }
-
-    public void HideCigarParticle()
-    {
-        cigarParticle.SetActive(false);
-    }
+    public void RequestShowCigar() { conjurationSpell.ShowCigar(); }
+    public void RequestHideCigar() { conjurationSpell.HideCigar(); }
+    public void RequestShowCigarParticle() { conjurationSpell.ShowCigarParticle(); }
+    public void RequestHideCigarParticle() { conjurationSpell.HideCigarParticle(); }
+    public void RequestPlayConjurationSound() { conjurationSpell.PlayConjurationSound(); }
 
     #endregion
-
 
     #region TransmutationSpell
 

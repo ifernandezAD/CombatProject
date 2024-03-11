@@ -9,7 +9,7 @@ public class NecromancySpell : Spell
         animator.SetTrigger("NecromancySpell");
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         //Nothing Yet
     }

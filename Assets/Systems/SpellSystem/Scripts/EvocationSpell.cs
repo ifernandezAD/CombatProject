@@ -9,7 +9,7 @@ public class EvocationSpell : Spell
         //Nothing Yet
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         //Nothing Yet
     }

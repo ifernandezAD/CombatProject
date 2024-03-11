@@ -12,7 +12,7 @@ public class TransmutationSpell : Spell
         animator.SetTrigger(transmutationHash);
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         entityLife.RecoverAllLife();
         entityWeapons.RemoveWeapon();

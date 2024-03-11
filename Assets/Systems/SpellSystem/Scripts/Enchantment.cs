@@ -10,7 +10,7 @@ public class Enchantment : Spell
         animator.SetTrigger("HypnosisSpell");
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         //Nothing Yet
     }

@@ -9,7 +9,7 @@ public class IllusionSpell : Spell
         animator.SetTrigger("IllusionSpell");
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         //Nothing Yet
     }

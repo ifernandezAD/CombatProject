@@ -11,7 +11,7 @@ public class AbjurationSpell : Spell
         animator.SetTrigger("ShieldSpell");
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         StartCoroutine(DoShieldSpellEffectCorroutine());
     }

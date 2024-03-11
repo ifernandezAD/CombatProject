@@ -14,7 +14,7 @@ public class DivinationSpell : Spell
         animator.SetTrigger(divinationHash);
     }
 
-    protected override void CastSpell()
+    protected override void BeginSpell()
     {
         entityWeapons.RemoveWeapon();
         magicArrow.SetActive(true);
