@@ -4,6 +4,7 @@ public class SpellEventForwarder : MonoBehaviour
 {
     [Header("Spell References")]
     [SerializeField] private ConjurationSpell conjurationSpell;
+    [SerializeField] private DivinationSpell divinationSpell;
 
     private PlayerController playerController;
 
@@ -17,6 +18,8 @@ public class SpellEventForwarder : MonoBehaviour
     private void Awake()
     {
         conjurationSpell = GetComponentInParent<ConjurationSpell>();
+        divinationSpell = GetComponentInParent<DivinationSpell>();
+
         playerController = GetComponentInParent<PlayerController>();
     }
 
@@ -30,6 +33,12 @@ public class SpellEventForwarder : MonoBehaviour
     public void RequestShowCigarParticle() { conjurationSpell.ShowCigarParticle(); }
     public void RequestHideCigarParticle() { conjurationSpell.HideCigarParticle(); }
     public void RequestPlayConjurationSound() { conjurationSpell.PlayConjurationSound(); }
+
+    #endregion
+
+    #region DivinationSpell
+
+    public void RequestPlayDivinationSound() {divinationSpell.PlayDivinationSound(); }
 
     #endregion
 
