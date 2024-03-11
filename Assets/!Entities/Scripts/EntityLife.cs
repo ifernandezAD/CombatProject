@@ -9,6 +9,7 @@ public class EntityLife : MonoBehaviour
     [SerializeField] float originalLife = 1f;
     float currentLife;
     HurtCollider hurtCollider;
+    public bool isInmortal;
 
     public UnityEvent<float> onLifeChanged;
     public UnityEvent onLifeDepleted;
@@ -26,6 +27,8 @@ public class EntityLife : MonoBehaviour
 
     private void OnHitWithOffender(IOffender offender)
     {
+        if (isInmortal) { return; }
+
         if (currentLife > 0)
         {
             currentLife -= 0.3f;

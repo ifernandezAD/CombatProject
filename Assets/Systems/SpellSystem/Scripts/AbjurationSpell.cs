@@ -1,31 +1,37 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
+
 public class AbjurationSpell : Spell
 {
-    [SerializeField] GameObject magicShield;
-    [SerializeField] float magicShieldSpellAnimationDelay = 2f;
+    [Header("Animations")]
+    private readonly int abjurationHash = Animator.StringToHash("AbjurationSpell");
 
-    protected override void SetSpellAnimation()
-    {
-        animator.SetTrigger("ShieldSpell");
-    }
+    [Header("Abjuration Spell")]
+    [SerializeField] GameObject magicShield;
+    [SerializeField] private float animationDuration = 2f;
 
     protected override void BeginSpell()
     {
-        StartCoroutine(DoShieldSpellEffectCorroutine());
+        DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
     }
 
-    IEnumerator DoShieldSpellEffectCorroutine()
+    protected override void SetSpellAnimation(){ animator.SetTrigger(abjurationHash); }
+    
+    public void ActivateMagicShield()
     {
-        yield return new WaitForSeconds(magicShieldSpellAnimationDelay);
         magicShield.SetActive(true);
-        yield return new WaitForSeconds(spellDuration);
-        magicShield.SetActive(false);
+        entityLife.isInmortal = true;
     }
 
-    protected override void EndSpell()
-    {
-        //Nothing yet
+    public void DeactivateMagicShield() 
+    { 
+        magicShield.SetActive(false);
+        entityLife.isInmortal = false;
     }
+
+    protected override void EndSpell(){DeactivateMagicShield();}
+               
 }

@@ -6,6 +6,7 @@ public class SpellEventForwarder : MonoBehaviour
     [SerializeField] private ConjurationSpell conjurationSpell;
     [SerializeField] private DivinationSpell divinationSpell;
     [SerializeField] private TransmutationSpell transmutationSpell;
+    [SerializeField] private AbjurationSpell abjurationSpell;
 
     private PlayerController playerController;
 
@@ -15,6 +16,7 @@ public class SpellEventForwarder : MonoBehaviour
         conjurationSpell = GetComponentInParent<ConjurationSpell>();
         divinationSpell = GetComponentInParent<DivinationSpell>();
         transmutationSpell = GetComponentInParent<TransmutationSpell>();
+        abjurationSpell = GetComponentInParent<AbjurationSpell>();
 
         playerController = GetComponentInParent<PlayerController>();
     }
@@ -49,6 +51,12 @@ public class SpellEventForwarder : MonoBehaviour
     public void RequestHideHealingAura() { transmutationSpell.HideHealingAura(); }
 
     public void RequestHealing() { transmutationSpell.Healing(); }
+
+    #endregion
+
+    #region AbjurationSpell
+
+    public void RequestActivateMagicSpell() { abjurationSpell.ActivateMagicShield(); }
 
     #endregion
 }
