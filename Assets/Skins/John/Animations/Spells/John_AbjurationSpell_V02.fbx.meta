@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c09ed1a5224ea7f4984d9d73598dd47f
+guid: a0f2955fe1c0a434e9d18eef8daae3b8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: John_AbjurationSpell_Old
+      name: John_AbjurationSpell
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 106
+      lastFrame: 98
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -57,7 +57,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.3930806
+      - time: 0.49751782
         functionName: RequestActivateMagicSpell
         data: 
         objectReferenceParameter: {instanceID: 0}
