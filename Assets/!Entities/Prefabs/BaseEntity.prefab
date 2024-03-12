@@ -212,7 +212,6 @@ GameObject:
   - component: {fileID: 7119332238249033692}
   - component: {fileID: 5046002374823979678}
   - component: {fileID: 6878096032560414098}
-  - component: {fileID: 1989938139662262173}
   - component: {fileID: 241853949443908080}
   - component: {fileID: 5959690114334737806}
   - component: {fileID: 2687244045989440502}
@@ -472,18 +471,6 @@ MonoBehaviour:
   sensesParent: {fileID: 5691950874522548330}
   entityMovement: {fileID: 2914070804464937558}
   entityWeapons: {fileID: 7939717998976837245}
---- !u!114 &1989938139662262173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114575187998448854}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6124796be80595b49be219c0c8f2f768, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &241853949443908080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2898,7 +2885,7 @@ Transform:
   m_GameObject: {fileID: 8789184833315765254}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 7.0710683, z: -7.0710683}
+  m_LocalPosition: {x: 0, y: 7.0710673, z: -7.071068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
