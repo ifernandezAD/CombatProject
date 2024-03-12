@@ -220,5 +220,6 @@ public class AI : EntityBase
     {
         hasLostTarget = false;
     }
+
 }
 
