@@ -9,6 +9,7 @@ public class AI : EntityBase
 
     [Header("Path Calculation")]
     [SerializeField] float pathCalculationThresoldDistance = 1f;
+
     [SerializeField] int areaMask = NavMesh.AllAreas;
 
     [Header("Path Following")]
@@ -16,6 +17,9 @@ public class AI : EntityBase
 
     [Header("Senses")]
     [SerializeField] Transform sensesParent;
+
+    [Header("EnchantmentAnimations")]
+
 
     NavMeshPath path;
     public EntityMovement entityMovement;
@@ -25,14 +29,17 @@ public class AI : EntityBase
 
     Sight sight;
     Audition audition;
+    Animator animator;
     StateBase[] allStates;
 
     protected override void ChildAwake()
     {
         entityMovement = GetComponent<EntityMovement>();
         entityWeapons = GetComponent<EntityWeapons>();
-
         Senseable senseable = GetComponent<Senseable>();
+
+        animator = GetComponentInChildren<Animator>();
+
         sight = sensesParent.GetComponentInChildren<Sight>();
         audition = sensesParent.GetComponentInChildren<Audition>();
         sight?.SetMySenseable(senseable);
@@ -221,5 +228,21 @@ public class AI : EntityBase
         hasLostTarget = false;
     }
 
+    [SerializeField] bool isEnchanted;
+
+    public void SetEnchanted(bool value)
+    {
+        isEnchanted = value;
+    }
+
+    internal bool IsEnchanted()
+    {
+        return isEnchanted;
+    }
+
+    internal void SetEnchantedAnimation()
+    {
+        throw new NotImplementedException();
+    }
 }
 
