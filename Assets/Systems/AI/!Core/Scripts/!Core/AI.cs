@@ -19,7 +19,10 @@ public class AI : EntityBase
     [SerializeField] Transform sensesParent;
 
     [Header("EnchantmentAnimations")]
-
+    private readonly int gangsterEnchantmentHash = Animator.StringToHash("EnchantmentType");
+    //private readonly int zombieEnchantmentHash = Animator.StringToHash("EnchantmentSpell");
+    //private readonly int civilianEnchantmentHash = Animator.StringToHash("EnchantmentSpell");
+    //private readonly int summonEnchantmentHash = Animator.StringToHash("EnchantmentSpell");
 
     NavMeshPath path;
     public EntityMovement entityMovement;
@@ -240,9 +243,21 @@ public class AI : EntityBase
         return isEnchanted;
     }
 
-    internal void SetEnchantedAnimation()
+    internal void PlayEnchantedAnimation()
     {
-        throw new NotImplementedException();
+        animator.SetInteger(gangsterEnchantmentHash, 1);
     }
+
+    internal void StopEnchantedAnimation()
+    {
+        animator.SetInteger(gangsterEnchantmentHash, 0);
+    }
+
+    internal void IsEntityMoving(bool value)
+    {
+        entityMovement.IsEntityMoving(value);
+    }
+
+
 }
 

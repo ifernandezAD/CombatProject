@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +8,9 @@ public class EntityMovement : MonoBehaviour
     {
         public float speed = 10f;
         public float steadyDuration = 0.3f;
-        public float decelerationDuration =0.2f;
+        public float decelerationDuration = 0.2f;
     };
-    
+
     class ExtraMovement
     {
         public ExtraMovement(Vector3 worldDirection, ExtraMovementInfo info)
@@ -35,12 +33,14 @@ public class EntityMovement : MonoBehaviour
             return direction * extraMovementInfo.speed * (1 - t);
         }
 
-       public bool HasFinished() { return elapsedTime >= extraMovementInfo.steadyDuration + extraMovementInfo.decelerationDuration; }
+        public bool HasFinished() { return elapsedTime >= extraMovementInfo.steadyDuration + extraMovementInfo.decelerationDuration; }
     }
 
     [Header("Movement")]
     [SerializeField] float speed = 4f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] bool stopEntity;
+    [SerializeField] float speedPreviousToStop;
 
     [Header("Orientation")]
     [SerializeField] float orientationSpeed = 360f;
@@ -52,12 +52,12 @@ public class EntityMovement : MonoBehaviour
     [SerializeField] Vector3 debugExtraMovementDirection = Vector3.forward;
     [SerializeField] ExtraMovementInfo debugExtraMovementInfo;
 
-    [Header("Stop Entity Debug")]
-    [SerializeField] bool stopEntity;
-    [SerializeField] float previousDebugSpeed;
-    
+    [Header("Debug")]
+    [SerializeField] bool debugDisableEntityMovement;
+    [SerializeField] bool debugEnableEntityMovement;
 
-    List <ExtraMovement> extraMovements =new();
+
+    List<ExtraMovement> extraMovements = new();
 
 
     CharacterController characterController;
@@ -67,41 +67,58 @@ public class EntityMovement : MonoBehaviour
     float gravity = -9.8f;
     Vector3 smoothedLocalXZPlaneVelocity;
 
-   private void OnValidate()
-   {
-       if (debugExtraMovement)
-       {
-           debugExtraMovement = false;
-           if (debugExtraMovementLocal)
-           {
-               ApplyLocalExtraMovement(debugExtraMovementDirection, debugExtraMovementInfo);
-           }else
-           {
+    private void OnValidate()
+    {
+        if (debugExtraMovement)
+        {
+            debugExtraMovement = false;
+            if (debugExtraMovementLocal)
+            {
+                ApplyLocalExtraMovement(debugExtraMovementDirection, debugExtraMovementInfo);
+            }
+            else
+            {
                 ApplyWorldExtraMovement(debugExtraMovementDirection, debugExtraMovementInfo);
-           } 
-       }
-   }
+            }
+        }
+
+        if (debugDisableEntityMovement)
+        {
+            IsEntityMoving(true);
+            debugDisableEntityMovement = false;
+        }
+        if (debugEnableEntityMovement)
+        {
+            IsEntityMoving(false);
+            debugEnableEntityMovement = false;
+        }
+    }
 
     private void Awake()
-    {         
-        /*Debug*/  previousDebugSpeed = speed; /*Debug*/
+    {
+        speedPreviousToStop = speed;
 
         characterController = GetComponentInChildren<CharacterController>();
         animator = GetComponentInChildren<Animator>();
     }
 
-    private void Start()
-    {
-       
-
-    }
 
     private void Update()
     {
-        /*Debug*/ if (stopEntity) {speed = 0;}                       
-        else{speed = previousDebugSpeed; } /*Debug*/
+        UpdateEntitySpeed();
 
         extraMovements.RemoveAll(x => x.HasFinished());
+    }
+
+    private void UpdateEntitySpeed()
+    {
+        if (stopEntity) { speed = 0; }
+        else { speed = speedPreviousToStop; }
+    }
+
+    public void IsEntityMoving(bool value)
+    {
+        stopEntity = value;
     }
 
     //ToDo: in the future look for way to communicate this order Move, orientate, animation
@@ -112,8 +129,8 @@ public class EntityMovement : MonoBehaviour
         xzPlaneVelocity = UpdateMovementOnPlane(direction.normalized);
         Vector3 verticalVelocity = UpdateVerticalMovement();
         Vector3 extraMovementsVelocity = UpdateExtraMovements();
-        
-        Vector3 totalMovement = (xzPlaneVelocity+verticalVelocity+extraMovementsVelocity) * Time.deltaTime;
+
+        Vector3 totalMovement = (xzPlaneVelocity + verticalVelocity + extraMovementsVelocity) * Time.deltaTime;
 
         characterController.Move(totalMovement);
 
@@ -159,13 +176,13 @@ public class EntityMovement : MonoBehaviour
 
     private void UpdateJump(bool mustJump)
     {
-       if (characterController.isGrounded)
+        if (characterController.isGrounded)
         { verticalVelocity = 0f; }
 
         if (mustJump && characterController.isGrounded)
-        { verticalVelocity = jumpSpeed; }  
+        { verticalVelocity = jumpSpeed; }
     }
-         
+
 
     private Vector3 UpdateExtraMovements()
     {

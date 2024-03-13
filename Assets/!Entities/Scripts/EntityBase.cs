@@ -7,6 +7,7 @@ public abstract class EntityBase : MonoBehaviour
 {
     Ragdollizer ragdollizer;
     HurtCollider hurtCollider;
+    EntityMovement entityMovement;
     EntityLife entityLife;
     Animator animator;
 
@@ -17,6 +18,7 @@ public abstract class EntityBase : MonoBehaviour
         ragdollizer = GetComponentInChildren<Ragdollizer>();
         hurtCollider = GetComponent<HurtCollider>();
         entityLife = GetComponent<EntityLife>();
+        entityMovement = GetComponent<EntityMovement>();
         animator = GetComponentInChildren<Animator>();
 
         hurtCollider.onHitWithOffender.AddListener(OnHitWithOffender);
