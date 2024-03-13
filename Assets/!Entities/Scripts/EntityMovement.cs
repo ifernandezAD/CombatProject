@@ -53,6 +53,7 @@ public class EntityMovement : MonoBehaviour
     [SerializeField] ExtraMovementInfo debugExtraMovementInfo;
 
     [Header("Debug")]
+    [SerializeField] bool debugStopEntity;
     [SerializeField] bool debugDisableEntityMovement;
     [SerializeField] bool debugEnableEntityMovement;
 
@@ -82,14 +83,19 @@ public class EntityMovement : MonoBehaviour
             }
         }
 
+        if (debugStopEntity)
+        {
+            StopEntity();
+        }
+
         if (debugDisableEntityMovement)
         {
-            IsEntityMoving(true);
+            IsEntityStopped(true);
             debugDisableEntityMovement = false;
         }
         if (debugEnableEntityMovement)
         {
-            IsEntityMoving(false);
+            IsEntityStopped(false);
             debugEnableEntityMovement = false;
         }
     }
@@ -101,7 +107,6 @@ public class EntityMovement : MonoBehaviour
         characterController = GetComponentInChildren<CharacterController>();
         animator = GetComponentInChildren<Animator>();
     }
-
 
     private void Update()
     {
@@ -116,9 +121,14 @@ public class EntityMovement : MonoBehaviour
         else { speed = speedPreviousToStop; }
     }
 
-    public void IsEntityMoving(bool value)
+    public void IsEntityStopped(bool value)
     {
         stopEntity = value;
+    }
+
+    public void StopEntity()
+    {
+        IsEntityStopped(true);
     }
 
     //ToDo: in the future look for way to communicate this order Move, orientate, animation

@@ -253,9 +253,9 @@ public class AI : EntityBase
         animator.SetInteger(gangsterEnchantmentHash, 0);
     }
 
-    internal void IsEntityMoving(bool value)
+    internal void IsEntityStopped(bool value)
     {
-        entityMovement.IsEntityMoving(value);
+        entityMovement.IsEntityStopped(value);
     }
 
 

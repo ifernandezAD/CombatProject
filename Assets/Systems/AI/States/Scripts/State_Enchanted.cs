@@ -18,12 +18,12 @@ public class State_Enchanted : StateBase
         currentTime -= Time.deltaTime;
 
         ai.PlayEnchantedAnimation();
-        ai.IsEntityMoving(true);
+        ai.IsEntityStopped(true);
 
         if (currentTime <= 0)
         {
             ai.StopEnchantedAnimation();
-            ai.IsEntityMoving(false);
+            ai.IsEntityStopped(false);
             ai.SetEnchanted(false);
         }       
     }

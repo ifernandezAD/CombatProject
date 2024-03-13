@@ -886,6 +886,16 @@ PrefabInstance:
     - target: {fileID: 8343872436984070508, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
       propertyPath: stopEntity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343872436984070508, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: debugStopEntity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343872436984070508, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: debugDisableEntityMovement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8472314169180891648, guid: 511cb56548ef8784a91ddf327cb2ec0e,
