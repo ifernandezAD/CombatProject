@@ -17,6 +17,7 @@ public abstract class DecissionItemBase : MonoBehaviour
     internal void Init(DecissionMaker decissionMaker)
     {
         this.decissionMaker = decissionMaker;
+
         List<DecissionItemBase> decissionItemsList = new();
         foreach (Transform t in transform)
         {
@@ -28,5 +29,6 @@ public abstract class DecissionItemBase : MonoBehaviour
         }
         children = decissionItemsList.ToArray();
     }
+
     internal DecissionItemBase[] children;
 }

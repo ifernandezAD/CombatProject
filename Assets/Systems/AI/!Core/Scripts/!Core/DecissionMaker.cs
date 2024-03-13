@@ -16,7 +16,6 @@ public class DecissionMaker : MonoBehaviour
 
     void Update()
     {
-        Transform firstChild = transform.childCount > 0 ? transform.GetChild(0) : null;
         CheckItem(firstItem);
     }
 
@@ -26,7 +25,7 @@ public class DecissionMaker : MonoBehaviour
         {
             case DecissionItemBase.ItemType.Action:
                 (dib as ActionBase).Perform();
-                //TODO -Seguir ejecutando
+                //TODO -Seguir ejecutando en el caso de que haya más acciones
                 break;
             case DecissionItemBase.ItemType.Condition:
                 if ((dib as ConditionBase).IsMeet())

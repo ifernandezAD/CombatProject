@@ -738,6 +738,11 @@ PrefabInstance:
       propertyPath: allegiance
       value: Gangster
       objectReference: {fileID: 0}
+    - target: {fileID: 7132979311802682592, guid: 7781afa95608bcc4d994ccb7d547cdf8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7473033308439207927, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_Enabled
