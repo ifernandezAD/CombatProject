@@ -2957,7 +2957,7 @@ PrefabInstance:
     - target: {fileID: 2390960299815493079, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.18847242
+      value: 0.1884724
       objectReference: {fileID: 0}
     - target: {fileID: 2394335077951166431, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -3484,12 +3484,12 @@ PrefabInstance:
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.33427554
+      value: 0.3342755
       objectReference: {fileID: 0}
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.062067483
+      value: -0.06206748
       objectReference: {fileID: 0}
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -3499,7 +3499,7 @@ PrefabInstance:
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17168233
+      value: 0.17168234
       objectReference: {fileID: 0}
     - target: {fileID: 7119332238249033692, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -5103,10 +5103,10 @@ MonoBehaviour:
   enchantmentAudioEvent: {fileID: 11400000, guid: 3e9d3a40507d3f24e8f6afc061120c3b,
     type: 2}
   animationDuration: 4.2
-  spellAreaRange: 7
+  spellAreaRange: 10
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
 --- !u!114 &6559719159655818393
 MonoBehaviour:
   m_ObjectHideFlags: 0

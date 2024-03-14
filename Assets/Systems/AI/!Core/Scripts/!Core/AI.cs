@@ -19,21 +19,18 @@ public class AI : EntityBase
 
     [Header("EnchantmentAnimations")]
     private readonly int gangsterEnchantmentHash = Animator.StringToHash("EnchantmentType");
-    //private readonly int zombieEnchantmentHash = Animator.StringToHash("EnchantmentSpell");
-    //private readonly int civilianEnchantmentHash = Animator.StringToHash("EnchantmentSpell");
-    //private readonly int summonEnchantmentHash = Animator.StringToHash("EnchantmentSpell");
 
+    [Header("References")]
     NavMeshPath path;
     public EntityMovement entityMovement;
     public EntityWeapons entityWeapons;
-
-    Vector3 lastSeekedPosition = Vector3.zero;
-
     Sight sight;
     Audition audition;
     Animator animator;
     Senseable senseable;
     StateBase[] allStates;
+
+    Vector3 lastSeekedPosition = Vector3.zero;
 
     protected override void ChildAwake()
     {
@@ -192,7 +189,7 @@ public class AI : EntityBase
 
     internal void SetDestinationToTarget()
     {
-        Debug.Log(target);
+        //Debug.Log(target);
         SetDestination(target.position);
     }
 
@@ -231,6 +228,13 @@ public class AI : EntityBase
         hasLostTarget = false;
     }
 
+    internal void IsEntityStopped(bool value)
+    {
+        entityMovement.IsEntityStopped(value);
+    }
+
+    #region Enchantment State
+
     [SerializeField] bool isEnchanted;
 
     public void SetEnchanted(bool value)
@@ -260,10 +264,7 @@ public class AI : EntityBase
         }
     }
 
-    internal void IsEntityStopped(bool value)
-    {
-        entityMovement.IsEntityStopped(value);
-    }
+    #endregion
 
 
 }
