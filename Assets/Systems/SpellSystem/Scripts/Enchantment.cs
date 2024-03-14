@@ -34,10 +34,11 @@ public class Enchantment : Spell
             if (c.gameObject == gameObject)
                 continue;
 
-            if (TryGetComponent<AI>(out AI ai))
+            if (c.TryGetComponent<AI>(out AI ai))
             {
-                Debug.Log($"Collider detected with name {c.name}");
-                //ai.TestEnemyDetection();
+                //Debug.Log($"Collider detected with name {c.transform.parent.name}");
+                //Debug.Log($"AI detected from {ai.transform.parent.name}");
+                ai.SetEnchanted(true);           
             }
         }
     }
