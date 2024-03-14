@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Enchantment : Spell
 {
@@ -9,6 +10,7 @@ public class Enchantment : Spell
     private readonly int enchantmentHash = Animator.StringToHash("EnchantmentSpell");
 
     [Header("Enchantment Spell")]
+    [SerializeField] Transform enchantmentVfxParent;
     [SerializeField] private SimpleAudioEvent enchantmentAudioEvent;
     [SerializeField] private float animationDuration = 4f;
     [SerializeField] private float spellAreaRange = 5f;
@@ -17,14 +19,24 @@ public class Enchantment : Spell
     protected override void BeginSpell()
     {
         PlayAbjurationSound();
+        PlayEnchantmentVfx();
         AffectEntitiesOnArea();
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
     }
 
+
     protected override void SetSpellAnimation() {animator.SetTrigger(enchantmentHash);}
 
     void PlayAbjurationSound() { enchantmentAudioEvent.Play(voiceAudioSource); }
+
+    private void PlayEnchantmentVfx()
+    {
+        foreach (Transform child in enchantmentVfxParent.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
 
     void AffectEntitiesOnArea()
     {
