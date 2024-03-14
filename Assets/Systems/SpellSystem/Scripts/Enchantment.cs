@@ -36,8 +36,6 @@ public class Enchantment : Spell
 
             if (c.TryGetComponent<AI>(out AI ai))
             {
-                //Debug.Log($"Collider detected with name {c.transform.parent.name}");
-                //Debug.Log($"AI detected from {ai.transform.parent.name}");
                 ai.SetEnchanted(true);           
             }
         }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -33,13 +32,14 @@ public class AI : EntityBase
     Sight sight;
     Audition audition;
     Animator animator;
+    Senseable senseable;
     StateBase[] allStates;
 
     protected override void ChildAwake()
     {
         entityMovement = GetComponent<EntityMovement>();
         entityWeapons = GetComponent<EntityWeapons>();
-        Senseable senseable = GetComponent<Senseable>();
+        senseable = GetComponent<Senseable>();
 
         animator = GetComponentInChildren<Animator>();
 
@@ -56,14 +56,14 @@ public class AI : EntityBase
 
     protected override void ChildStart()
     {
-        
+
     }
 
     void Update()
     {
         UpdateTarget();
-        UpdateFollowPath(); 
-        
+        UpdateFollowPath();
+
         //UpdatePathToTarget();
     }
 
@@ -245,12 +245,19 @@ public class AI : EntityBase
 
     internal void PlayEnchantedAnimation()
     {
-        animator.SetInteger(gangsterEnchantmentHash, 1);
+        if (senseable.allegiance == "Gangster")
+        {
+            int randomAnim = Random.Range(1, 6);
+            animator.SetInteger(gangsterEnchantmentHash, randomAnim);
+        }
     }
 
     internal void StopEnchantedAnimation()
     {
-        animator.SetInteger(gangsterEnchantmentHash, 0);
+        if (senseable.allegiance == "Gangster")
+        {
+            animator.SetInteger(gangsterEnchantmentHash, 0);
+        }
     }
 
     internal void IsEntityStopped(bool value)

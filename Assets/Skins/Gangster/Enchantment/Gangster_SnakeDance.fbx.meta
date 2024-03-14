@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff587f29bb34bda418778ba27056c7a6
+guid: e67b1669d1c60014ba18c8b66fd16c05
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Gangster_Fishing
+      name: Gangster_SnakeDance
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 263
+      lastFrame: 458
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
