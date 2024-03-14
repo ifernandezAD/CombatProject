@@ -18,7 +18,7 @@ public class Enchantment : Spell
 
     protected override void BeginSpell()
     {
-        PlayAbjurationSound();
+        PlayEnchantmentSound();
         PlayEnchantmentVfx();
         AffectEntitiesOnArea();
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
@@ -28,7 +28,7 @@ public class Enchantment : Spell
 
     protected override void SetSpellAnimation() {animator.SetTrigger(enchantmentHash);}
 
-    void PlayAbjurationSound() { enchantmentAudioEvent.Play(voiceAudioSource); }
+    void PlayEnchantmentSound() { enchantmentAudioEvent.Play(voiceAudioSource); }
 
     private void PlayEnchantmentVfx()
     {
