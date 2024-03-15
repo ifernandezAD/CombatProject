@@ -8,6 +8,7 @@ public class IllusionSpell : Spell
 {
     [Header("Animations")]
     private readonly int illusionHash = Animator.StringToHash("IllusionSpell");
+    private readonly int illusionFinishHash = Animator.StringToHash("IllusionSpellFinish");
 
     [Header("Skin References")]
     [SerializeField] GameObject playerSkin;
@@ -18,6 +19,9 @@ public class IllusionSpell : Spell
     [SerializeField] private float animationDuration = 2f;
     [SerializeField] private float spellAreaRange = 5f;
     [SerializeField] LayerMask layerMask = Physics.DefaultRaycastLayers;
+
+    [SerializeField] private float endAnimationDuration = 4f;
+    [SerializeField] private float recoverSkinDelay = 1f;
 
     [Header("FlashVfx")]
     [SerializeField] CanvasGroup whiteFlashCanvas;
@@ -36,9 +40,6 @@ public class IllusionSpell : Spell
 
     void AffectClosestEntityOnArea()
     {
-        //Tu cambias A SU SKIN (dependerá del tipo de humano) y me cambia la allegiance
-        //Al finalizar el hechizo recuperas tu skin y allegiance
-
         Collider[] colliders = Physics.OverlapSphere(transform.position, spellAreaRange, layerMask);
         AI closestAI = null;
         float closestDistanceSqr = Mathf.Infinity;
@@ -68,6 +69,7 @@ public class IllusionSpell : Spell
         }
     }
 
+    private GameObject previousSkin;
 
     void ChangePlayerSkin(AI ai)
     {
@@ -76,12 +78,24 @@ public class IllusionSpell : Spell
         if (ai.senseable.allegiance == "Gangster")
         {
             gangsterSkin.SetActive(true);
+            previousSkin = gangsterSkin;
         }
+    }
+
+    void RecoverPlayerSkin()
+    {
+        playerSkin.SetActive(true);
+        previousSkin.SetActive(false);
     }
 
     void ChangePlayerAllegiance(AI ai)
     {
         senseable.allegiance = ai.senseable.allegiance;
+    }
+
+    void RecoverPlayerAllegiance()
+    {
+        senseable.allegiance = "Player";
     }
 
     void CanvasFade()
@@ -102,9 +116,23 @@ public class IllusionSpell : Spell
         animator.SetTrigger(illusionHash);
     }
 
+    void SetFinishSpellAnimation()
+    {
+        animator.SetTrigger(illusionFinishHash);
+    }
+
+
 
     protected override void EndSpell()
     {
-        //Nothing yet
+        SetFinishSpellAnimation();
+        DisablePlayerController();
+        RequestRemoveWeapon();
+
+        DOVirtual.DelayedCall(recoverSkinDelay, RecoverPlayerSkin);
+
+        DOVirtual.DelayedCall(endAnimationDuration, RequestRecoverWeapon);
+        DOVirtual.DelayedCall(endAnimationDuration, EnablePlayerController);
+        RecoverPlayerAllegiance();
     }
 }
