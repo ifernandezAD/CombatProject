@@ -1,31 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class State_Confused : StateBase
 {
+    [Header("Skin Change")]
+    //Drag the skins to the inspector in every human variant
+    [SerializeField] GameObject skinToEnable;
+    [SerializeField] GameObject skinToDisable;
+
     [Header("ConfusedAnimations")]
-    private readonly int gangsterConfusedHash = Animator.StringToHash("IsConfused");
+    private readonly int confusedHash = Animator.StringToHash("IsConfused");
 
 
-    private void Update()
+    private void OnEnable()
     {
-        //Cambia de Skin
-        //Cambia su allegiance a player
-        
-
         ai.StopEntity(true);
-        PlayConfusedAnimation();    
+        PlayConfusedAnimation();
+        ChangeSkin();
+        ChangeAllegiance();
     }
 
-    internal void PlayConfusedAnimation()
+    void PlayConfusedAnimation() { ai.animator.SetBool(confusedHash, true); }
+    void StopConfusedAnimation(){ai.animator.SetBool(confusedHash, false);}
+     
+    void ChangeSkin()
     {
-        ai.animator.SetBool(gangsterConfusedHash, true);
+        skinToDisable.SetActive(false);
+        skinToEnable.SetActive(true);
     }
 
-    internal void StopConfusedAnimation()
-    {
-        ai.animator.SetBool(gangsterConfusedHash, false);
-    }
+    void ChangeAllegiance(){ai.senseable.allegiance = "Player";}
+              
 }

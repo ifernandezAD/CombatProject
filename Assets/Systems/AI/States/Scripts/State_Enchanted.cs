@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class State_Enchanted : StateBase
@@ -14,24 +11,23 @@ public class State_Enchanted : StateBase
     private void OnEnable()
     {
         currentTime = enchantedDuration;
+        PlayEnchantedAnimation();
+        ai.StopEntity(true);
     }
 
     private void Update()
     {
         currentTime -= Time.deltaTime;
 
-        PlayEnchantedAnimation();
-        ai.StopEntity(true);
-
         if (currentTime <= 0)
         {
             StopEnchantedAnimation();
             ai.StopEntity(false);
             ai.SetEnchanted(false);
-        }       
+        }
     }
 
-    internal void PlayEnchantedAnimation()
+    void PlayEnchantedAnimation()
     {
         if (ai.senseable.allegiance == "Gangster")
         {
@@ -40,12 +36,11 @@ public class State_Enchanted : StateBase
         }
     }
 
-    internal void StopEnchantedAnimation()
+    void StopEnchantedAnimation()
     {
         if (ai.senseable.allegiance == "Gangster")
         {
             ai.animator.SetInteger(gangsterEnchantmentHash, 0);
         }
     }
-
 }
