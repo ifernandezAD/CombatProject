@@ -8,6 +8,10 @@ public class IllusionSpell : Spell
     [Header("Animations")]
     private readonly int illusionHash = Animator.StringToHash("IllusionSpell");
 
+    [Header("Skin References")]
+    [SerializeField] GameObject playerSkin;
+    [SerializeField] GameObject gangsterSkin;
+
     [Header("Illusion Spell")]
     [SerializeField] float spellEffectInitialDelay = 1.5f;
     [SerializeField] private float animationDuration = 2f;
@@ -19,7 +23,6 @@ public class IllusionSpell : Spell
     [SerializeField] float flashInitialDelay = 1f;
     [SerializeField] float flashDelay = 1f;
     [SerializeField] float flashDuration = 1f;
-
 
 
     protected override void BeginSpell()
@@ -59,12 +62,22 @@ public class IllusionSpell : Spell
         if (closestAI != null)
         {
             closestAI.SetConfused(true);
+            ChangePlayerSkin(closestAI);
+        }
+    }
+
+    void ChangePlayerSkin(AI ai)
+    {
+        playerSkin.SetActive(false);
+
+        if (ai.senseable.allegiance == "Gangster")
+        {
+            gangsterSkin.SetActive(true);
         }
     }
 
     void CanvasFade()
-    {
-        
+    {  
         whiteFlashCanvas.DOFade(1f, flashDuration)
             .SetDelay(0f)
             .OnComplete(() =>
