@@ -20,13 +20,17 @@ public class AI : EntityBase
     [Header("EnchantmentAnimations")]
     private readonly int gangsterEnchantmentHash = Animator.StringToHash("EnchantmentType");
 
+    [Header("ConfusedAnimations")]
+    private readonly int gangsterConfusedHash = Animator.StringToHash("IsConfused");
+
+
+
     [Header("References")]
-    NavMeshPath path;
-    public EntityMovement entityMovement;
     public EntityWeapons entityWeapons;
+    NavMeshPath path;
     Sight sight;
     Audition audition;
-    Animator animator;
+    
     Senseable senseable;
     StateBase[] allStates;
 
@@ -34,12 +38,8 @@ public class AI : EntityBase
 
     protected override void ChildAwake()
     {
-        entityMovement = GetComponent<EntityMovement>();
         entityWeapons = GetComponent<EntityWeapons>();
-        senseable = GetComponent<Senseable>();
-
-        animator = GetComponentInChildren<Animator>();
-
+        senseable = GetComponent<Senseable>();       
         sight = sensesParent.GetComponentInChildren<Sight>();
         audition = sensesParent.GetComponentInChildren<Audition>();
         sight?.SetMySenseable(senseable);
@@ -267,5 +267,30 @@ public class AI : EntityBase
     #endregion
 
 
+    #region Confuse State
+
+    [SerializeField] bool isConfused;
+
+    public void SetConfused(bool value)
+    {
+        isConfused = value;
+    }
+
+    internal bool IsConfused()
+    {
+        return isConfused;
+    }
+
+    internal void PlayConfusedAnimation()
+    {
+        animator.SetBool(gangsterConfusedHash, true);
+    }
+
+    internal void StopConfusedAnimation()
+    {
+        animator.SetBool(gangsterConfusedHash, false);
+    }
+
+    #endregion
 }
 

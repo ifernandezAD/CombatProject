@@ -21,9 +21,33 @@ public class IllusionSpell : Spell
 
     protected override void BeginSpell()
     {
+        AffectEntitiesOnArea();
         DOVirtual.DelayedCall(initialDelay, CanvasFade);
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+    }
+
+    void AffectEntitiesOnArea()
+    {
+        //Comprobar los enemigos en rango
+        //Eliges al enemigo más cercano
+        //Le activas su estado confuso
+
+        //Tu cambias A SU SKIN (dependerá del tipo de humano) y me cambia la allegiance
+        //Al finalizar el hechizo recuperas tu skin y allegiance
+
+
+       //Collider[] colliders = Physics.OverlapSphere(transform.position, spellAreaRange, layerMask);
+       //foreach (Collider c in colliders)
+       //{
+       //    if (c.gameObject == gameObject)
+       //        continue;
+       //
+       //    if (c.TryGetComponent<AI>(out AI ai))
+       //    {
+       //        ai.SetEnchanted(true);
+       //    }
+       //}
     }
 
     void CanvasFade()

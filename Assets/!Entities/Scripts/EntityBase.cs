@@ -7,9 +7,9 @@ public abstract class EntityBase : MonoBehaviour
 {
     Ragdollizer ragdollizer;
     HurtCollider hurtCollider;
-    EntityMovement entityMovement;
+    internal EntityMovement entityMovement;
     EntityLife entityLife;
-    Animator animator;
+    internal Animator animator;
 
     IOffender lastOffender;
 

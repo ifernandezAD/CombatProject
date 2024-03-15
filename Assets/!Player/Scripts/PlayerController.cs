@@ -49,11 +49,8 @@ public class PlayerController : EntityBase
     [SerializeField] PlayerMode.PlayerModeProfile targetLockProfile;
 
 
-    EntityMovement entityMovement;
-
     protected override void ChildAwake()
     {
-        entityMovement = GetComponent<EntityMovement>();
         playerMode = GetComponent<PlayerMode>();
     }
 
