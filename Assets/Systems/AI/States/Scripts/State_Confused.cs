@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class State_Confused : StateBase
 {
+    [Header("ConfusedAnimations")]
+    private readonly int gangsterConfusedHash = Animator.StringToHash("IsConfused");
+
 
     private void Update()
     {
@@ -13,7 +16,16 @@ public class State_Confused : StateBase
         
 
         ai.StopEntity(true);
-        ai.PlayConfusedAnimation();    
+        PlayConfusedAnimation();    
     }
 
+    internal void PlayConfusedAnimation()
+    {
+        ai.animator.SetBool(gangsterConfusedHash, true);
+    }
+
+    internal void StopConfusedAnimation()
+    {
+        ai.animator.SetBool(gangsterConfusedHash, false);
+    }
 }

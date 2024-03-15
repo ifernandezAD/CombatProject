@@ -17,21 +17,13 @@ public class AI : EntityBase
     [Header("Senses")]
     [SerializeField] Transform sensesParent;
 
-    [Header("EnchantmentAnimations")]
-    private readonly int gangsterEnchantmentHash = Animator.StringToHash("EnchantmentType");
-
-    [Header("ConfusedAnimations")]
-    private readonly int gangsterConfusedHash = Animator.StringToHash("IsConfused");
-
-
-
     [Header("References")]
     public EntityWeapons entityWeapons;
     NavMeshPath path;
     Sight sight;
     Audition audition;
     
-    Senseable senseable;
+    public Senseable senseable;
     StateBase[] allStates;
 
     Vector3 lastSeekedPosition = Vector3.zero;
@@ -247,23 +239,6 @@ public class AI : EntityBase
         return isEnchanted;
     }
 
-    internal void PlayEnchantedAnimation()
-    {
-        if (senseable.allegiance == "Gangster")
-        {
-            int randomAnim = Random.Range(1, 6);
-            animator.SetInteger(gangsterEnchantmentHash, randomAnim);
-        }
-    }
-
-    internal void StopEnchantedAnimation()
-    {
-        if (senseable.allegiance == "Gangster")
-        {
-            animator.SetInteger(gangsterEnchantmentHash, 0);
-        }
-    }
-
     #endregion
 
 
@@ -279,16 +254,6 @@ public class AI : EntityBase
     internal bool IsConfused()
     {
         return isConfused;
-    }
-
-    internal void PlayConfusedAnimation()
-    {
-        animator.SetBool(gangsterConfusedHash, true);
-    }
-
-    internal void StopConfusedAnimation()
-    {
-        animator.SetBool(gangsterConfusedHash, false);
     }
 
     #endregion
