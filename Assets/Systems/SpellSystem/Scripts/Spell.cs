@@ -7,6 +7,7 @@ public abstract class Spell : MonoBehaviour
 {
     [Header("References")]
     protected Animator animator;
+    protected Senseable senseable;
     protected EntityLife entityLife;
     protected PlayerController playerController;
     protected EntityWeapons entityWeapons;
@@ -30,6 +31,7 @@ public abstract class Spell : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         entityLife = GetComponent<EntityLife>();
         entityWeapons = GetComponent<EntityWeapons>();
+        senseable = GetComponent<Senseable>();
         playerController = GetComponent<PlayerController>();
 
         spellAudioSource = GetComponent<AudioSource>();

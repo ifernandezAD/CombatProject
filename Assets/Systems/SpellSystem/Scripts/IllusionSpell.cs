@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class IllusionSpell : Spell
 {
@@ -61,10 +62,12 @@ public class IllusionSpell : Spell
 
         if (closestAI != null)
         {
-            closestAI.SetConfused(true);
             ChangePlayerSkin(closestAI);
+            ChangePlayerAllegiance(closestAI);
+            closestAI.SetConfused(true);
         }
     }
+
 
     void ChangePlayerSkin(AI ai)
     {
@@ -74,6 +77,11 @@ public class IllusionSpell : Spell
         {
             gangsterSkin.SetActive(true);
         }
+    }
+
+    void ChangePlayerAllegiance(AI ai)
+    {
+        senseable.allegiance = ai.senseable.allegiance;
     }
 
     void CanvasFade()
