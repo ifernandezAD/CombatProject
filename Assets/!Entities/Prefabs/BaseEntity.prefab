@@ -500,6 +500,7 @@ MonoBehaviour:
   cornerReachThresholdDistance: 1.5
   sensesParent: {fileID: 5691950874522548330}
   entityWeapons: {fileID: 7939717998976837245}
+  senseable: {fileID: 0}
   isEnchanted: 0
   isConfused: 0
 --- !u!114 &241853949443908080
@@ -579,6 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5608cb9f6bb9a284e9767e72c3df172c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skinToEnable: {fileID: 0}
+  skinToDisable: {fileID: 0}
 --- !u!1 &1210682276110186892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1922975781365930092}
-  - {fileID: 5702188909778040434}
+  - {fileID: 6456408452923551342}
   m_Father: {fileID: 2858084509254422668}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4581087729187834588
@@ -1766,7 +1769,7 @@ Transform:
   m_Children:
   - {fileID: 5321391784199311501}
   - {fileID: 3479789211976887014}
-  m_Father: {fileID: 6793966068727442179}
+  m_Father: {fileID: 6456408452923551342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5689531935555851790
 MonoBehaviour:
@@ -1780,6 +1783,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc49b053044ace4689a1febbcba34d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4812753476028463785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6456408452923551342}
+  - component: {fileID: 6458740828654883263}
+  m_Layer: 0
+  m_Name: IsConfused
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6456408452923551342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812753476028463785}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8083250674818030266}
+  - {fileID: 5702188909778040434}
+  m_Father: {fileID: 6793966068727442179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6458740828654883263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812753476028463785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c877a9f909be64fa85f377f88eca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4894592062029178497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8083250674818030266}
+  - component: {fileID: 5016204721165403009}
+  m_Layer: 0
+  m_Name: SetStateToConfused
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8083250674818030266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894592062029178497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6456408452923551342}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5016204721165403009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894592062029178497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6242681be9278684d984a9fc4e09336e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 3498274633491075177}
 --- !u!1 &4988626908366032026
 GameObject:
   m_ObjectHideFlags: 0
