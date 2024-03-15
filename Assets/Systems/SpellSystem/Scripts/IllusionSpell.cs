@@ -9,14 +9,35 @@ public class IllusionSpell : Spell
     private readonly int illusionHash = Animator.StringToHash("IllusionSpell");
 
     [Header("Illusion Spell")]
+    [SerializeField] CanvasGroup whiteFlashCanvas;
+    [SerializeField] float initialDelay = 1f;
+    [SerializeField] float flashDelay = 1f;
+    [SerializeField] float flashDuration = 1f;
+
+
     [SerializeField] private float animationDuration = 2f;
     [SerializeField] private float spellAreaRange = 5f;
     [SerializeField] LayerMask layerMask = Physics.DefaultRaycastLayers;
 
     protected override void BeginSpell()
     {
+        DOVirtual.DelayedCall(initialDelay, CanvasFade);
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+    }
+
+    void CanvasFade()
+    {
+        
+        whiteFlashCanvas.DOFade(1f, flashDuration)
+            .SetDelay(0f)
+            .OnComplete(() =>
+            {           
+                DOVirtual.DelayedCall(flashDelay, () =>
+                {               
+                    whiteFlashCanvas.DOFade(0f, flashDuration);
+                });
+            });
     }
 
     protected override void SetSpellAnimation()

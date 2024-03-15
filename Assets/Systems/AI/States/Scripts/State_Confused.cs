@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class State_Enchanted : StateBase
+public class State_Confused : StateBase
 {
     [SerializeField] float enchantedDuration = 10f;
     float currentTime;

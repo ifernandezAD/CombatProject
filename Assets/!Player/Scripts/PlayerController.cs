@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEditor;
+using System;
 
 public class PlayerController : EntityBase
 {
@@ -28,22 +29,32 @@ public class PlayerController : EntityBase
 
     [Header("Dash")]
     [SerializeField] InputActionReference dash;
+
     [SerializeField] EntityMovement.ExtraMovementInfo dashMovementInfo;
 
     [Header("Orientation")]
-    [SerializeField] OrientationMode orientationMode = OrientationMode.MovementForward;
-   
-    
+    [SerializeField] OrientationMode orientationMode = OrientationMode.MovementForward; 
     [SerializeField] Transform target;
+
+    [Header("Aiming")]
+    [SerializeField] InputActionReference aim;
 
     [Header("Events")]
     public UnityEvent<PlayerController> onPlayerDeath;
+
+    [Header("Player Modes Profiles")]
+    PlayerMode playerMode;
+    [SerializeField] PlayerMode.PlayerModeProfile defaultMovement;
+    [SerializeField] PlayerMode.PlayerModeProfile aimingProfile;
+    [SerializeField] PlayerMode.PlayerModeProfile targetLockProfile;
+
 
     EntityMovement entityMovement;
 
     protected override void ChildAwake()
     {
         entityMovement = GetComponent<EntityMovement>();
+        playerMode = GetComponent<PlayerMode>();
     }
 
     private void OnEnable()
@@ -52,15 +63,18 @@ public class PlayerController : EntityBase
         jump.action.Enable();
         dash.action.Enable();
         run.action.Enable();
+        aim.action.Enable();
     }
 
     protected override void ChildStart()
     {
-        
+        playerMode.SetPlayerModeProfile(defaultMovement);
     }
 
     void Update()
     {
+        UpdateAiming();
+
         Vector3 direction = CalculateDirectionFromInput();
         bool mustJump = jump.action.WasPerformedThisFrame();
         Vector3 xzPlaneVelocity = entityMovement.Move(direction, mustJump);
@@ -73,6 +87,19 @@ public class PlayerController : EntityBase
         entityMovement.Animate();
     }
 
+    private void UpdateAiming()
+    {
+        if (aim.action.WasPressedThisFrame())
+        {
+            playerMode.SetPlayerModeProfile(aimingProfile);
+        }
+        
+        if (aim.action.WasReleasedThisFrame())
+        {
+            playerMode.SetPlayerModeProfile(defaultMovement);
+        }
+    }
+
     private Vector3 CalculateOrientationFromSettings(Vector3 xzPlaneVelocity)
     {
         Vector3 orientationDirection = Vector3.zero;
@@ -80,6 +107,7 @@ public class PlayerController : EntityBase
         switch (orientationMode)
         {
             case OrientationMode.CameraForward:
+                orientationDirection = Camera.main.transform.forward;
                 break;
             case OrientationMode.MovementForward:
                 orientationDirection = xzPlaneVelocity;
@@ -127,5 +155,20 @@ public class PlayerController : EntityBase
         jump.action.Disable();
         dash.action.Disable();
         run.action.Disable();
+        aim.action.Disable();
+    }
+
+    
+
+    internal void SetMovementMode(MovementMode movementMode)
+    {
+        this.movementMode = movementMode;
+    }
+
+
+    internal void SetOrientationMode(OrientationMode orientationMode, Transform orientationTarget)
+    {
+        this.orientationMode = orientationMode;
+        this.target = orientationTarget;
     }
 }

@@ -228,7 +228,7 @@ public class AI : EntityBase
         hasLostTarget = false;
     }
 
-    internal void IsEntityStopped(bool value)
+    internal void StopEntity(bool value)
     {
         entityMovement.IsEntityStopped(value);
     }
