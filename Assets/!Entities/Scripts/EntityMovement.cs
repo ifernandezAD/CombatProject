@@ -83,11 +83,6 @@ public class EntityMovement : MonoBehaviour
             }
         }
 
-        if (debugStopEntity)
-        {
-            StopEntity();
-        }
-
         if (debugDisableEntityMovement)
         {
             IsEntityStopped(true);
