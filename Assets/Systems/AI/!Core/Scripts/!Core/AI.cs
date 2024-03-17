@@ -181,7 +181,7 @@ public class AI : EntityBase
 
     internal void SetDestinationToTarget()
     {
-        //Debug.Log(target);
+        Debug.Log(target);
         SetDestination(target.position);
     }
 
