@@ -14,6 +14,7 @@ public class EvocationSpell : Spell
     [Header("Evocation Spell")]
     [SerializeField] float animationDuration = 3.5f;
     [SerializeField] float summonDelay = 2.5f;
+    [SerializeField] GameObject summonVfx;
     [SerializeField] GameObject summonPrefab;
     private GameObject summonClone;
     [SerializeField] Transform summonInstantationPosition;
@@ -27,7 +28,8 @@ public class EvocationSpell : Spell
 
     void InstantiateDemon()
     {
-       summonClone=Instantiate(summonPrefab, summonInstantationPosition.position, summonInstantationPosition.rotation);
+        Instantiate(summonVfx, summonInstantationPosition.position, summonInstantationPosition.rotation);
+        summonClone =Instantiate(summonPrefab, summonInstantationPosition.position, summonInstantationPosition.rotation);
     }
 
     protected override void SetSpellAnimation()
