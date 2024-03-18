@@ -11,7 +11,6 @@ public class PlayerMode : MonoBehaviour
         public PlayerController.OrientationMode orientationMode;
 
         public Transform orientationTarget;
-        public Transform orientationCamera;
 
         public CinemachineVirtualCameraBase cameraBase;
 
@@ -30,7 +29,8 @@ public class PlayerMode : MonoBehaviour
         {
             if (pmp.debugActivate)
             {
-
+                pmp.debugActivate = false;
+                SetPlayerModeProfile(pmp);
             }
         }
     }
