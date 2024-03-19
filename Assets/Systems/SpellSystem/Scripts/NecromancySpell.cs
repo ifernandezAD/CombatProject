@@ -9,11 +9,15 @@ public class NecromancySpell : Spell
     private readonly int necromancyHash = Animator.StringToHash("NecromancySpell");
 
     [Header("Necromancy Spell")]
+    [SerializeField] GameObject necromancyVfx;
+    [SerializeField] float necromancyVfxDelay = 2f;
     [SerializeField] float animationDuration = 2.5f;
+
 
 
     protected override void BeginSpell()
     {
+        DOVirtual.DelayedCall(necromancyVfxDelay, SetActiveVfx);
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
     }
@@ -23,8 +27,13 @@ public class NecromancySpell : Spell
         animator.SetTrigger(necromancyHash);
     }
 
+    void SetActiveVfx()
+    {
+        necromancyVfx.SetActive(true);
+    }
+
     protected override void EndSpell()
     {
-        //Nothing yet
+        necromancyVfx.SetActive(false);
     }
 }
