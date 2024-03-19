@@ -14,6 +14,8 @@ public class PlayerMode : MonoBehaviour
 
         public CinemachineVirtualCameraBase cameraBase;
 
+        public GameObject[] modeExclusiveObjects;
+
         public bool debugActivate;
     }
 
@@ -40,15 +42,28 @@ public class PlayerMode : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
+    PlayerModeProfile currentActiveProfile;
     public void SetPlayerModeProfile(PlayerModeProfile profile)
     {
+        if (currentActiveProfile != null)
+        {
+            foreach (GameObject go in currentActiveProfile.modeExclusiveObjects)
+            {
+                go.SetActive(false);
+            }
+        }
+
         playerController.SetMovementMode(profile.movementMode);
         playerController.SetOrientationMode(profile.orientationMode,profile.orientationTarget);
-
 
         previousCamera?.gameObject.SetActive(false);
         profile.cameraBase?.gameObject.SetActive(true);
         previousCamera = profile.cameraBase;
-    }
 
+        foreach (GameObject go in profile.modeExclusiveObjects)
+        {
+            go.SetActive(true);
+        }
+        currentActiveProfile = profile;
+    }
 }
