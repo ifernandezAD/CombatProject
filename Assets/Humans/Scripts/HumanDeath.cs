@@ -14,6 +14,7 @@ public class HumanDeath : MonoBehaviour
     private void Awake()
     {
         entityLife = GetComponent<EntityLife>();
+        senseable = GetComponent<Senseable>();
         characterController = GetComponent<CharacterController>();
     }
 
