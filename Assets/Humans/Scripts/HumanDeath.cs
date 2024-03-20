@@ -9,7 +9,7 @@ public class HumanDeath : MonoBehaviour
     Senseable senseable;
     CharacterController characterController;
 
-    [SerializeField] private bool isDead;
+    public bool isDead { get; private set; }
 
     private void Awake()
     {
