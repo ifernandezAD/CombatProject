@@ -9,6 +9,7 @@ public class EntityLife : MonoBehaviour
     [SerializeField] float originalLife = 1f;
     float currentLife;
     HurtCollider hurtCollider;
+
     public bool isInmortal;
 
     public UnityEvent<float> onLifeChanged;
