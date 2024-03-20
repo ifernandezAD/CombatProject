@@ -9,4 +9,11 @@ public class Senseable : MonoBehaviour
     public bool isTouchable;
 
     [SerializeField][Allegiance] public string allegiance;
+
+    public void DisableSenseables()
+    {
+        isVisible = false;
+        isAudible = false;
+        isTouchable = false;
+    }
 }

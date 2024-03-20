@@ -6,6 +6,7 @@ using UnityEngine;
 public class HumanDeath : MonoBehaviour
 {
     EntityLife entityLife;
+    Senseable senseable;
     CharacterController characterController;
 
     [SerializeField] private bool isDead;
@@ -24,6 +25,7 @@ public class HumanDeath : MonoBehaviour
     private void ManageHumanDeath()
     {
         ShrinkCharacterController();
+        senseable.DisableSenseables();
         isDead = true;
     }
 
