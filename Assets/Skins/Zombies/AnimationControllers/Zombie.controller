@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Summon_Dance
+  m_Name: Zombie_Dance
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 1c18a319cf43c204495a4fa2d455eb9e,
+  m_Motion: {fileID: -203655887218126122, guid: 2ab1d11e1c8cc534a9efdc0a72d83b7f,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -174,7 +174,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Summon_Attack1
+  m_Name: Zombie_Attack1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -189,7 +189,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 686861789295c874ab36b8990d6c23b3, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: 582d6158f7b6c894a980d222fc260904,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -246,7 +247,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Summon_Attack3
+  m_Name: Zombie_Attack3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -284,7 +285,7 @@ BlendTree:
     m_DirectBlendParameter: ForwardVelocity
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 11982e04131d5df4b8748918c396d584,
+    m_Motion: {fileID: -203655887218126122, guid: 8b16ebfb6adf2d84ea2ad070e6575d99,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -293,7 +294,8 @@ BlendTree:
     m_DirectBlendParameter: ForwardVelocity
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 5d1633e056c427749a33e984a19e5a9b, type: 2}
+    m_Motion: {fileID: -203655887218126122, guid: cc8a819039db41e4b992e0fa64326bc2,
+      type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -686,7 +688,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Summon_Attack2
+  m_Name: Zombie_Attack2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -701,7 +703,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e4f02e1dfc302bf4ab79ab61a45131a8, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: d223dba18887f394f87834f4e8b9bc1f,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -736,7 +739,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Summon_Finisher
+  m_Name: Zombie_Finisher
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
@@ -750,7 +753,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 178881ab5d9bde24fba5516a071d8b83, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: 28ca24b207076a448b877d42de9083d4,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
