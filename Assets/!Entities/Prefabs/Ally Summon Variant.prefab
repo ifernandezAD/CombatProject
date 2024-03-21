@@ -2306,6 +2306,11 @@ PrefabInstance:
       objectReference: {fileID: 5594010692964135056}
     - target: {fileID: 8265675502178386943, guid: ba67bc7e4f3235f44ac50cda44cb4348,
         type: 3}
+      propertyPath: primaryRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265675502178386943, guid: ba67bc7e4f3235f44ac50cda44cb4348,
+        type: 3}
       propertyPath: animatorForWeapon
       value: 
       objectReference: {fileID: 0}
