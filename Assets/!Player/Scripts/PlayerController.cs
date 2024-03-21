@@ -48,10 +48,21 @@ public class PlayerController : EntityBase
     [SerializeField] PlayerMode.PlayerModeProfile aimingProfile;
     [SerializeField] PlayerMode.PlayerModeProfile targetLockProfile;
 
+    enum PlayerControllerMode
+    {
+        Default,
+        Aiming,
+        TargetLock,
+    };
+    PlayerControllerMode currentPlayerControllerMode;
+
+    PlayerTargetSelector targetSelector;
+
 
     protected override void ChildAwake()
     {
         playerMode = GetComponent<PlayerMode>();
+        targetSelector = GetComponent<PlayerTargetSelector>();
     }
 
     private void OnEnable()
@@ -61,11 +72,17 @@ public class PlayerController : EntityBase
         dash.action.Enable();
         run.action.Enable();
         aim.action.Enable();
+
+        targetSelector.onTargetAcquired.AddListener(OnTargetAcquired);
+        targetSelector.onTargetReleased.AddListener(OnTargetReleased);
     }
+
 
     protected override void ChildStart()
     {
         playerMode.SetPlayerModeProfile(defaultMovement);
+
+        SetPlayerControllerMode(PlayerControllerMode.Default);
     }
 
     void Update()
@@ -84,17 +101,51 @@ public class PlayerController : EntityBase
         entityMovement.Animate();
     }
 
+
+    bool isAiming = false;
+    bool isTargetLocking = false;
+    bool isAimingAtTarget = false;
     private void UpdateAiming()
     {
         if (aim.action.WasPressedThisFrame())
-        {
-            playerMode.SetPlayerModeProfile(aimingProfile);
+        {  
+            isAiming = true;
         }
-        
+
         if (aim.action.WasReleasedThisFrame())
         {
-            playerMode.SetPlayerModeProfile(defaultMovement);
+            
+            isAiming = false;
         }
+
+        targetLockProfile.orientationTarget = acquiredTarget;
+        if (isAiming)
+        {
+            if (acquiredTarget)
+            {
+                
+                SetPlayerControllerMode(PlayerControllerMode.TargetLock);
+            }
+            else
+            {
+                SetPlayerControllerMode(PlayerControllerMode.Aiming);
+            }
+        }
+        else
+        {
+            SetPlayerControllerMode(PlayerControllerMode.Default);
+        }
+    }
+
+    Transform acquiredTarget;
+    private void OnTargetAcquired(Transform target)
+    {
+        acquiredTarget = target;
+    }
+
+    private void OnTargetReleased(Transform target)
+    {
+        acquiredTarget = null;
     }
 
     private Vector3 CalculateOrientationFromSettings(Vector3 xzPlaneVelocity)
@@ -153,6 +204,9 @@ public class PlayerController : EntityBase
         dash.action.Disable();
         run.action.Disable();
         aim.action.Disable();
+
+        targetSelector.onTargetAcquired.RemoveListener(OnTargetAcquired);
+        targetSelector.onTargetReleased.RemoveListener(OnTargetReleased);
     }
 
     
@@ -168,4 +222,22 @@ public class PlayerController : EntityBase
         this.orientationMode = orientationMode;
         this.target = orientationTarget;
     }
+
+
+    void SetPlayerControllerMode(PlayerControllerMode mode)
+    {
+        if (currentPlayerControllerMode != mode)
+        {         
+            switch (mode)
+            {
+                case PlayerControllerMode.Default: playerMode.SetPlayerModeProfile(defaultMovement); break;
+            
+                case PlayerControllerMode.Aiming: playerMode.SetPlayerModeProfile(aimingProfile); break;
+            
+                case PlayerControllerMode.TargetLock: playerMode.SetPlayerModeProfile(targetLockProfile); break;
+            }
+            currentPlayerControllerMode = mode;
+        }
+    }
+
 }

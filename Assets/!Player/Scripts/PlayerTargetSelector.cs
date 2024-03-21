@@ -67,6 +67,8 @@ public class PlayerTargetSelector : MonoBehaviour
                 onTargetAcquired.Invoke(lockedTarget);
             }
         }
+
+        oldLockedTarget = lockedTarget;
     }
 
     Vector2 viewportCenter = Vector2.one / 2f;
@@ -79,7 +81,8 @@ public class PlayerTargetSelector : MonoBehaviour
         foreach (Collider c in colliders)
         {
             Senseable senseable = c.GetComponent<Senseable>();
-            if (senseable != null)
+            if ((senseable != null) &&
+                !doNotTarget.Contains(senseable.transform))
             {
                 senseables.Add(senseable);
             }
