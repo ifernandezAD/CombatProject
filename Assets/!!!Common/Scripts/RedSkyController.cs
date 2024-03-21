@@ -1,10 +1,13 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class RedSkyController : MonoBehaviour
 {
+    public static RedSkyController instance { get; private set; }
+
     [Header("Debug")]
     [SerializeField] bool debugIncreaseVolumeWeightIndicator;
     [SerializeField] bool debugResetVolumeWeightIndicator;
@@ -15,6 +18,10 @@ public class RedSkyController : MonoBehaviour
     [SerializeField] int currentVolumeWeightIndicator = 0;
     [SerializeField] int maxVolumeWeightIndicator = 10;
     [SerializeField] float volumeWeightRecoveryTime = 10f;
+
+    [Header("Events")]
+    public UnityEvent onMaxRedSkyReached;
+    private bool maxRedSkyReached;
 
     private void OnValidate()
     {
@@ -30,7 +37,12 @@ public class RedSkyController : MonoBehaviour
         }
     }
 
-    private void Awake() { volume = GetComponent<Volume>(); }
+    private void Awake()
+    {
+        instance = this;
+
+        volume = GetComponent<Volume>(); 
+    }
 
     private void OnEnable() { Spell.spellDyePowerNotified += IncreaseVolumeWeightIndicator; }
 
@@ -48,9 +60,14 @@ public class RedSkyController : MonoBehaviour
 
     void IncreaseVolumeWeightIndicator(int spellNotifiedPower)
     {
-        if (currentVolumeWeightIndicator >= maxVolumeWeightIndicator) { return; }
-
         currentVolumeWeightIndicator += spellNotifiedPower;
+
+        if (currentVolumeWeightIndicator >= maxVolumeWeightIndicator && !maxRedSkyReached)
+        {        
+            maxRedSkyReached = true;
+            onMaxRedSkyReached?.Invoke();
+            return; 
+        }       
 
         DyeSky();
     }
@@ -61,7 +78,7 @@ public class RedSkyController : MonoBehaviour
         {
             yield return new WaitForSeconds(volumeWeightRecoveryTime);
 
-            if (currentVolumeWeightIndicator > 0)
+            if (currentVolumeWeightIndicator > 0 && currentVolumeWeightIndicator < maxVolumeWeightIndicator)
             {
                 currentVolumeWeightIndicator--;
                 DyeSky();

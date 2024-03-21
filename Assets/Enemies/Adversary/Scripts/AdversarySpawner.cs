@@ -29,6 +29,11 @@ public class AdversarySpawner : MonoBehaviour
         instance = this;
     }
 
+    private void OnEnable()
+    {
+        RedSkyController.instance.onMaxRedSkyReached.AddListener(InstantiateAdversary);
+    }
+
 
     void InstantiateAdversary()
     {
@@ -39,5 +44,10 @@ public class AdversarySpawner : MonoBehaviour
         int randomPortalIndex = Random.Range(0, children.Length);
 
         Instantiate(adversaryPrefab, children[randomPortalIndex].transform.position, Quaternion.identity);
+    }
+
+    private void OnDisable()
+    {
+        RedSkyController.instance.onMaxRedSkyReached.RemoveListener(InstantiateAdversary);
     }
 }
