@@ -5,10 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class RigidbodySetStartSpeed : MonoBehaviour
 {
-    [SerializeField] Vector3 startSpeed = Vector3.forward * 5f;
+    [SerializeField] float speed = 5f; 
 
     private void Awake()
     {
-        GetComponent<Rigidbody>().velocity = startSpeed;
+        Vector3 localForwardSpeed = transform.forward * speed;
+
+        GetComponent<Rigidbody>().velocity = localForwardSpeed;
     }
 }
