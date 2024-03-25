@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 
+[DefaultExecutionOrder(-110)]
 public class RedSkyController : MonoBehaviour
 {
     public static RedSkyController instance { get; private set; }
