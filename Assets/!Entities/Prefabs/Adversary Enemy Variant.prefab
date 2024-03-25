@@ -226,6 +226,16 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.00002515316
       objectReference: {fileID: 0}
+    - target: {fileID: 1469950604039897184, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: isInmortal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469950604039897184, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: originalLife
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1590915226901316487, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -764,7 +774,7 @@ PrefabInstance:
     - target: {fileID: 6753920372577907697, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 62.62
+      value: 110.6
       objectReference: {fileID: 0}
     - target: {fileID: 6843157648203828330, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
@@ -840,6 +850,16 @@ PrefabInstance:
         type: 3}
       propertyPath: sightSize.z
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725896631569955667, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: skinToEnable
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725896631569955667, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: skinToDisable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7731539795363282014, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
@@ -934,7 +954,7 @@ PrefabInstance:
     - target: {fileID: 8343872436984070508, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
       propertyPath: stopEntity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8472314169180891648, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
@@ -996,7 +1016,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.5830002
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8006545075402112291, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
+    - {fileID: 1541044194883306487, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9112490624126687857, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
     - {fileID: 5937311449465870341, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
@@ -1004,6 +1026,7 @@ PrefabInstance:
     - {fileID: 4953538384967234816, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
     - {fileID: 2167114982252830561, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
     - {fileID: 7608375207373369092, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
+    - {fileID: 4689408107699454510, guid: 511cb56548ef8784a91ddf327cb2ec0e, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2621429750298087970, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
