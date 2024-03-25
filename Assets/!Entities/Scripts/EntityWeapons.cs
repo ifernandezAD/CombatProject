@@ -4,12 +4,17 @@ using UnityEngine.Events;
 
 public class EntityWeapons : MonoBehaviour
 {
+    [Header("Weapon Selection")]
     [SerializeField] Transform weaponsParent;
     [SerializeField] int  startingWeaponIndex = -1;
 
+    [Header("Aiming")]
+    [SerializeField] Transform weaponsRotation;
+    [SerializeField] public Transform aimPoint;
+
     [Header("Events")]
     [HideInInspector] public UnityEvent<Weapon> onChangeWeapon;
-
+   
     [Header("Debug")]
     [SerializeField] bool debugNextWeapon;
     [SerializeField] bool debugPreviousWeapon;
@@ -69,6 +74,14 @@ public class EntityWeapons : MonoBehaviour
     private void Start()
     {
         SelectWeapon(startingWeaponIndex);
+    }
+
+    private void Update()
+    {
+        Vector3 aimDirection = aimPoint.position - weaponsRotation.position;
+        Vector3 aimDirectionOnPlayerPlane = Vector3.ProjectOnPlane(aimDirection, transform.right);
+        float verticalAngle = Vector3.SignedAngle(transform.forward, aimDirectionOnPlayerPlane,transform.right);
+        weaponsRotation.localRotation = Quaternion.AngleAxis(verticalAngle, Vector3.right);
     }
 
     public void SelectWeapon(int weaponIndex)
