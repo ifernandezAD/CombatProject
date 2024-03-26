@@ -78,10 +78,12 @@ public class EntityWeapons : MonoBehaviour
 
     private void Update()
     {
-        Vector3 aimDirection = aimPoint.position - weaponsRotation.position;
-        Vector3 aimDirectionOnPlayerPlane = Vector3.ProjectOnPlane(aimDirection, transform.right);
-        float verticalAngle = Vector3.SignedAngle(transform.forward, aimDirectionOnPlayerPlane,transform.right);
-        weaponsRotation.localRotation = Quaternion.AngleAxis(verticalAngle, Vector3.right);
+        //Aiming system, paused until completed
+
+        //Vector3 aimDirection = aimPoint.position - weaponsRotation.position;
+        //Vector3 aimDirectionOnPlayerPlane = Vector3.ProjectOnPlane(aimDirection, transform.right);
+        //float verticalAngle = Vector3.SignedAngle(transform.forward, aimDirectionOnPlayerPlane,transform.right);
+        //weaponsRotation.localRotation = Quaternion.AngleAxis(verticalAngle, Vector3.right);
     }
 
     public void SelectWeapon(int weaponIndex)
