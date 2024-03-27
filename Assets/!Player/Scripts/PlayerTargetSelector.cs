@@ -82,7 +82,8 @@ public class PlayerTargetSelector : MonoBehaviour
         {
             Senseable senseable = c.GetComponent<Senseable>();
             if ((senseable != null) &&
-                !doNotTarget.Contains(senseable.transform))
+                !doNotTarget.Contains(senseable.transform) &&
+                (Array.Find(selectableAllegiances, x => x == senseable.allegiance) != null) )
             {
                 senseables.Add(senseable);
             }

@@ -19,6 +19,11 @@ public class State_Attack : StateBase
 
     private void UpdateOrientation()
     {
+        Debug.Log($"ai {ai}");
+        Debug.Log($"ai.entityMovement {ai.entityMovement}");
+        Debug.Log($"ai.target {ai.target}");
+        Debug.Log($"ai.target.transform {ai.target.transform}");
+        Debug.Log($"ai.transform {ai.transform}");
         ai.entityMovement.Orientate(ai.target.transform.position - ai.transform.position);
     }
 
