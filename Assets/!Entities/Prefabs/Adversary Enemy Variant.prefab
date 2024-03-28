@@ -426,6 +426,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2230412215823796557, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2274333434010158124, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -1015,6 +1020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: primaryRange
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827577684997094629, guid: 511cb56548ef8784a91ddf327cb2ec0e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8827577684997094629, guid: 511cb56548ef8784a91ddf327cb2ec0e,
         type: 3}

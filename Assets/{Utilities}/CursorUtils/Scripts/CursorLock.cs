@@ -10,7 +10,7 @@ public class CursorLock : MonoBehaviour
         LockCursor();
     }
 
-    [MenuItem("Utilities/Cursor/Cursor Lock %#&c")]
+    
     private static void LockCursor()
     {
         Cursor.visible = false;
