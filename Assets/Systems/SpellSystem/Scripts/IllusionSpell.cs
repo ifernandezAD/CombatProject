@@ -36,6 +36,7 @@ public class IllusionSpell : Spell
         DOVirtual.DelayedCall(spellEffectInitialDelay, AffectClosestEntityOnArea);
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerWeaponController);
     }
 
     void AffectClosestEntityOnArea()
@@ -133,6 +134,8 @@ public class IllusionSpell : Spell
 
         DOVirtual.DelayedCall(endAnimationDuration, RequestRecoverWeapon);
         DOVirtual.DelayedCall(endAnimationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(endAnimationDuration, EnablePlayerWeaponController);
+
         RecoverPlayerAllegiance();
     }
 }

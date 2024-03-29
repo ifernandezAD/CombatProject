@@ -25,6 +25,7 @@ public class NecromancySpell : Spell
         DOVirtual.DelayedCall(necromancySpellDelay, DetectDeathEntitiesOnArea);
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerWeaponController);
     }
 
     protected override void SetSpellAnimation()

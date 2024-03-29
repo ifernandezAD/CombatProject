@@ -10,6 +10,7 @@ public abstract class Spell : MonoBehaviour
     protected Senseable senseable;
     protected EntityLife entityLife;
     protected PlayerController playerController;
+    protected PlayerWeaponsController playerWeaponsController;
     protected EntityWeapons entityWeapons;
 
     [Header("AudioEvents")]
@@ -33,6 +34,7 @@ public abstract class Spell : MonoBehaviour
         entityWeapons = GetComponent<EntityWeapons>();
         senseable = GetComponent<Senseable>();
         playerController = GetComponent<PlayerController>();
+        playerWeaponsController = GetComponent<PlayerWeaponsController>();
 
         spellAudioSource = GetComponent<AudioSource>();
         voiceAudioSource = GetComponents<AudioSource>()[1];
@@ -43,6 +45,7 @@ public abstract class Spell : MonoBehaviour
     {
         InvokeSpellDyePowerEvent();
         DisablePlayerController();
+        DisablePlayerWeaponController();
         RequestRemoveWeapon();
         PlaySpellSound();
         SetSpellAnimation();
@@ -54,6 +57,9 @@ public abstract class Spell : MonoBehaviour
 
     public void EnablePlayerController() { playerController.enabled = true; }
     public void DisablePlayerController() { playerController.enabled = false; }
+
+    public void EnablePlayerWeaponController() { playerWeaponsController.enabled = true; }
+    public void DisablePlayerWeaponController() { playerWeaponsController.enabled = false ; }
 
     public void RequestRemoveWeapon() { entityWeapons.RemoveWeapon(); }
     public void RequestRecoverWeapon() { entityWeapons.RecoverWeapon(); }

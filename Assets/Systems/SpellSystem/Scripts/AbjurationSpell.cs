@@ -16,6 +16,7 @@ public class AbjurationSpell : Spell
     {
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerWeaponController);
     }
 
     protected override void SetSpellAnimation(){ animator.SetTrigger(abjurationHash); }

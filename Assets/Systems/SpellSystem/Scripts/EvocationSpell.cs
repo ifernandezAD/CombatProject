@@ -22,6 +22,7 @@ public class EvocationSpell : Spell
         DOVirtual.DelayedCall(summonDelay+1, InstantiateDemon);
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerWeaponController);
     }
 
     void InstantiateSummonVfx()

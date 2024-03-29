@@ -23,6 +23,7 @@ public class Enchantment : Spell
         AffectEntitiesOnArea();
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerWeaponController);
     }
 
 

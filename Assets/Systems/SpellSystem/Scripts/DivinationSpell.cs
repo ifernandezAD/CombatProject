@@ -23,6 +23,7 @@ public class DivinationSpell : Spell
                     
         DOVirtual.DelayedCall(animationDuration, entityWeapons.RecoverWeapon);
         DOVirtual.DelayedCall(animationDuration, EnablePlayerController);
+        DOVirtual.DelayedCall(animationDuration, EnablePlayerWeaponController);
     }
 
     public void PlayDivinationSound() { divinationAudioEvent.Play(voiceAudioSource); }

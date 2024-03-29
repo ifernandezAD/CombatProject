@@ -39,6 +39,7 @@ public class ConjurationSpell : Spell
 
         DisablePlayerController();
         DOVirtual.DelayedCall(endAnimationDuration, RequestRecoverWeapon);
+        DOVirtual.DelayedCall(endAnimationDuration, EnablePlayerWeaponController);
         DOVirtual.DelayedCall(endAnimationDuration, EnablePlayerController);
     }              
 }
