@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -257,6 +258,22 @@ public class AI : EntityBase
     internal bool IsConfused()
     {
         return isConfused;
+    }
+
+    #endregion
+
+    #region Roaring State
+
+    [SerializeField] bool isRoaring;
+
+    public void SetRoaring(bool value)
+    {
+        isRoaring = value;
+    }
+
+    internal bool IsRoaring()
+    {
+        throw new NotImplementedException();
     }
 
     #endregion

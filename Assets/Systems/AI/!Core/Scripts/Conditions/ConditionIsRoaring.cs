@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConditionIsEnchanted : ConditionBase
+public class ConditionIsRoaring : ConditionBase
 {
     internal override bool IsMeet()
     {
-        return decissionMaker.ai.IsEnchanted();
-    }    
+        return decissionMaker.ai.IsRoaring();
+    }
 }
