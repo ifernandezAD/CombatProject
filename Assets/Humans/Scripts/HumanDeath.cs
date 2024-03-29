@@ -28,17 +28,9 @@ public class HumanDeath : MonoBehaviour
     private void ManageHumanDeath()
     {
         ShrinkCharacterController();
-
-        decissionMaker.enabled = false;
+        
         ai.senseable.DisableSenseables();
-
-        foreach (StateBase sb in ai.allStates)
-        {
-            if (sb.enabled)
-            {
-                sb.enabled = false;
-            }
-        }
+        DisableAIStateMachine();
 
         isDead = true;
     }
@@ -51,6 +43,19 @@ public class HumanDeath : MonoBehaviour
         characterController.radius = 0.1f;
         characterController.height = 0.1f;
         controllerYpos = 0.1f;
+    }
+
+    private void DisableAIStateMachine()
+    {
+        decissionMaker.enabled = false;
+
+        foreach (StateBase sb in ai.allStates)
+        {
+            if (sb.enabled)
+            {
+                sb.enabled = false;
+            }
+        }
     }
 
     private void OnDisable()
