@@ -24,7 +24,7 @@ public class AI : EntityBase
     Audition audition;
     
     public Senseable senseable;
-    StateBase[] allStates;
+    public StateBase[] allStates;
 
     Vector3 lastSeekedPosition = Vector3.zero;
 

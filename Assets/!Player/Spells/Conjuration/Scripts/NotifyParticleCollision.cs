@@ -8,6 +8,8 @@ public class NotifyParticleCollision : MonoBehaviour,IOffender
 
     private void OnParticleCollision(GameObject other)
     {
+        if (other.gameObject.tag == "Player") { return; }
+
         hitDirection = other.transform.position - transform.position;
         other.GetComponent<HurtCollider>()?.NotifyHit(this);
     }

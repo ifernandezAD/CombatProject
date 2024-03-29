@@ -6,7 +6,8 @@ using UnityEngine;
 public class HumanDeath : MonoBehaviour
 {
     EntityLife entityLife;
-    Senseable senseable;
+    DecissionMaker decissionMaker;
+    AI ai;
     CharacterController characterController;
 
     public bool isDead { get; private set; }
@@ -14,8 +15,9 @@ public class HumanDeath : MonoBehaviour
     private void Awake()
     {
         entityLife = GetComponent<EntityLife>();
-        senseable = GetComponent<Senseable>();
+        ai = GetComponent<AI>();
         characterController = GetComponent<CharacterController>();
+        decissionMaker = gameObject.transform.parent.GetComponentInChildren<DecissionMaker>();
     }
 
     private void OnEnable()
@@ -26,7 +28,18 @@ public class HumanDeath : MonoBehaviour
     private void ManageHumanDeath()
     {
         ShrinkCharacterController();
-        senseable.DisableSenseables();
+
+        decissionMaker.enabled = false;
+        ai.senseable.DisableSenseables();
+
+        foreach (StateBase sb in ai.allStates)
+        {
+            if (sb.enabled)
+            {
+                sb.enabled = false;
+            }
+        }
+
         isDead = true;
     }
 
