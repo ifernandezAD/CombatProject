@@ -273,7 +273,7 @@ public class AI : EntityBase
 
     internal bool IsRoaring()
     {
-        throw new NotImplementedException();
+        return isRoaring;
     }
 
     #endregion
