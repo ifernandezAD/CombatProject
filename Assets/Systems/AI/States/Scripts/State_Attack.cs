@@ -56,8 +56,9 @@ public class State_Attack : StateBase
                 {
                     ai.animator.SetTrigger(adversaryMeteorHash);
                     DOVirtual.DelayedCall(adversaryMeteorAnimationDuration, ai.entityWeapons.Shot);
-                    ai.SetRoaring(true);
-                }else
+                    DOVirtual.DelayedCall(adversaryMeteorAnimationDuration+0.5f, ReturnToRoaringState);
+                }
+                else
                 {
                     ai.entityWeapons.Shot();
                 }
@@ -65,7 +66,13 @@ public class State_Attack : StateBase
             case Weapon.AttackType.Burst:
                 break;
             case Weapon.AttackType.ContinousShot:
+                ai.entityWeapons.Shot();
                 break;
         }
+    }
+
+    void ReturnToRoaringState()
+    {
+        ai.SetRoaring(true);
     }
 }
