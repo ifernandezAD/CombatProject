@@ -26,7 +26,7 @@ public class State_Roaring : StateBase
 
     private void ChangeWeapon()
     {
-        int randomWeapon = UnityEngine.Random.Range(0, 3);
+        int randomWeapon = UnityEngine.Random.Range(0, 2);
 
         ai.entityWeapons.SelectWeapon(randomWeapon);
     }

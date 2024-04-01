@@ -66,7 +66,6 @@ public class State_Attack : StateBase
             case Weapon.AttackType.Burst:
                 break;
             case Weapon.AttackType.ContinousShot:
-                ai.entityWeapons.Shot();
                 break;
         }
     }
