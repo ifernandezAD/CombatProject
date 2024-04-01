@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,9 @@ public class State_Attack : StateBase
 {
     [SerializeField] private Transform lastValidTarget;
     
+    [Header("Animations")]
+    private readonly int adversaryMeteorHash = Animator.StringToHash("MeteorAttack");
+    [SerializeField] float adversaryMeteorAnimationDuration = 2f;
 
     private void OnEnable()
     {
@@ -48,8 +52,16 @@ public class State_Attack : StateBase
                 ai.entityWeapons.MeleeAttack();
                 break;
             case Weapon.AttackType.Shot:
-                ai.entityWeapons.Shot();
-                break;
+                if (ai.senseable.allegiance == "Adversary")
+                {
+                    ai.animator.SetTrigger(adversaryMeteorHash);
+                    DOVirtual.DelayedCall(adversaryMeteorAnimationDuration, ai.entityWeapons.Shot);
+                    ai.SetRoaring(true);
+                }else
+                {
+                    ai.entityWeapons.Shot();
+                }
+                    break;
             case Weapon.AttackType.Burst:
                 break;
             case Weapon.AttackType.ContinousShot:

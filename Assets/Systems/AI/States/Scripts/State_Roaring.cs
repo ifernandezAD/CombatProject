@@ -13,10 +13,8 @@ public class State_Roaring : StateBase
     private void OnEnable()
     {
         ai.StopEntity(true);
-
         PlayRoaringAnimation();
-        ChangeWeapon();
-
+        
         DOVirtual.DelayedCall(animationDuration, EndRoaring);
     }
 
@@ -35,6 +33,7 @@ public class State_Roaring : StateBase
 
     private void EndRoaring()
     {
+        ChangeWeapon();
         ai.SetRoaring(false);
         ai.StopEntity(false);
     }
