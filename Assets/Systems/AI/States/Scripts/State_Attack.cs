@@ -1,13 +1,10 @@
 using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class State_Attack : StateBase
 {
     [SerializeField] private Transform lastValidTarget;
-    
+
     [Header("Animations")]
     private readonly int adversaryMeteorHash = Animator.StringToHash("MeteorAttack");
     [SerializeField] float adversaryMeteorAnimationDuration = 2f;
@@ -39,7 +36,7 @@ public class State_Attack : StateBase
 
     private void UpdateMovement()
     {
-       
+
     }
 
     private void UpdateAttack()
@@ -56,13 +53,13 @@ public class State_Attack : StateBase
                 {
                     ai.animator.SetTrigger(adversaryMeteorHash);
                     DOVirtual.DelayedCall(adversaryMeteorAnimationDuration, ai.entityWeapons.Shot);
-                    DOVirtual.DelayedCall(adversaryMeteorAnimationDuration+0.5f, ReturnToRoaringState);
+                    DOVirtual.DelayedCall(adversaryMeteorAnimationDuration + 1.5f, ReturnToRoaringState);
                 }
                 else
                 {
                     ai.entityWeapons.Shot();
                 }
-                    break;
+                break;
             case Weapon.AttackType.Burst:
                 break;
             case Weapon.AttackType.ContinousShot:
