@@ -7,12 +7,9 @@ public class CameraShaking : MonoBehaviour
     [Header("Debug")]
     [SerializeField] bool debugShakeCamera;
 
-    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] private CinemachineFreeLook cinemachineFreeLookCamera;
     private float shakeIntensity = 1f;
     private float shakeTime = 0.2f;
-
-    private float timer;
-    private CinemachineBasicMultiChannelPerlin cbmcp;
 
 
     private void OnValidate()
@@ -26,11 +23,11 @@ public class CameraShaking : MonoBehaviour
 
     private void Awake()
     {
+        GetActualVirtualCamera();
     }
 
     void Start()
-    {
-        GetActualVirtualCamera();
+    {        
         StopShake();
     }
 
@@ -42,8 +39,11 @@ public class CameraShaking : MonoBehaviour
 
     private IEnumerator DoShake()
     {
-        CinemachineBasicMultiChannelPerlin cbmcp = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        cbmcp.m_AmplitudeGain = shakeIntensity;
+        CinemachineBasicMultiChannelPerlin[] perlinModules = cinemachineFreeLookCamera.GetComponentsInChildren<CinemachineBasicMultiChannelPerlin>();
+        foreach (CinemachineBasicMultiChannelPerlin cbmcp in perlinModules)
+        {
+            cbmcp.m_AmplitudeGain = shakeIntensity;
+        }
 
         yield return new WaitForSeconds(shakeTime);
 
@@ -52,15 +52,34 @@ public class CameraShaking : MonoBehaviour
 
     public void StopShake()
     {
-        CinemachineBasicMultiChannelPerlin cbmcp = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        cbmcp.m_AmplitudeGain = 0f;
+        CinemachineBasicMultiChannelPerlin[] perlinModules = cinemachineFreeLookCamera.GetComponentsInChildren<CinemachineBasicMultiChannelPerlin>();
 
-        timer = 0;
+        foreach (CinemachineBasicMultiChannelPerlin cbmcp in perlinModules)
+        {
+            cbmcp.m_AmplitudeGain = 0f;
+        }
     }
 
     public void GetActualVirtualCamera()
     {
-        cinemachineVirtualCamera =
-            Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();      
+        cinemachineFreeLookCamera = null; 
+        foreach (Transform child in transform)
+        {
+            CinemachineFreeLook childFreelookCamera = child.GetComponent<CinemachineFreeLook>();
+            if (childFreelookCamera != null)
+            {
+                if (childFreelookCamera.gameObject.activeInHierarchy)
+                {
+                    cinemachineFreeLookCamera = childFreelookCamera;
+                    break; 
+                }
+            }
+        }
+
+        if (cinemachineFreeLookCamera == null)
+        {
+            Debug.LogWarning("No active Cinemachine Virtual Camera found among child GameObjects.");
+        }
     }
 }
+
