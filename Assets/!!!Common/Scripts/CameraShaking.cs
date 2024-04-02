@@ -8,15 +8,15 @@ public class CameraShaking : MonoBehaviour
     [SerializeField] bool debugShakeCamera;
 
     [SerializeField] private CinemachineFreeLook cinemachineFreeLookCamera;
-    private float shakeIntensity = 1f;
-    private float shakeTime = 0.2f;
+    [SerializeField] float shakeIntensity = 1f;
+    [SerializeField] float shakeTime = 1f;
 
 
     private void OnValidate()
     {
         if (debugShakeCamera)
         {
-            ShakeCamera();
+            ShakeCamera(shakeIntensity,shakeTime);
             debugShakeCamera = false;
         }
     }
@@ -26,18 +26,24 @@ public class CameraShaking : MonoBehaviour
         GetActualVirtualCamera();
     }
 
+    private void OnEnable()
+    {
+        State_Roaring.onAdversaryRoaring += ShakeCamera;
+    }
+
     void Start()
     {        
         StopShake();
     }
 
-    public void ShakeCamera()
+    public void ShakeCamera(float shakeIntensity, float shakeTime)
     {
+        Debug.Log("Roaring event listened");
         GetActualVirtualCamera();
-        StartCoroutine(DoShake());
+        StartCoroutine(DoShake(shakeIntensity,shakeTime));
     }
 
-    private IEnumerator DoShake()
+    private IEnumerator DoShake(float shakeIntensity,float shakeTime)
     {
         CinemachineBasicMultiChannelPerlin[] perlinModules = cinemachineFreeLookCamera.GetComponentsInChildren<CinemachineBasicMultiChannelPerlin>();
         foreach (CinemachineBasicMultiChannelPerlin cbmcp in perlinModules)
@@ -81,5 +87,12 @@ public class CameraShaking : MonoBehaviour
             Debug.LogWarning("No active Cinemachine Virtual Camera found among child GameObjects.");
         }
     }
+
+    private void OnDisable()
+    {
+        State_Roaring.onAdversaryRoaring -= ShakeCamera;
+    }
+
+
 }
 

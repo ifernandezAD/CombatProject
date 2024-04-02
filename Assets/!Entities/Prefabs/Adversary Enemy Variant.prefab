@@ -4095,6 +4095,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62abaf50de3c4b44fbf2f0d6f4488b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roarDelay: 1
+  shakeIntensity: 2
+  shakeTime: 1
   animationDuration: 3.7
 --- !u!1 &8248160173568837592
 GameObject:

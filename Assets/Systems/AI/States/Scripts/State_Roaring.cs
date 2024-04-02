@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class State_Roaring : StateBase
 {
+    [Header("CameraShake")]
+    [SerializeField] float roarDelay = 1f;
+    [SerializeField] float shakeIntensity = 1f;
+    [SerializeField] float shakeTime = 1f;
+    public static Action<float, float> onAdversaryRoaring;
+
     [Header("EnchantmentAnimations")]
-    private readonly int roaringHash = Animator.StringToHash("Roaring");
     [SerializeField] float animationDuration = 3f;
+    private readonly int roaringHash = Animator.StringToHash("Roaring");
 
 
     private void OnEnable()
@@ -16,12 +22,18 @@ public class State_Roaring : StateBase
         ai.StopEntity(true);
         PlayRoaringAnimation();
 
+        DOVirtual.DelayedCall(roarDelay, SendRoaringEvent);
         DOVirtual.DelayedCall(animationDuration, EndRoaring);
     }
 
     private void PlayRoaringAnimation()
     {
         ai.animator.SetTrigger(roaringHash);
+    }
+
+    private void SendRoaringEvent()
+    {
+        onAdversaryRoaring?.Invoke(shakeIntensity, shakeTime);
     }
 
     private void ChangeWeapon()
