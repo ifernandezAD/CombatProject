@@ -10,17 +10,12 @@ public class State_Roaring : StateBase
     private readonly int roaringHash = Animator.StringToHash("Roaring");
     [SerializeField] float animationDuration = 3f;
 
-    [Header("Camera Rumble")]
-    [SerializeField] float rumbleIntensity = 0.5f;
-    [SerializeField] float rumbleDuration = 0.5f;
-    [SerializeField] float rumbleDelay = 1f;
 
     private void OnEnable()
     {
         ai.StopEntity(true);
         PlayRoaringAnimation();
 
-       // DOVirtual.DelayedCall(rumbleDelay, TriggerRumble);
         DOVirtual.DelayedCall(animationDuration, EndRoaring);
     }
 
