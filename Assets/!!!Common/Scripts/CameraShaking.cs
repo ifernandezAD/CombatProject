@@ -1,9 +1,13 @@
 using Cinemachine;
+using System.Collections;
 using UnityEngine;
 
 public class CameraShaking : MonoBehaviour
 {
-    private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [Header("Debug")]
+    [SerializeField] bool debugShakeCamera;
+
+    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     private float shakeIntensity = 1f;
     private float shakeTime = 0.2f;
 
@@ -11,38 +15,40 @@ public class CameraShaking : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin cbmcp;
 
 
+    private void OnValidate()
+    {
+        if (debugShakeCamera)
+        {
+            ShakeCamera();
+            debugShakeCamera = false;
+        }
+    }
+
     private void Awake()
     {
-        cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
     void Start()
     {
+        GetActualVirtualCamera();
         StopShake();
-    }
-
-
-    void Update()
-    {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-
-            if (timer <= 0)
-            {
-                StopShake();
-            }
-        }
     }
 
     public void ShakeCamera()
     {
+        GetActualVirtualCamera();
+        StartCoroutine(DoShake());
+    }
+
+    private IEnumerator DoShake()
+    {
         CinemachineBasicMultiChannelPerlin cbmcp = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         cbmcp.m_AmplitudeGain = shakeIntensity;
 
-        timer = shakeTime;
-    }
+        yield return new WaitForSeconds(shakeTime);
 
+        StopShake();
+    }
 
     public void StopShake()
     {
@@ -50,5 +56,11 @@ public class CameraShaking : MonoBehaviour
         cbmcp.m_AmplitudeGain = 0f;
 
         timer = 0;
+    }
+
+    public void GetActualVirtualCamera()
+    {
+        cinemachineVirtualCamera =
+            Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();      
     }
 }
