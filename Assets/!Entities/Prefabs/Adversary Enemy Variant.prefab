@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastValidTarget: {fileID: 0}
-  adversaryMeteorAnimationDuration: 1.7
+  adversaryMeteorAnimationDuration: 1.5
 --- !u!114 &822817333591015146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4096,8 +4096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roarDelay: 1
-  shakeIntensity: 2
-  shakeTime: 1
+  shakeIntensity: 3
+  shakeTime: 1.5
   animationDuration: 3.7
 --- !u!1 &8248160173568837592
 GameObject:
