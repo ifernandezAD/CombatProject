@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class State_Roaming : StateBase
@@ -8,6 +9,11 @@ public class State_Roaming : StateBase
 
     private void OnEnable()
     {
-        Debug.Log("The Civilian is Roaming");
+        SetRoamingAnimation(selectedAnimation);
+    }
+
+    private void SetRoamingAnimation(string selectedAnimation)
+    {
+        animator.SetBool(selectedAnimation, true);
     }
 }
