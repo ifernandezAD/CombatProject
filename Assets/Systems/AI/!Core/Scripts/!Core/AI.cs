@@ -9,7 +9,6 @@ public class AI : EntityBase
 
     [Header("Path Calculation")]
     [SerializeField] float pathCalculationThresoldDistance = 1f;
-
     [SerializeField] int areaMask = NavMesh.AllAreas;
 
     [Header("Path Following")]
@@ -276,6 +275,21 @@ public class AI : EntityBase
         return isRoaring;
     }
 
+    #endregion
+
+    #region Roaming State
+
+    [SerializeField] bool isRoaming = true;
+
+    public void SetRoaming(bool value)
+    {
+        isRoaming = value;
+    }
+
+    internal bool IsRoaming()
+    {
+        return isRoaming;
+    }
     #endregion
 }
 
