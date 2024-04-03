@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class State_Roaming : StateBase
 {
-    [SerializeField] [CivilianAnimation] string[] roamingAnimation;
+
+    [SerializeField] string[] roamingAnimations;
+    [SerializeField] [CivilianAnimation] public string selectedAnimation;
 
     private void OnEnable()
     {
