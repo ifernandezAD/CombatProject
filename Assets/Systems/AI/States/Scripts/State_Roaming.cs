@@ -9,6 +9,7 @@ public class State_Roaming : StateBase
 
     private void OnEnable()
     {
+        Debug.Log("Entered Roaming Status");
         SetRoamingAnimation(selectedAnimation);
     }
 
@@ -16,4 +17,15 @@ public class State_Roaming : StateBase
     {
         animator.SetBool(selectedAnimation, true);
     }
+
+    private void RemoveRoamingAnimation(string selectedAnimation)
+    {
+        animator.SetBool(selectedAnimation, false);
+    }
+
+    private void OnDisable()
+    {
+        RemoveRoamingAnimation(selectedAnimation);
+    }
+
 }
