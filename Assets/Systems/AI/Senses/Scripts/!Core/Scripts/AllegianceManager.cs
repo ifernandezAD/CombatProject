@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 public class AllegianceManager : MonoBehaviour
 {
@@ -34,4 +35,18 @@ public class AllegianceManager : MonoBehaviour
     {
         return definition.CalcRelationship(allegiance1, allegiance2);
     }
+
+#if UNITY_EDITOR
+    [MenuItem("Allegiances/Test/Change Allegiance In Runtime")]
+    public static void TestChangeAllegianceInRuntime()
+    {
+        AllegianceManager.instance.definition.ChangeAllegiancesInRuntime(
+            instance.definition.allegiances[0],
+            instance.definition.allegiances[1],
+            (AllegianceDefinition.Relationship)UnityEngine.Random.Range(0, 3));
+    }
+
+#endif
 }
+
+

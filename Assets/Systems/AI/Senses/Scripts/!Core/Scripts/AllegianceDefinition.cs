@@ -61,4 +61,16 @@ public class AllegianceDefinition : ScriptableObject
 
         return relationships[k];
     }
+
+
+    public void ChangeAllegiancesInRuntime(string allegiance1, string allegiance2,Relationship relationship)
+    {
+        InitHashes();
+
+        int index1 = nameToIndexHash[allegiance1];
+        int index2 = nameToIndexHash[allegiance2];
+        allegianceIndexesToInt[(index1, index2)] = (int)relationship;
+        allegianceIndexesToInt[(index2, index1)] = (int)relationship;
+    }
+
 }
