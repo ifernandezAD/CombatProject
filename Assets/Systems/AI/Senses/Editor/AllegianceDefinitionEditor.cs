@@ -64,6 +64,7 @@ public class AllegianceDefinitionEditor : Editor
         }
 
         serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(t);
     }
 
     void ResizeRelationshipsIfNecessary()
