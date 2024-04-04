@@ -52,25 +52,27 @@ public class AllegianceDefinition : ScriptableObject
 
     internal Relationship CalcRelationship(string allegiance1, string allegiance2)
     {
-        InitHashes();
-        int index1 = nameToIndexHash[allegiance1];
-        int index2 = nameToIndexHash[allegiance2];
-        int k = allegianceIndexesToInt[(index1, index2)];
+        int k = CalcRelationshipIndex(allegiance1, allegiance2);
 
         //Debug.Log($"CalcRelationship - ({index1}, {index2}), {k}, {relationships[k]}");
 
         return relationships[k];
     }
 
-
-    public void ChangeAllegiancesInRuntime(string allegiance1, string allegiance2,Relationship relationship)
+    private int CalcRelationshipIndex(string allegiance1, string allegiance2)
     {
         InitHashes();
 
         int index1 = nameToIndexHash[allegiance1];
         int index2 = nameToIndexHash[allegiance2];
-        allegianceIndexesToInt[(index1, index2)] = (int)relationship;
-        allegianceIndexesToInt[(index2, index1)] = (int)relationship;
+        int k = allegianceIndexesToInt[(index1, index2)];
+        return k;
+    }
+
+    public void ChangeAllegiancesInRuntime(string allegiance1, string allegiance2,Relationship relationship)
+    {
+        int k = CalcRelationshipIndex(allegiance1, allegiance2);
+        relationships[k] = relationship;
     }
 
 }

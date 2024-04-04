@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-using Cinemachine.Editor;
 using System;
+using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(AllegianceDefinition))]
 public class AllegianceDefinitionEditor : Editor
@@ -19,52 +16,59 @@ public class AllegianceDefinitionEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        EditorGUILayout.HelpBox("Hola", MessageType.None);
-
-        ResizeRelationshipsIfNecessary();
-        int allegiancesSize = allegiances.arraySize;
-
-        EditorGUILayout.PropertyField(allegiances);
-
-        Undo.RecordObject(t, "Allegiance Definition Editor");
-
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("");
-        for (int i = allegiancesSize - 1; i >= 0; i--)
-        { GUILayout.Label(allegiances.GetArrayElementAtIndex(i).stringValue); }
-        EditorGUILayout.EndHorizontal();
-
-        int k = 0;
-        for (int i = 0; i < allegiancesSize; i++)
+        if (Application.isPlaying)
         {
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.Label(allegiances.GetArrayElementAtIndex(i).stringValue);
-            for (int j = 0; j < allegiancesSize; j++)
-            {
-                if (j < (allegiancesSize - i))
-                {
-                    if (GUILayout.Button(t.relationships[k].ToString()))
-                    {
-                        t.relationships[k]++;
-
-                        if ((int)t.relationships[k] >=
-                            Enum.GetNames(typeof(AllegianceDefinition.Relationship)).Length)
-                        {
-                            t.relationships[k] = 0;
-                        }
-                    }
-                    k++;
-                }
-                else
-                {
-                    GUILayout.Label("-");
-                }
-            }
-            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.HelpBox("AllegianceDefinition files cannot be changed during PlayMode", MessageType.Error);
         }
+        else
+        {
+            EditorGUILayout.HelpBox("Hola", MessageType.None);
 
-        serializedObject.ApplyModifiedProperties();
-        EditorUtility.SetDirty(t);
+            ResizeRelationshipsIfNecessary();
+            int allegiancesSize = allegiances.arraySize;
+
+            EditorGUILayout.PropertyField(allegiances);
+
+            Undo.RecordObject(t, "Allegiance Definition Editor");
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label("");
+            for (int i = allegiancesSize - 1; i >= 0; i--)
+            { GUILayout.Label(allegiances.GetArrayElementAtIndex(i).stringValue); }
+            EditorGUILayout.EndHorizontal();
+
+            int k = 0;
+            for (int i = 0; i < allegiancesSize; i++)
+            {
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.Label(allegiances.GetArrayElementAtIndex(i).stringValue);
+                for (int j = 0; j < allegiancesSize; j++)
+                {
+                    if (j < (allegiancesSize - i))
+                    {
+                        if (GUILayout.Button(t.relationships[k].ToString()))
+                        {
+                            t.relationships[k]++;
+
+                            if ((int)t.relationships[k] >=
+                                Enum.GetNames(typeof(AllegianceDefinition.Relationship)).Length)
+                            {
+                                t.relationships[k] = 0;
+                            }
+                        }
+                        k++;
+                    }
+                    else
+                    {
+                        GUILayout.Label("-");
+                    }
+                }
+                EditorGUILayout.EndHorizontal();
+            }
+
+            serializedObject.ApplyModifiedProperties();
+            EditorUtility.SetDirty(t);
+        }
     }
 
     void ResizeRelationshipsIfNecessary()
