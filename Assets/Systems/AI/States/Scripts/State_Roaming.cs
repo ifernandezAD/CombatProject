@@ -15,16 +15,17 @@ public class State_Roaming : StateBase
 
     private void SetRoamingAnimation(string selectedAnimation)
     {
-        animator.SetBool(selectedAnimation, true);
+        ai.animator.SetBool(selectedAnimation, true);
     }
 
     private void RemoveRoamingAnimation(string selectedAnimation)
     {
-        animator.SetBool(selectedAnimation, false);
+        ai.animator.SetBool(selectedAnimation, false);
     }
 
     private void OnDisable()
     {
+        Debug.Log("Leaving roaming status");
         RemoveRoamingAnimation(selectedAnimation);
     }
 
