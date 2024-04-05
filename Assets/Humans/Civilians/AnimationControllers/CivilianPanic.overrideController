@@ -7,5 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CivilianPanic
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 5ad674a03b5d6214fa8601c71adcae4f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: ec7d9dd514d15a24498b75d4a4b132f4,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 175b271a70db6a845b0077e087a90944,
+      type: 3}

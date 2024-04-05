@@ -15,6 +15,9 @@ public class GameLogic : MonoBehaviour
     [SerializeField] GameObject adversaryPrefab;
     [SerializeField] Transform adversarySpawnParent;
     [SerializeField] GameObject ragnarokVfxContainer;
+
+    [Header("Init")]
+    [SerializeField] Transform panicPatrolPointsParent;
  
     private void OnValidate()
     {
@@ -30,12 +33,20 @@ public class GameLogic : MonoBehaviour
         instance = this;
 
         playerTransform = GameObject.FindWithTag("Player").transform;
+        State_Panic[] panickingObjects = FindObjectsOfType<State_Panic>();
+
+        foreach (State_Panic panickingObject in panickingObjects)
+        {
+            panickingObject.InitParent(panicPatrolPointsParent);
+        }
     }
 
     private void OnEnable()
     {
         RedSkyController.instance.onMaxRedSkyReached.AddListener(EnterRagnarokMode);
     }
+
+
 
     void EnterRagnarokMode()
     {

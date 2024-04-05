@@ -12,7 +12,7 @@ public class State_Panic : StateBase
         PingPong,
     }
 
-    [SerializeField] Transform patrolPointsParent;
+    [SerializeField] private Transform patrolPointsParent; 
     [SerializeField] float reachDistance = 1.5f;
     [SerializeField] PatrolMode patrolMode = PatrolMode.Loop;
 
@@ -23,7 +23,6 @@ public class State_Panic : StateBase
     {
         Debug.Log("The Civilian is panicking");
         animator.runtimeAnimatorController = panicAnimationController;
-        //Cambiar el controller a running
         //Patrol a los 4 puntos cardinales de forma aleatoria ( panicPoints en el gameplay commons)
         //Aumentar la velocidad de los jambos
     }
@@ -33,9 +32,16 @@ public class State_Panic : StateBase
         UpdatePatrol();
     }
 
+    public void InitParent(Transform parent)
+    {
+        patrolPointsParent = parent;        
+    }
+
     private void UpdatePatrol()
     {
         Vector3 seekPosition = patrolPointsParent.GetChild(currentlySeekingPatrolPointIndex).position;
+
+
         ai.SetDestination(seekPosition);
         if (Vector3.Distance(seekPosition, transform.position) < reachDistance)
         {
