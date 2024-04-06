@@ -1,27 +1,21 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class DemonDeath : MonoBehaviour
+public class DemonDeath : Death
 {
-    EntityLife entityLife;
     Material material;
 
     [SerializeField] float dissolveDuration = 2f;
 
-    private void Awake()
+    protected override void InternalAwake()
     {
-        entityLife = GetComponent<EntityLife>();
+        base.InternalAwake();
 
         Renderer renderer = GetComponentInChildren<Renderer>();
         material = renderer.material;
     }
 
-    private void OnEnable()
-    {
-        entityLife.onLifeDepleted.AddListener(ManageDemonDeath);
-    }
-
-    private void ManageDemonDeath()
+    protected override void ManageDeath()
     {
         DissolveEntity();
     }
@@ -37,8 +31,4 @@ public class DemonDeath : MonoBehaviour
         dissolveTween.OnComplete(() => Destroy(transform.parent.gameObject));
     }
 
-    private void OnDisable()
-    {
-        entityLife.onLifeDepleted.RemoveListener(ManageDemonDeath);
-    }
 }

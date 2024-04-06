@@ -3,32 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanDeath : MonoBehaviour
+public class HumanDeath : Death
 {
-    EntityLife entityLife;
     DecissionMaker decissionMaker;
     AI ai;
     CharacterController characterController;
 
     public bool isDead { get; private set; }
 
-    private void Awake()
+    protected override void InternalAwake()
     {
-        entityLife = GetComponent<EntityLife>();
+        base.InternalAwake();
+
         ai = GetComponent<AI>();
         characterController = GetComponent<CharacterController>();
         decissionMaker = gameObject.transform.parent.GetComponentInChildren<DecissionMaker>();
     }
 
-    private void OnEnable()
-    {
-        entityLife.onLifeDepleted.AddListener(ManageHumanDeath);
-    }
-
-    private void ManageHumanDeath()
+    protected override void ManageDeath()
     {
         ShrinkCharacterController();
-        
+
         ai.senseable.DisableSenseables();
         DisableAIStateMachine();
 
@@ -56,11 +51,6 @@ public class HumanDeath : MonoBehaviour
                 sb.enabled = false;
             }
         }
-    }
-
-    private void OnDisable()
-    {
-        entityLife.onLifeDepleted.RemoveListener(ManageHumanDeath);
     }
 
 }
