@@ -4,7 +4,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-100)]
 public class GameLogic : MonoBehaviour
 {
-    public static GameLogic instance { get; private set; }  
+    public static GameLogic instance { get; private set; }
 
     public Transform playerTransform { get; private set; }
 
@@ -15,10 +15,11 @@ public class GameLogic : MonoBehaviour
     [SerializeField] GameObject adversaryPrefab;
     [SerializeField] Transform adversarySpawnParent;
     [SerializeField] GameObject ragnarokVfxContainer;
+    private State_Panic[] panickingObjects;
 
     [Header("Init")]
     [SerializeField] Transform panicPatrolPointsParent;
- 
+
     private void OnValidate()
     {
         if (debugEnterRagnarokMode)
@@ -33,7 +34,7 @@ public class GameLogic : MonoBehaviour
         instance = this;
 
         playerTransform = GameObject.FindWithTag("Player").transform;
-        State_Panic[] panickingObjects = FindObjectsOfType<State_Panic>();
+        panickingObjects = FindObjectsOfType<State_Panic>();
 
         foreach (State_Panic panickingObject in panickingObjects)
         {
@@ -52,9 +53,11 @@ public class GameLogic : MonoBehaviour
     {
         EnablePlayerAudibleDetection();
         InstantiateAdversary();
+        SetCiviliansToPanic();
 
         ragnarokVfxContainer.SetActive(true);
     }
+
 
     #region Ragnarok Mode
 
@@ -74,6 +77,16 @@ public class GameLogic : MonoBehaviour
 
         Instantiate(adversaryPrefab, children[randomPortalIndex].transform.position, Quaternion.identity);
     }
+
+    private void SetCiviliansToPanic()
+    {
+        foreach (State_Panic panickingObject in panickingObjects)
+        {
+            AI ai = panickingObject.transform.gameObject.GetComponent<AI>();
+            ai.SetRoaming(false);
+        }
+    }
+
     #endregion
 
     private void OnDisable()
