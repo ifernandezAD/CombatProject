@@ -45,7 +45,11 @@ public class RedSkyController : MonoBehaviour
         volume = GetComponent<Volume>(); 
     }
 
-    private void OnEnable() { Spell.spellDyePowerNotified += IncreaseVolumeWeightIndicator; }
+    private void OnEnable() 
+    { 
+        Spell.spellDyePowerNotified += IncreaseVolumeWeightIndicator;
+        CivilianDeath.penaltyDyePowerNotified += IncreaseVolumeWeightIndicator;
+    }
 
     private void Start()
     {
@@ -97,5 +101,9 @@ public class RedSkyController : MonoBehaviour
         DOTween.To(() => volume.weight, x => volume.weight = x, targetWeight, smoothDuration);
     }
 
-    private void OnDisable() { Spell.spellDyePowerNotified -= IncreaseVolumeWeightIndicator; }
+    private void OnDisable() 
+    {
+        Spell.spellDyePowerNotified -= IncreaseVolumeWeightIndicator;
+        CivilianDeath.penaltyDyePowerNotified -= IncreaseVolumeWeightIndicator;
+    }
 }

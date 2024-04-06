@@ -2515,7 +2515,7 @@ GameObject:
   - component: {fileID: 6230158510853409622}
   - component: {fileID: 3315550613169003349}
   - component: {fileID: 3281256461059433025}
-  - component: {fileID: 7335850533986950190}
+  - component: {fileID: 5993295949671446232}
   - component: {fileID: 8368278213070965085}
   - component: {fileID: 832981482324472525}
   - component: {fileID: 5399473157774345883}
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   onLifeDepleted:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7335850533986950190
+--- !u!114 &5993295949671446232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2656,9 +2656,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2895198325027918641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d350ea8ea927b624fabbc6eeac5e3679, type: 3}
+  m_Script: {fileID: 11500000, guid: be9f120ce722c964bb0aab155b55ec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penaltyDyePower: 2
 --- !u!114 &8368278213070965085
 MonoBehaviour:
   m_ObjectHideFlags: 0
