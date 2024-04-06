@@ -2527,7 +2527,7 @@ GameObject:
   - component: {fileID: 7888311810090940367}
   m_Layer: 0
   m_Name: Entity
-  m_TagString: Untagged
+  m_TagString: Civilian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpSpeed: 5
-  stopEntity: 1
+  stopEntity: 0
   speedPreviousToStop: 0
   orientationSpeed: 360
   smoothingSpeed: 10
@@ -2704,7 +2704,7 @@ MonoBehaviour:
   isVisible: 1
   isAudible: 1
   isTouchable: 1
-  allegiance: Gangster
+  allegiance: Civilian
 --- !u!114 &5069495039388962621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,6 +2786,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb09228597c348e4ea00d7d678f12569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roamingAnimations:
+  - Talking1
+  - Talking2
+  - PhoneQuietly
+  - PhoneNormal
+  - PhoneAngry
+  - Discussion1
+  - Discussion2
+  - Situps
+  - Pushups
+  - Resting
+  - Drunk
+  selectedAnimation: Drunk
 --- !u!114 &7888311810090940367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2798,6 +2811,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d167ecaed51c40bd14d8c897a948d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panicAnimationController: {fileID: 22100000, guid: 70c0b213653ba6a4cb9ff99433be74d4,
+    type: 2}
+  patrolPointsParent: {fileID: 0}
+  reachDistance: 1.5
+  patrolMode: 0
 --- !u!1 &2916999069436645398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,7 +3719,7 @@ Animator:
   m_GameObject: {fileID: 3799810489817767651}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9a24a24f0d5757a4bbc31c374a815654, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5ad674a03b5d6214fa8601c71adcae4f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

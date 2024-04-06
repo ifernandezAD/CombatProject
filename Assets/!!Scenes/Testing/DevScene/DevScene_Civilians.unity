@@ -5669,31 +5669,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 93910844032029829, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -5701,68 +5676,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
         type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0000001390775
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205358777320305857, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
       propertyPath: m_LocalRotation.z
       value: 3.400687e-29
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802892826233396103, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.00000166893
-      objectReference: {fileID: 0}
-    - target: {fileID: 1963864107307511062, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1963864107307511062, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4578881052183261880, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4578881052183261880, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5856937833960603649, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5856937833960603649, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.018189492
-      objectReference: {fileID: 0}
-    - target: {fileID: 5856937833960603649, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.00000013905449
-      objectReference: {fileID: 0}
-    - target: {fileID: 5856937833960603649, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0000000025297486
-      objectReference: {fileID: 0}
-    - target: {fileID: 6304922040853197576, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6304922040853197576, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6795488451421412588, guid: 49322d1268da58942bfb310e5cebbd3a,
         type: 3}
@@ -5816,23 +5731,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7132966986079689302, guid: 49322d1268da58942bfb310e5cebbd3a,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7132966986079689302, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.12422062
-      objectReference: {fileID: 0}
-    - target: {fileID: 7132966986079689302, guid: 49322d1268da58942bfb310e5cebbd3a,
-        type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000015559887
+      value: -0.00000012040175
       objectReference: {fileID: 0}
     - target: {fileID: 7132966986079689302, guid: 49322d1268da58942bfb310e5cebbd3a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000019479463
+      value: 0.000000015073123
       objectReference: {fileID: 0}
     - target: {fileID: 7687825022808538559, guid: 49322d1268da58942bfb310e5cebbd3a,
         type: 3}
@@ -11588,132 +11493,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2756173193291457992, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5ad674a03b5d6214fa8601c71adcae4f, type: 2}
-    - target: {fileID: 2895198325027918641, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: m_TagString
-      value: Civilian
-      objectReference: {fileID: 0}
-    - target: {fileID: 4139362980795768920, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: isRoaming
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4139362980795768920, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: isRoaring
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4139362980795768920, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: isConfused
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4139362980795768920, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: isEnchanted
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5264672777978605996, guid: cd99e5e7e33cf9840b3c27eec8abd384,
         type: 3}
       propertyPath: m_Name
       value: 'Civilian '
       objectReference: {fileID: 0}
-    - target: {fileID: 5399473157774345883, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: isAudible
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399473157774345883, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: allegiance
-      value: Civilian
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: selectedAnimation
-      value: Drunk
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimation.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[0]
-      value: Talking1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[1]
-      value: Talking2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[2]
-      value: PhoneQuietly
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[3]
-      value: PhoneNormal
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[4]
-      value: PhoneAngry
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[5]
-      value: Discussion1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[6]
-      value: Discussion2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[7]
-      value: Situps
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[8]
-      value: Pushups
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[9]
-      value: Resting
-      objectReference: {fileID: 0}
-    - target: {fileID: 5602002676565217211, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: roamingAnimations.Array.data[10]
-      value: Drunk
-      objectReference: {fileID: 0}
-    - target: {fileID: 6230158510853409622, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: stopEntity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7888311810090940367, guid: cd99e5e7e33cf9840b3c27eec8abd384,
-        type: 3}
-      propertyPath: panicAnimationController
-      value: 
-      objectReference: {fileID: 22100000, guid: 70c0b213653ba6a4cb9ff99433be74d4,
-        type: 2}
     - target: {fileID: 9012792934775004092, guid: cd99e5e7e33cf9840b3c27eec8abd384,
         type: 3}
       propertyPath: m_LocalPosition.x

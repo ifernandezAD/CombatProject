@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1171381337775907729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0, z: 124.5}
+  m_LocalPosition: {x: -0.1, y: 0, z: 26.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,7 +238,7 @@ Transform:
   m_GameObject: {fileID: 2120834659768499999}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -126.8, y: 0, z: -2.9}
+  m_LocalPosition: {x: -10.6, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -451,7 +451,7 @@ Transform:
   m_GameObject: {fileID: 3216425833413818388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 114.8, y: 0, z: -5}
+  m_LocalPosition: {x: 19.4, y: 0, z: 12.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -649,7 +649,7 @@ Transform:
   m_GameObject: {fileID: 3789608907580405318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -817,8 +817,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5305220121509193755}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000023490525, y: 0.9998346, z: 0.018189497, w: 0.00000012912204}
-  m_LocalPosition: {x: 0.7199984, y: 2, z: 59.09}
+  m_LocalRotation: {x: -0.0000000025297489, y: 0.9998346, z: 0.018189497, w: 0.00000013905449}
+  m_LocalPosition: {x: 0.7199983, y: 2, z: 59.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1072,7 +1072,7 @@ Transform:
   m_GameObject: {fileID: 5946460370725900387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -124.4}
+  m_LocalPosition: {x: 3.4, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1273,6 +1273,7 @@ MonoBehaviour:
     type: 3}
   adversarySpawnParent: {fileID: 1285499220875950885}
   ragnarokVfxContainer: {fileID: 6342622528978105239}
+  panicPatrolPointsParent: {fileID: 2242249502355823121}
 --- !u!114 &4954938710816833494
 MonoBehaviour:
   m_ObjectHideFlags: 0

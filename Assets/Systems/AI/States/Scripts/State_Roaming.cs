@@ -22,7 +22,6 @@ public class State_Roaming : StateBase
         ai.animator.SetBool(selectedAnimation, false);
     }
 
-
     private void OnDisable()
     {
         RemoveRoamingAnimation(selectedAnimation);
