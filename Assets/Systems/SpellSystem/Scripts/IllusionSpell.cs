@@ -81,7 +81,6 @@ public class IllusionSpell : Spell
                 if (child.gameObject.activeSelf)
                 {                 
                     activeChildIndex = child.GetSiblingIndex();
-                    child.gameObject.SetActive(false);
                     break; 
                 }
             }

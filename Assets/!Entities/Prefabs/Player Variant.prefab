@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.993184, z: -5.99628}
+  m_FollowOffset: {x: 0, y: 2.341538, z: -5.669697}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.993184, z: -5.99628}
+  m_FollowOffset: {x: 0, y: 2.341538, z: -5.669697}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.993184, z: -5.99628}
+  m_FollowOffset: {x: 0, y: 2.341538, z: -5.669697}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -4455,12 +4455,12 @@ PrefabInstance:
     - target: {fileID: 1340669689328207744, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000012040175
+      value: -0.00000015559887
       objectReference: {fileID: 0}
     - target: {fileID: 1340669689328207744, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000015073123
+      value: 0.000000019479463
       objectReference: {fileID: 0}
     - target: {fileID: 1430609799891238603, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -4545,17 +4545,17 @@ PrefabInstance:
     - target: {fileID: 2390960299815493079, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.018189492
+      value: -0.018189494
       objectReference: {fileID: 0}
     - target: {fileID: 2390960299815493079, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000013905449
+      value: -0.00000014012973
       objectReference: {fileID: 0}
     - target: {fileID: 2390960299815493079, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000025297486
+      value: -0.00000000254931
       objectReference: {fileID: 0}
     - target: {fileID: 2394335077951166431, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -5779,12 +5779,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8170867392797262355}
   m_SourcePrefab: {fileID: 100100000, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
---- !u!1 &136300248109932246 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8179201089685881600, guid: 7781afa95608bcc4d994ccb7d547cdf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 8099266894677466582}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752246788916382143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8797469800728024169, guid: 7781afa95608bcc4d994ccb7d547cdf8,
@@ -5911,7 +5905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 3
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1838590246970690783 stripped
@@ -6146,12 +6140,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!1 &3303835115968886131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6755387194587588773, guid: 7781afa95608bcc4d994ccb7d547cdf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 8099266894677466582}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3471051045258421979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4633578244991662861, guid: 7781afa95608bcc4d994ccb7d547cdf8,
@@ -6712,6 +6700,12 @@ MonoBehaviour:
 --- !u!4 &6795488451421412588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3325922524518859066, guid: 7781afa95608bcc4d994ccb7d547cdf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8099266894677466582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7026203793268420216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1289286559875527598, guid: 7781afa95608bcc4d994ccb7d547cdf8,
     type: 3}
   m_PrefabInstance: {fileID: 8099266894677466582}
   m_PrefabAsset: {fileID: 0}
@@ -7287,8 +7281,7 @@ MonoBehaviour:
   spellAudioEvent: {fileID: 11400000, guid: b38123fbfdb959543b02662fe2c728bf, type: 2}
   spellDuration: 10
   spellDyePower: 1
-  playerSkin: {fileID: 3303835115968886131}
-  gangsterSkin: {fileID: 136300248109932246}
+  skinsParent: {fileID: 7026203793268420216}
   spellEffectInitialDelay: 2
   animationDuration: 2
   spellAreaRange: 10
