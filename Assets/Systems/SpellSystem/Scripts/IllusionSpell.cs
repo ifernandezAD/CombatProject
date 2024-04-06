@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
-using System;
+using UnityEngine;
 
 public class IllusionSpell : Spell
 {
@@ -11,8 +8,8 @@ public class IllusionSpell : Spell
     private readonly int illusionFinishHash = Animator.StringToHash("IllusionSpellFinish");
 
     [Header("Skin References")]
-    [SerializeField] GameObject playerSkin;
-    [SerializeField] GameObject gangsterSkin;
+    [SerializeField] Transform skinsParent;
+    
 
     [Header("Illusion Spell")]
     [SerializeField] float spellEffectInitialDelay = 1.5f;
@@ -70,23 +67,34 @@ public class IllusionSpell : Spell
         }
     }
 
-    private GameObject previousSkin;
+    private int playerSkinChildNumber = 7;
+    int activeChildIndex = -1;
 
     void ChangePlayerSkin(AI ai)
     {
-        playerSkin.SetActive(false);
-
-        if (ai.senseable.allegiance == "Gangster")
+        if (ai.senseable.allegiance == "Gangster" || ai.senseable.allegiance == "Civilian")
         {
-            gangsterSkin.SetActive(true);
-            previousSkin = gangsterSkin;
+            Transform aiSkinsParent = ai.transform.GetChild(0).transform.GetChild(0);
+           
+            foreach (Transform child in aiSkinsParent)
+            {
+                if (child.gameObject.activeSelf)
+                {                 
+                    activeChildIndex = child.GetSiblingIndex();
+                    child.gameObject.SetActive(false);
+                    break; 
+                }
+            }
+
+            skinsParent.GetChild(playerSkinChildNumber).gameObject.SetActive(false);
+            skinsParent.GetChild(activeChildIndex).gameObject.SetActive(true);
         }
     }
 
     void RecoverPlayerSkin()
     {
-        playerSkin.SetActive(true);
-        previousSkin.SetActive(false);
+        skinsParent.GetChild(playerSkinChildNumber).gameObject.SetActive(true);
+        skinsParent.GetChild(activeChildIndex).gameObject.SetActive(false);
     }
 
     void ChangePlayerAllegiance(AI ai)
@@ -100,13 +108,13 @@ public class IllusionSpell : Spell
     }
 
     void CanvasFade()
-    {  
+    {
         whiteFlashCanvas.DOFade(1f, flashDuration)
             .SetDelay(0f)
             .OnComplete(() =>
-            {           
+            {
                 DOVirtual.DelayedCall(flashDelay, () =>
-                {               
+                {
                     whiteFlashCanvas.DOFade(0f, flashDuration);
                 });
             });
