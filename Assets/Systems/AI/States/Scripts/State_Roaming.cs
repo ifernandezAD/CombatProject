@@ -12,6 +12,14 @@ public class State_Roaming : StateBase
         SetRoamingAnimation(selectedAnimation);
     }
 
+    private void Update()
+    {
+        if (ai.target != null)
+        {
+            ai.SetRoaming(false);
+        }
+    }
+
     private void SetRoamingAnimation(string selectedAnimation)
     {
         ai.animator.SetBool(selectedAnimation, true);
