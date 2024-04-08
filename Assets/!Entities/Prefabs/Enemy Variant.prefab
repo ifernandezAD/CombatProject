@@ -9280,7 +9280,7 @@ Transform:
   m_GameObject: {fileID: 2468761198786156348}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 7.071065, z: -7.071068}
+  m_LocalPosition: {x: 0.000021934513, y: 7.071076, z: -7.071065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9686,7 +9686,7 @@ Transform:
   m_GameObject: {fileID: 2691319264603070916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.09800005, z: 0.5830002}
+  m_LocalPosition: {x: 0.000000059604645, y: 0.09800005, z: 0.58300024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10036,7 +10036,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.085, y: 1.358, z: 0.519}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.084999084, y: 1.358, z: 0.5189972}
+  - {x: 0.084999084, y: 1.358, z: 0.51900005}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -11526,7 +11526,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.079, y: 1.358, z: 0.519}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.078998566, y: 1.358, z: 0.5189972}
+  - {x: -0.078998566, y: 1.358, z: 0.51900005}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -12533,7 +12533,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.49, y: 1.163, z: 0.187}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.49000168, y: 1.163, z: 0.18699646}
+  - {x: 0.49000168, y: 1.163, z: 0.18700027}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -12644,7 +12644,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.407, y: 1.163, z: 0.187}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.4070015, y: 1.163, z: 0.18699646}
+  - {x: -0.4070015, y: 1.163, z: 0.1869998}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -13897,8 +13897,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamingAnimations:
+  - PhoneQuietly
   - PhoneNormal
   - PhoneAngry
+  - Discussion1
+  - Discussion2
+  - Talking1
+  - Talking2
+  - AngryIdle
+  - Threat
   selectedAnimation: PhoneNormal
 --- !u!1 &6157420275821785240
 GameObject:
@@ -16990,8 +16997,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9112490624126687857}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.015722973, y: 0.043051764, z: -0.99893737, w: 0.0048469845}
-  m_LocalPosition: {x: 0.8869972, y: -0.13399994, z: 0.09600067}
+  m_LocalRotation: {x: 0.015722975, y: 0.043051768, z: -0.9989374, w: 0.0048469845}
+  m_LocalPosition: {x: 0.88699734, y: -0.13399994, z: 0.096000075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
