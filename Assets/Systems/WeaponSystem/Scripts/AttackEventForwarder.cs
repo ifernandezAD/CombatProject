@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class AttackEventForwarder : MonoBehaviour
 {
+    [SerializeField] GameObject meleeMagicParticle;
+    [SerializeField] Transform meleeMagicParticlePosition;
+
     MeleeWeaponController meleeWeaponController;
     AI ai;
 
@@ -19,5 +22,11 @@ public class AttackEventForwarder : MonoBehaviour
     void Roar()
     {
         ai.SetRoaring(true);
+    }
+
+    void InstantiateMagicParticle()
+    {
+       GameObject meleeMagiParticleClone= Instantiate(meleeMagicParticle, meleeMagicParticlePosition.position, meleeMagicParticlePosition.rotation);
+       Destroy(meleeMagiParticleClone, 1);
     }
 }
