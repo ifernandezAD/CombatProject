@@ -88,6 +88,7 @@ public class PlayerController : EntityBase
     void Update()
     {
         UpdateAiming();
+        UpdateRunning();
 
         Vector3 direction = CalculateDirectionFromInput();
         bool mustJump = jump.action.WasPerformedThisFrame();
@@ -101,6 +102,18 @@ public class PlayerController : EntityBase
         entityMovement.Animate();
     }
 
+    private void UpdateRunning()
+    {
+        if (run.action.WasPressedThisFrame())
+        {
+            entityMovement.SetToRun();
+        }
+
+        if (run.action.WasReleasedThisFrame())
+        {
+            entityMovement.RestoreSpeed();    
+        }
+    }
 
     bool isAiming = false;
     bool isTargetLocking = false;

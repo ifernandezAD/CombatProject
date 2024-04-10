@@ -225,4 +225,15 @@ public class EntityMovement : MonoBehaviour
         ExtraMovement extraMovement = new ExtraMovement(worldDirection, dashMovementInfo);
         extraMovements.Add(extraMovement);
     }
+
+    [SerializeField] float runSpeed = 8f;
+    public void SetToRun()
+    {
+        speed = runSpeed;
+    }
+
+    public void RestoreSpeed()
+    {
+        speed = speedPreviousToStop;
+    }
 }

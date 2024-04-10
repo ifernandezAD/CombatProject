@@ -228,6 +228,11 @@ public class AI : EntityBase
         entityMovement.IsEntityStopped(value);
     }
 
+    internal void RestoreSpeed()
+    {
+        entityMovement.RestoreSpeed();
+    }
+
     #region Enchantment State
 
     [SerializeField] bool isEnchanted;
