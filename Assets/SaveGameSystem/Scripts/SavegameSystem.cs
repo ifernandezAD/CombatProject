@@ -85,6 +85,8 @@ public class SavegameSystem : MonoBehaviour
         return recordsList.ToDictionary(x => x.key, x => x);
     }
 
+#if UNITY_EDITOR
+
     [MenuItem("Save Game System/Save Game")]
     public static void SaveGameDebug() { Savegame(currentSaveGame); }
 
@@ -108,4 +110,6 @@ public class SavegameSystem : MonoBehaviour
 
     [MenuItem("Save Game System/Debug/Get String")]
     public static void DebugGetString() { Debug.Log(GetString("123","Aquí no hay nah")); }
+
+#endif
 }
