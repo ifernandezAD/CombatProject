@@ -39,8 +39,7 @@ public class EntityMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float speed = 4f;
     [SerializeField] float jumpSpeed = 5f;
-    [SerializeField] bool stopEntity;
-    [SerializeField] float speedPreviousToStop;
+    [SerializeField] float startingSpeed;
 
     [Header("Orientation")]
     [SerializeField] float orientationSpeed = 360f;
@@ -51,12 +50,6 @@ public class EntityMovement : MonoBehaviour
     [SerializeField] bool debugExtraMovementLocal = true;
     [SerializeField] Vector3 debugExtraMovementDirection = Vector3.forward;
     [SerializeField] ExtraMovementInfo debugExtraMovementInfo;
-
-    [Header("Debug")]
-    [SerializeField] bool debugStopEntity;
-    [SerializeField] bool debugDisableEntityMovement;
-    [SerializeField] bool debugEnableEntityMovement;
-
 
     List<ExtraMovement> extraMovements = new();
 
@@ -82,22 +75,11 @@ public class EntityMovement : MonoBehaviour
                 ApplyWorldExtraMovement(debugExtraMovementDirection, debugExtraMovementInfo);
             }
         }
-
-        if (debugDisableEntityMovement)
-        {
-            IsEntityStopped(true);
-            debugDisableEntityMovement = false;
-        }
-        if (debugEnableEntityMovement)
-        {
-            IsEntityStopped(false);
-            debugEnableEntityMovement = false;
-        }
     }
 
     private void Awake()
     {
-        speedPreviousToStop = speed;
+        startingSpeed = speed;
 
         characterController = GetComponentInChildren<CharacterController>();
         animator = GetComponentInChildren<Animator>();
@@ -105,25 +87,7 @@ public class EntityMovement : MonoBehaviour
 
     private void Update()
     {
-        UpdateEntitySpeed();
-
         extraMovements.RemoveAll(x => x.HasFinished());
-    }
-
-    private void UpdateEntitySpeed()
-    {
-        if (stopEntity) { speed = 0; }
-        else { speed = speedPreviousToStop; }
-    }
-
-    public void IsEntityStopped(bool value)
-    {
-        stopEntity = value;
-    }
-
-    public void StopEntity()
-    {
-        IsEntityStopped(true);
     }
 
     //ToDo: in the future look for way to communicate this order Move, orientate, animation
@@ -227,13 +191,18 @@ public class EntityMovement : MonoBehaviour
     }
 
     [SerializeField] float runSpeed = 8f;
-    public void SetToRun()
+    public void IncreaseSpeed()
     {
         speed = runSpeed;
     }
 
+    public void StopMovement()
+    {
+        speed = 0;
+    }
+
     public void RestoreSpeed()
     {
-        speed = speedPreviousToStop;
+        speed = startingSpeed;
     }
 }

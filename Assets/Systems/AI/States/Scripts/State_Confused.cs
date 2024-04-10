@@ -18,7 +18,7 @@ public class State_Confused : StateBase
     private void OnEnable()
     {
         currentTime = confusedDuration;
-        ai.StopEntity(true);
+        ai.StopMovement();
 
         PlayConfusedAnimation();
         ChangeSkin();
@@ -32,7 +32,7 @@ public class State_Confused : StateBase
         if (currentTime <= 0)
         {
             StopConfusedStatus();
-            ai.StopEntity(false);
+            ai.RestoreSpeed();
             ai.SetEnchanted(false);
         }
     }

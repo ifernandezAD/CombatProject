@@ -223,14 +223,14 @@ public class AI : EntityBase
         hasLostTarget = false;
     }
 
-    internal void StopEntity(bool value)
-    {
-        entityMovement.IsEntityStopped(value);
-    }
-
     internal void RestoreSpeed()
     {
         entityMovement.RestoreSpeed();
+    }
+
+    internal void StopMovement()
+    {
+        entityMovement.StopMovement();
     }
 
     #region Enchantment State

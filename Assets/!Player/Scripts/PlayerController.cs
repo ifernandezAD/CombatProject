@@ -106,7 +106,7 @@ public class PlayerController : EntityBase
     {
         if (run.action.WasPressedThisFrame())
         {
-            entityMovement.SetToRun();
+            entityMovement.IncreaseSpeed();
         }
 
         if (run.action.WasReleasedThisFrame())

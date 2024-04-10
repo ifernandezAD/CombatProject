@@ -12,7 +12,7 @@ public class State_Enchanted : StateBase
     {
         currentTime = enchantedDuration;
         PlayEnchantedAnimation();
-        ai.StopEntity(true);
+        ai.StopMovement();
     }
 
     private void Update()
@@ -22,7 +22,7 @@ public class State_Enchanted : StateBase
         if (currentTime <= 0)
         {
             StopEnchantedAnimation();
-            ai.StopEntity(false);
+            ai.RestoreSpeed();
             ai.SetEnchanted(false);
         }
     }
@@ -42,8 +42,6 @@ public class State_Enchanted : StateBase
 
     void StopEnchantedAnimation()
     {
-
         ai.animator.SetInteger(enchantmentHash, 0);
-
     }
 }
