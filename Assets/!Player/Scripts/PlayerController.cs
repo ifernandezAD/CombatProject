@@ -22,8 +22,10 @@ public class PlayerController : EntityBase
     [Header("Movement")]
     [SerializeField] MovementMode movementMode = MovementMode.PlayerDirection;
     [SerializeField] InputActionReference move;
+
+    [Header("Run")]
     [SerializeField] InputActionReference run;
-    
+
     [Header("Vertical Movement")] 
     [SerializeField] InputActionReference jump;
 
@@ -111,7 +113,7 @@ public class PlayerController : EntityBase
 
         if (run.action.WasReleasedThisFrame())
         {
-            entityMovement.RestoreSpeed();    
+            entityMovement.RestoreSpeed();
         }
     }
 
