@@ -176,6 +176,7 @@ public class EntityMovement : MonoBehaviour
         animator.SetFloat("SidewardVelocity", smoothedLocalXZPlaneVelocity.x);
         animator.SetBool("IsGrounded", characterController.isGrounded);
         animator.SetFloat("VerticalVelocityNormalized", Mathf.Clamp01(Mathf.InverseLerp(jumpSpeed, -jumpSpeed, verticalVelocity)));
+        animator.SetFloat("MovementSpeed", Mathf.Clamp01(speed / runSpeed));
     }
 
     internal void ApplyLocalExtraMovement(Vector3 localDirection, ExtraMovementInfo dashMovementInfo)
