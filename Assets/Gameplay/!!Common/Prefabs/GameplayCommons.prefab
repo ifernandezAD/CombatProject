@@ -551,7 +551,7 @@ MonoBehaviour:
   portalSpawnParent: {fileID: 2630544097777300525}
   portalContainer: {fileID: 3965040212948568193}
   countdownText: {fileID: 3635124574910414439}
-  remainingTime: 60
+  remainingTime: 300
 --- !u!1 &3580074443670017007
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,8 +785,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5305220121509193755}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010076753, y: -0.8323871, z: -0.015143199, w: 0.5538962}
-  m_LocalPosition: {x: 74.88002, y: 2.0000005, z: 97.686134}
+  m_LocalRotation: {x: 0.0043984354, y: 0.97016263, z: 0.01764968, w: -0.24177186}
+  m_LocalPosition: {x: -70.93759, y: 2.0000005, z: -110.41397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1236,6 +1236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35936934332ab4e418ab49dd33af6a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeGame: {fileID: 1110698530222286800, guid: 60e09293508098d4b9d418a28b40b223,
+    type: 3}
   debugEnterRagnarokMode: 0
   adversaryPrefab: {fileID: 1101368738089069574, guid: ca4e7f5f0733b8345a1b1104dffa678b,
     type: 3}

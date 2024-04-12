@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [DefaultExecutionOrder(-100)]
 public class GameLogic : MonoBehaviour
@@ -7,6 +8,8 @@ public class GameLogic : MonoBehaviour
     public static GameLogic instance { get; private set; }
 
     public Transform playerTransform { get; private set; }
+
+    [SerializeField] InputActionReference escapeGame;
 
     [Header("Debug")]
     [SerializeField] bool debugEnterRagnarokMode;
@@ -44,9 +47,23 @@ public class GameLogic : MonoBehaviour
 
     private void OnEnable()
     {
+        escapeGame.action.Enable();
+
         RedSkyController.instance.onMaxRedSkyReached.AddListener(EnterRagnarokMode);
     }
 
+    private void Update()
+    {
+        UpdateEscapeGame();
+    }
+
+    private void UpdateEscapeGame()
+    {
+        if (escapeGame.action.WasPerformedThisFrame())
+        {
+            Application.Quit();
+        }
+    }
 
     void EnterRagnarokMode()
     {
@@ -83,6 +100,8 @@ public class GameLogic : MonoBehaviour
 
     private void OnDisable()
     {
+        escapeGame.action.Disable();
+
         RedSkyController.instance.onMaxRedSkyReached.RemoveListener(EnterRagnarokMode);
     }
 }
