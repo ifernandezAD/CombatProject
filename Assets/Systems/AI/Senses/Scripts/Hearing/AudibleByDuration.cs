@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudibleByDuration : AudibleBase
 {
     [Header("Emission by Duration")]
-    [SerializeField] float timeRemaining = 0f;
+    [SerializeField] float timeRemaining = 1f;
     [SerializeField] float range = 10f;
 
     protected override void CheckEmit(float timeSinceLastCheck)

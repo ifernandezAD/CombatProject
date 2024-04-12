@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ public class FireWeapon : Weapon
 
     [SerializeField] float primaryAttacksPerSecond = 3f;
     [SerializeField] float secondaryAttacksPerSecond = 1f;
+
+    [SerializeField] AudibleByDuration playerAudible;
 
     [Header("Debug")]
     [SerializeField] bool debugShot;
@@ -53,8 +56,16 @@ public class FireWeapon : Weapon
         {
             foreach (Barrel b in barrels) { b.Shot(); }
             lastAttackTime = Time.time;
-        }    
+        }  
+        
+        if (playerAudible)
+        {
+            playerAudible.enabled = true;
+            DOVirtual.DelayedCall(0.5f, () => {playerAudible.enabled = false;});       
+        }
     }
+
+
 
     private float ChooseShotsPerSecondAccountingAttackType()
     {
