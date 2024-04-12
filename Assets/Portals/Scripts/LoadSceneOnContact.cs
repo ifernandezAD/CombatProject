@@ -8,7 +8,7 @@ public class LoadSceneOnContact : MonoBehaviour
         if (other.CompareTag("Player") && alreadyCrossed == false)
         {
             alreadyCrossed = true;
-            LoadingScreen.LoadScene("Level1");
+            LoadingScreen.LoadScene("Victory_Scene");
         }
     }
 }

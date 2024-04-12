@@ -1222,8 +1222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpSpeed: 5
-  stopEntity: 0
-  speedPreviousToStop: 0
+  startingSpeed: 0
   orientationSpeed: 360
   smoothingSpeed: 10
   debugExtraMovement: 0
@@ -1233,9 +1232,7 @@ MonoBehaviour:
     speed: 10
     steadyDuration: 0.3
     decelerationDuration: 0.2
-  debugStopEntity: 0
-  debugDisableEntityMovement: 0
-  debugEnableEntityMovement: 0
+  runSpeed: 8
 --- !u!114 &3281256461059433025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec61868bfc31354eabc5c23e69658e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalLife: 1
+  originalLife: 0.1
   isInmortal: 0
   onLifeChanged:
     m_PersistentCalls:
@@ -2084,6 +2081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4ed6e5a6121f14b95d4061e9d8538b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeMagicParticle: {fileID: 0}
+  meleeMagicParticlePosition: {fileID: 0}
 --- !u!114 &2936082268117413225
 MonoBehaviour:
   m_ObjectHideFlags: 0
