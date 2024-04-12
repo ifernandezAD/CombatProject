@@ -52,7 +52,7 @@ public class PortalManager : MonoBehaviour
         else if (remainingTime < 0)
         {
             remainingTime = 0;
-            //GameOver();
+            LoadGameOverScreen();
         }
 
         int minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -71,4 +71,10 @@ public class PortalManager : MonoBehaviour
         GameObject portalClone = Instantiate(portalPrefab, children[randomPortalIndex].transform.position, Quaternion.identity);
         portalClone.transform.parent = portalContainer.transform;
     }
+
+    private void LoadGameOverScreen()
+    {
+        LoadingScreen.LoadScene("GameOver_Scene");
+    }
+
 }
