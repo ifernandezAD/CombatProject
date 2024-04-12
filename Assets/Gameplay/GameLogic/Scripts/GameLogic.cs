@@ -48,10 +48,8 @@ public class GameLogic : MonoBehaviour
     }
 
 
-
     void EnterRagnarokMode()
     {
-        EnablePlayerAudibleDetection();
         InstantiateAdversary();
         SetCiviliansToPanic();
 
@@ -60,12 +58,6 @@ public class GameLogic : MonoBehaviour
 
 
     #region Ragnarok Mode
-
-    private void EnablePlayerAudibleDetection()
-    {
-        AudibleByConstantEmission audibleByAdversary = playerTransform.GetComponent<AudibleByConstantEmission>();
-        audibleByAdversary.enabled = true;
-    }
 
     void InstantiateAdversary()
     {

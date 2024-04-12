@@ -53,7 +53,7 @@ public class AI : EntityBase
         UpdateTarget();
         UpdateFollowPath();
 
-        //UpdatePathToTarget();
+        
     }
 
     bool hasLostTarget;
@@ -233,6 +233,7 @@ public class AI : EntityBase
         entityMovement.StopMovement();
     }
 
+
     #region Enchantment State
 
     [SerializeField] bool isEnchanted;
@@ -248,7 +249,6 @@ public class AI : EntityBase
     }
 
     #endregion
-
 
     #region Confuse State
 
