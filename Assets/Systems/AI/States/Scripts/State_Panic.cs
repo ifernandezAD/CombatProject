@@ -21,12 +21,9 @@ public class State_Panic : StateBase
 
     private void OnEnable()
     {
-        Debug.Log("The Civilian is panicking");
         ai.animator.runtimeAnimatorController = panicAnimationController;
 
         currentlySeekingPatrolPointIndex = Random.Range(0, patrolPointsParent.childCount);
-        //Patrol a los 4 puntos cardinales de forma aleatoria ( panicPoints en el gameplay commons)
-        //Aumentar la velocidad de los jambos
     }
 
     private void Update()
@@ -47,9 +44,7 @@ public class State_Panic : StateBase
         ai.SetDestination(seekPosition);
         if (Vector3.Distance(seekPosition, transform.position) < reachDistance)
         {
-            // Choose a random patrol point index
             int randomIndex = Random.Range(0, patrolPointsParent.childCount);
-            // Make sure it's not the same as the current one
             while (randomIndex == currentlySeekingPatrolPointIndex)
             {
                 randomIndex = Random.Range(0, patrolPointsParent.childCount);

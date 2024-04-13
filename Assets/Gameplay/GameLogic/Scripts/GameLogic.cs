@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,15 +10,21 @@ public class GameLogic : MonoBehaviour
 
     public Transform playerTransform { get; private set; }
 
-    [SerializeField] InputActionReference escapeGame;
-
     [Header("Debug")]
     [SerializeField] bool debugEnterRagnarokMode;
+
+    [Header("References")]
+    [SerializeField] InputActionReference escapeGame;
+    [SerializeField] AudioSource musicAudioSource;
+    [SerializeField] AudioSource soundsAudioSource;
 
     [Header("Ragnarok Mode")]
     [SerializeField] GameObject adversaryPrefab;
     [SerializeField] Transform adversarySpawnParent;
     [SerializeField] GameObject ragnarokVfxContainer;
+    [SerializeField] AudioClip ragnarokMusic;
+    [SerializeField] AudioClip ragnarokBell;
+
     private State_Panic[] panickingObjects;
 
     [Header("Init")]
@@ -69,6 +76,7 @@ public class GameLogic : MonoBehaviour
     {
         InstantiateAdversary();
         SetCiviliansToPanic();
+        SetRagnarokAudio();
 
         ragnarokVfxContainer.SetActive(true);
     }
@@ -94,6 +102,25 @@ public class GameLogic : MonoBehaviour
             AI ai = panickingObject.transform.gameObject.GetComponent<AI>();
             ai.SetRoaming(false);
         }
+    }
+
+    private void SetRagnarokAudio()
+    {        
+        SetBellSound();
+        DOVirtual.DelayedCall(0.5f, () => musicAudioSource.Stop());
+        DOVirtual.DelayedCall(2, SetNewLevelMusic);
+    }
+
+    private void SetBellSound()
+    {
+        soundsAudioSource.clip = ragnarokBell;
+        soundsAudioSource.Play();
+    }
+
+    private void SetNewLevelMusic()
+    {
+        musicAudioSource.clip = ragnarokMusic;
+        musicAudioSource.Play();
     }
 
     #endregion
