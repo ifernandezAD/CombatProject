@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 public class SavegameSystem : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class SavegameSystem : MonoBehaviour
 
     static Dictionary<string, Record>[] saveGames = new Dictionary<string, Record>[] { new(), new(), new() };
 
-
+    //Habrá que generar otra funcion para int,float y bool
     public static string GetString(string key, string defaultValue = "")
     {
         string retVal = defaultValue;
@@ -56,7 +56,7 @@ public class SavegameSystem : MonoBehaviour
         record.stringValue = newValue;
     }
 
-    static void AssertRecordType(string key, Record record, Record.Type recordType)
+    private static void AssertRecordType(string key, Record record, Record.Type recordType)
     {
         if (record.type != recordType)
         {
@@ -78,9 +78,9 @@ public class SavegameSystem : MonoBehaviour
         debugJsonContent = jsonContent;
     }
 
-    static Dictionary<string, Record> LoadGame(Dictionary<string, Record> records,string jsonContent)
+    static Dictionary<string, Record> LoadGame(Dictionary<string, Record> records, string jsonContent)
     {
-        records.Clear();       
+        records.Clear();
         List<Record> recordsList = JsonUtility.FromJson<List<Record>>(jsonContent);
         return recordsList.ToDictionary(x => x.key, x => x);
     }
@@ -91,7 +91,7 @@ public class SavegameSystem : MonoBehaviour
     public static void SaveGameDebug() { Savegame(currentSaveGame); }
 
     [MenuItem("Save Game System/Load Game")]
-    public static void LoadGameDebug() { LoadGame(currentSaveGame,debugJsonContent); }
+    public static void LoadGameDebug() { LoadGame(currentSaveGame, debugJsonContent); }
 
     [MenuItem("Save Game System/Select Save Game 0")]
     public static void SelectSaveGame0() { currentSaveGame = saveGames[0]; }
@@ -106,10 +106,10 @@ public class SavegameSystem : MonoBehaviour
     public static void DebugShowDebugJson() { Debug.Log(debugJsonContent); }
 
     [MenuItem("Save Game System/Debug/Set String")]
-    public static void DebugSetString() { SetString("1234", "456"); }
+    public static void DebugSetString() { SetString("123", "456"); }
 
     [MenuItem("Save Game System/Debug/Get String")]
-    public static void DebugGetString() { Debug.Log(GetString("123","Aquí no hay nah")); }
+    public static void DebugGetString() { Debug.Log(GetString("123", "Aquí no hay nah")); }
 
 #endif
 }
