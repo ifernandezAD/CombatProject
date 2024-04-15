@@ -43,11 +43,11 @@ public class FireWeapon : Weapon
         }
     }
 
-    private void Awake()
+    protected override void InternalAwake()
     {
+        base.InternalAwake();
         barrels = GetComponentsInChildren<Barrel>();
     }
-
     public override void Shot()
     {
         float shotsPerSecond = ChooseShotsPerSecondAccountingAttackType();
@@ -63,6 +63,8 @@ public class FireWeapon : Weapon
             playerAudible.enabled = true;
             DOVirtual.DelayedCall(0.5f, () => {playerAudible.enabled = false;});       
         }
+
+        PlayWeaponSound();
     }
 
 
@@ -105,5 +107,7 @@ public class FireWeapon : Weapon
     {
         throw new System.NotImplementedException();
     }
+
+    void PlayWeaponSound() { weaponAudioEvent.Play(audioSource); }
 
 }

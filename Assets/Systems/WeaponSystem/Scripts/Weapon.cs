@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] float primaryRange = 0.5f;
@@ -17,6 +18,8 @@ public abstract class Weapon : MonoBehaviour
         ContinousShot,
     }
 
+    protected AudioSource audioSource;
+    [SerializeField] protected SimpleAudioEvent weaponAudioEvent;
     [SerializeField] public RuntimeAnimatorController animatorForWeapon;
     [SerializeField] protected float hitDuration = 0.5f;
 
@@ -31,8 +34,11 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract void NotifyMeleeAttack(string collidersToActivate);
 
-    private void Start() { InternalStart(); }
 
+    private void Awake() { InternalAwake(); }
+    protected virtual void InternalAwake() { audioSource = GetComponent<AudioSource>();}
+
+    private void Start() { InternalStart(); }
     protected abstract void InternalStart();
 
     public virtual void Shot() {}

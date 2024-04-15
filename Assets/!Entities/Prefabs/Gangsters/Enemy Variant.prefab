@@ -3133,6 +3133,7 @@ GameObject:
   - component: {fileID: 8827577684997094629}
   - component: {fileID: 8676410730412735239}
   - component: {fileID: 4812839696387818968}
+  - component: {fileID: 8925219038231286434}
   m_Layer: 0
   m_Name: DesertEagle
   m_TagString: Untagged
@@ -3172,6 +3173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primaryRange: 10
   secondaryRange: 0.5
+  weaponAudioEvent: {fileID: 11400000, guid: b06debbbc4360514faccf811ddd68d97, type: 2}
   animatorForWeapon: {fileID: 0}
   hitDuration: 0.5
   ikGrabPointsParent: {fileID: 6005900553227325622}
@@ -3179,6 +3181,7 @@ MonoBehaviour:
   secondaryAttackType: 0
   primaryAttacksPerSecond: 3
   secondaryAttacksPerSecond: 1
+  playerAudible: {fileID: 0}
   debugShot: 0
   debugContinuousShot: 0
 --- !u!1773428102 &4812839696387818968
@@ -3208,6 +3211,102 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 6414879388211022757}
     weight: 1
+--- !u!82 &8925219038231286434
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691319264603070916}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2885684712549561141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,6 +3666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3621540855159090373}
   - component: {fileID: 8265675502178386943}
+  - component: {fileID: 911586334530633733}
   m_Layer: 0
   m_Name: BareHands
   m_TagString: Untagged
@@ -3603,10 +3703,107 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primaryRange: 1.75
   secondaryRange: 0.5
+  weaponAudioEvent: {fileID: 0}
   animatorForWeapon: {fileID: 0}
   hitDuration: 0.5
   ikGrabPointsParent: {fileID: 0}
   hitCollidersParent: {fileID: 2921058559152027543}
+--- !u!82 &911586334530633733
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658897474356799553}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3684390750259542758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5890,8 +6087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpSpeed: 5
-  stopEntity: 0
-  speedPreviousToStop: 0
+  startingSpeed: 0
   orientationSpeed: 360
   smoothingSpeed: 10
   debugExtraMovement: 0
@@ -5901,9 +6097,7 @@ MonoBehaviour:
     speed: 10
     steadyDuration: 0.3
     decelerationDuration: 0.2
-  debugStopEntity: 0
-  debugDisableEntityMovement: 0
-  debugEnableEntityMovement: 0
+  runSpeed: 8
 --- !u!114 &3860767161641979207
 MonoBehaviour:
   m_ObjectHideFlags: 0
