@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 812f799a0c098b443a691a60f885e002, type: 3}
-  m_Name: MeleeAudio
+  m_Name: ZombieMeleeAudio
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
@@ -19,8 +19,8 @@ MonoBehaviour:
     minValue: 0.854673
     maxValue: 1
   pitch:
-    minValue: 0.8997745
-    maxValue: 1.1002254
+    minValue: 0.696971
+    maxValue: 0.89742184
   distance:
     minValue: 1
     maxValue: 1000
