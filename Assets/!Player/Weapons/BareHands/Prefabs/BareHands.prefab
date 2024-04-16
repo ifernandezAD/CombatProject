@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primaryRange: 0.5
   secondaryRange: 0.5
-  weaponAudioEvent: {fileID: 11400000, guid: 931a2c26bfe04a945a3f7a51a5444215, type: 2}
+  weaponAudioEvent: {fileID: 11400000, guid: c2ed285ea759402428e5844e95dfa827, type: 2}
   animatorForWeapon: {fileID: 22100000, guid: 10fe96f4c16dd534e90a8e3242c79006, type: 2}
   hitDuration: 0.5
   ikGrabPointsParent: {fileID: 0}

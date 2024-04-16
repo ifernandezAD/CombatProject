@@ -44,4 +44,6 @@ public abstract class Weapon : MonoBehaviour
     public virtual void Shot() {}
     public virtual void StartContinuousShooting() { }
     public virtual void StopContinuousShooting() { }
+
+    internal void PlayWeaponSound() { weaponAudioEvent.Play(audioSource); }
 }

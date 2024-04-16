@@ -67,8 +67,6 @@ public class FireWeapon : Weapon
         PlayWeaponSound();
     }
 
-
-
     private float ChooseShotsPerSecondAccountingAttackType()
     {
         if (primaryAttackType == AttackType.Shot) { return primaryAttacksPerSecond; }
@@ -106,8 +104,5 @@ public class FireWeapon : Weapon
     public override void NotifyMeleeAttack(string collidersToActivate)
     {
         throw new System.NotImplementedException();
-    }
-
-    void PlayWeaponSound() { weaponAudioEvent.Play(audioSource); }
-
+    }  
 }

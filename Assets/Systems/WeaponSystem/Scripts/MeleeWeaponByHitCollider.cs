@@ -25,5 +25,7 @@ public class MeleeWeaponByHitCollider : MeleeWeapon
                 DOVirtual.DelayedCall(hitDuration, () => collider.gameObject.SetActive(false));
             }
         }
+
+        PlayWeaponSound();
     }
 }
