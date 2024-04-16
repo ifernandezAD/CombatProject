@@ -55,6 +55,7 @@ public class FireWeapon : Weapon
         if ((Time.time - lastAttackTime) > timeBetweenShots)
         {
             foreach (Barrel b in barrels) { b.Shot(); }
+            PlayWeaponSound();
             lastAttackTime = Time.time;
         }  
         
@@ -62,9 +63,7 @@ public class FireWeapon : Weapon
         {
             playerAudible.enabled = true;
             DOVirtual.DelayedCall(0.5f, () => {playerAudible.enabled = false;});       
-        }
-
-        PlayWeaponSound();
+        }      
     }
 
     private float ChooseShotsPerSecondAccountingAttackType()
