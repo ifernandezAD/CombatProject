@@ -135,7 +135,10 @@ public class AI : EntityBase
         if (pathOk)
         {
             lastSeekedPosition = position;
-            nextCorner = 1;
+            nextCorner = (path.corners.Length > 1) ? 1 : 0;
+        }else
+        {
+            ClearPath();
         }
         return pathOk;
     }

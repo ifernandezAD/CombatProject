@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8847703559051666384}
   - component: {fileID: 4590684697877311219}
   m_Layer: 0
-  m_Name: SetStatePatrol
+  m_Name: SetStateFollowPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6242681be9278684d984a9fc4e09336e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 2922030325308781491}
+  state: {fileID: 8272278042599703949}
 --- !u!1 &4114734424653165462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1701,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 5
       addedObject: {fileID: 382663770507797540}
+    - targetCorrespondingSourceObject: {fileID: 6110395174477592556, guid: ba67bc7e4f3235f44ac50cda44cb4348,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8272278042599703949}
   m_SourcePrefab: {fileID: 100100000, guid: ba67bc7e4f3235f44ac50cda44cb4348, type: 3}
 --- !u!4 &431803582081733497 stripped
 Transform:
@@ -1751,18 +1755,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dissolveDuration: 1
---- !u!114 &2922030325308781491 stripped
+--- !u!114 &8272278042599703949
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6404264706118437578, guid: ba67bc7e4f3235f44ac50cda44cb4348,
-    type: 3}
-  m_PrefabInstance: {fileID: 8101315785587177849}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2639632481792249493}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcda5b8e37950ff4d9cb7601a7477a24, type: 3}
+  m_Script: {fileID: 11500000, guid: 58e42d201a282ae41a645dddf8c014c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followTarget: {fileID: 0}
+  holdPositionDistance: 5
 --- !u!114 &2966590041564418893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6433064568265157172, guid: ba67bc7e4f3235f44ac50cda44cb4348,

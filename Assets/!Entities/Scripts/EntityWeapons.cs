@@ -80,7 +80,7 @@ public class EntityWeapons : MonoBehaviour
     {
         //Aiming system, paused until completed
 
-        //Vector3 aimDirection = aimPoint.position - weaponsRotation.position;
+        //Vector3 aimDirection = aimPoint.position - weaponsRotation.position : transform.forward;
         //Vector3 aimDirectionOnPlayerPlane = Vector3.ProjectOnPlane(aimDirection, transform.right);
         //float verticalAngle = Vector3.SignedAngle(transform.forward, aimDirectionOnPlayerPlane,transform.right);
         //weaponsRotation.localRotation = Quaternion.AngleAxis(verticalAngle, Vector3.right);
