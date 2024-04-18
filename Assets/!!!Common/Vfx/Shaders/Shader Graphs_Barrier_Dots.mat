@@ -86,6 +86,7 @@ Material:
     - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _SurfaceType: 1
+    - _Transparency: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -100,8 +101,8 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _DotsColor: {r: 0, g: 3.1690798, b: 28.7471, a: 1}
-    - _DotsTiling: {r: 600, g: 300, b: 0, a: 0}
-    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _DotsTiling: {r: 1300, g: 300, b: 0, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _NoiseSpeed: {r: 0, g: -0.05, b: 0, a: 0}
   m_BuildTextureStacks: []
