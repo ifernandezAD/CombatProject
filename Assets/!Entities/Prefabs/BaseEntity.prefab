@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 2914070804464937558}
   - component: {fileID: 7939717998976837245}
   - component: {fileID: 8083202649136488470}
+  - component: {fileID: 4238931015668268102}
   - component: {fileID: 7473033308439207927}
   - component: {fileID: 3794087386491459097}
   - component: {fileID: 7698308056516839721}
@@ -369,8 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpSpeed: 5
-  stopEntity: 1
-  speedPreviousToStop: 0
+  startingSpeed: 0
   orientationSpeed: 360
   smoothingSpeed: 10
   debugExtraMovement: 0
@@ -380,9 +380,7 @@ MonoBehaviour:
     speed: 10
     steadyDuration: 0.3
     decelerationDuration: 0.2
-  debugStopEntity: 0
-  debugDisableEntityMovement: 0
-  debugEnableEntityMovement: 0
+  runSpeed: 8
 --- !u!114 &7939717998976837245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +426,18 @@ MonoBehaviour:
   onLifeDepleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4238931015668268102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114575187998448854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442e999a04b77624185937f1fe38ab20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7473033308439207927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,8 +550,11 @@ MonoBehaviour:
   sensesParent: {fileID: 5691950874522548330}
   entityWeapons: {fileID: 7939717998976837245}
   senseable: {fileID: 0}
+  allStates: []
   isEnchanted: 0
   isConfused: 0
+  isRoaring: 0
+  isRoaming: 1
 --- !u!114 &241853949443908080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,6 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4acf594e92d17424abbeb756058a3165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastValidTarget: {fileID: 0}
+  adversaryMeteorAnimationDuration: 2
 --- !u!114 &8433032320562224063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,8 +634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5608cb9f6bb9a284e9767e72c3df172c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinToEnable: {fileID: 0}
-  skinToDisable: {fileID: 0}
+  skinsParent: {fileID: 0}
+  playerSkin: {fileID: 0}
+  confusedDuration: 10
 --- !u!1 &1210682276110186892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4028,6 +4044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4ed6e5a6121f14b95d4061e9d8538b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeMagicParticle: {fileID: 0}
+  meleeMagicParticlePosition: {fileID: 0}
 --- !u!114 &6950743639719471957
 MonoBehaviour:
   m_ObjectHideFlags: 0
