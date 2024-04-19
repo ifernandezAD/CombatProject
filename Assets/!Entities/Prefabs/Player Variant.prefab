@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.876257, z: -5.870299}
+  m_FollowOffset: {x: 0, y: 2.258837, z: -5.839579}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.876257, z: -5.870299}
+  m_FollowOffset: {x: 0, y: 2.258837, z: -5.839579}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.876257, z: -5.870299}
+  m_FollowOffset: {x: 0, y: 2.258837, z: -5.839579}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -5369,7 +5369,7 @@ PrefabInstance:
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5151341
+      value: 0.51513404
       objectReference: {fileID: 0}
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -5379,7 +5379,7 @@ PrefabInstance:
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8571096
+      value: 0.85710967
       objectReference: {fileID: 0}
     - target: {fileID: 6979501075376613655, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -5642,6 +5642,13 @@ PrefabInstance:
     - {fileID: 1833277341048745698, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     - {fileID: 7585704503622047778, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     - {fileID: 2212007752998518845, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 6878096032560414098, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 241853949443908080, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 5959690114334737806, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 2687244045989440502, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 215449402372473102, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 8433032320562224063, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 3498274633491075177, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6268309595566264053, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     - {fileID: 597065548660461751, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
@@ -5649,10 +5656,11 @@ PrefabInstance:
     - {fileID: 2724020001689694539, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     - {fileID: 711051409187287871, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     - {fileID: 2935504027184123742, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
+    - {fileID: 4028710396806234867, guid: 7781afa95608bcc4d994ccb7d547cdf8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3325922524518859066, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
-      insertIndex: 8
+      insertIndex: 7
       addedObject: {fileID: 5788010911698797523}
     - targetCorrespondingSourceObject: {fileID: 1405613549912089034, guid: 7781afa95608bcc4d994ccb7d547cdf8,
         type: 3}
@@ -6038,7 +6046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 3
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1838590246970690783 stripped
