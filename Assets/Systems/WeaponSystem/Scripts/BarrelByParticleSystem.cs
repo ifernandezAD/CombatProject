@@ -46,4 +46,10 @@ public class BarrelByParticleSystem : Barrel, IOffender
     {
         return hitDirection;
     }
+
+
+    public IOffender.WeaponType GetWeaponType()
+    {
+        return IOffender.WeaponType.flamesWeapon;
+    }
 }

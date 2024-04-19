@@ -23,4 +23,9 @@ public class NotifyParticleCollision : MonoBehaviour,IOffender
     {
         return hitDirection;
     }
+
+    public IOffender.WeaponType GetWeaponType()
+    {
+        return IOffender.WeaponType.flamesWeapon;
+    }
 }

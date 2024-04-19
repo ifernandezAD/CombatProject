@@ -42,4 +42,9 @@ public class HitCollider : MonoBehaviour, IOffender
     {
         return hitDirection;
     }
+
+    public IOffender.WeaponType GetWeaponType()
+    {
+        return IOffender.WeaponType.meleeWeapon;
+    }
 }

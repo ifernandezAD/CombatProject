@@ -46,4 +46,9 @@ public class BarrelByRaycast : Barrel, IOffender
     {
         return transform;
     }
+
+    public IOffender.WeaponType GetWeaponType()
+    {
+        return IOffender.WeaponType.fireWeapon;
+    }
 }

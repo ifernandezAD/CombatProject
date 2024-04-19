@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2262642162791351907, guid: c365b59e01729c44689c6ca1ce68f703,
+        type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].x
+      value: 0.48999977
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730508886199526978, guid: c365b59e01729c44689c6ca1ce68f703,
+        type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].x
+      value: -0.07900047
+      objectReference: {fileID: 0}
     - target: {fileID: 4323549891543876515, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}
       propertyPath: m_IsActive
@@ -16,7 +26,17 @@ PrefabInstance:
     - target: {fileID: 4371247599380007408, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}
       propertyPath: m_Name
-      value: Enemy Variant Variant
+      value: Enemy Variant Male Roaming
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606443881221996329, guid: c365b59e01729c44689c6ca1ce68f703,
+        type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].x
+      value: -0.4069996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606443881221996329, guid: c365b59e01729c44689c6ca1ce68f703,
+        type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].z
+      value: 0.18700027
       objectReference: {fileID: 0}
     - target: {fileID: 5488123911438777250, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}
@@ -26,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 7181558450495357337, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.01
+      value: 9.98
       objectReference: {fileID: 0}
     - target: {fileID: 7181558450495357337, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}
@@ -36,7 +56,7 @@ PrefabInstance:
     - target: {fileID: 7181558450495357337, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.62
+      value: -29.69
       objectReference: {fileID: 0}
     - target: {fileID: 7181558450495357337, guid: c365b59e01729c44689c6ca1ce68f703,
         type: 3}

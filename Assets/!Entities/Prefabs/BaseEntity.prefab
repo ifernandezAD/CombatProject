@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442e999a04b77624185937f1fe38ab20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodParticle: {fileID: 194062, guid: 8c964320c0ccd6e469ac81a486ac1266, type: 3}
 --- !u!114 &7473033308439207927
 MonoBehaviour:
   m_ObjectHideFlags: 0

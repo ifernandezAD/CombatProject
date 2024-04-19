@@ -52,4 +52,10 @@ public class Explosion : MonoBehaviour, IOffender
     {
         return transform;
     }
+
+
+    public IOffender.WeaponType GetWeaponType()
+    {
+        return IOffender.WeaponType.explosionWeapon;
+    }
 }

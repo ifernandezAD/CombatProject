@@ -6011,6 +6011,7 @@ GameObject:
   - component: {fileID: 8343872436984070508}
   - component: {fileID: 3860767161641979207}
   - component: {fileID: 1469950604039897184}
+  - component: {fileID: 4837635301716525490}
   - component: {fileID: 1541044194883306487}
   - component: {fileID: 8006545075402112291}
   - component: {fileID: 3561883658293158419}
@@ -6143,6 +6144,19 @@ MonoBehaviour:
   onLifeDepleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4837635301716525490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110395174477592556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442e999a04b77624185937f1fe38ab20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticle: {fileID: 194062, guid: 8c964320c0ccd6e469ac81a486ac1266, type: 3}
 --- !u!114 &1541044194883306487
 MonoBehaviour:
   m_ObjectHideFlags: 0
