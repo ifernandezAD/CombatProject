@@ -1151,6 +1151,7 @@ GameObject:
   - component: {fileID: 8069474061379059954}
   - component: {fileID: 6230158510853409622}
   - component: {fileID: 3281256461059433025}
+  - component: {fileID: 7202053208972721623}
   - component: {fileID: 5993295949671446232}
   - component: {fileID: 5399473157774345883}
   - component: {fileID: 5069495039388962621}
@@ -1253,6 +1254,22 @@ MonoBehaviour:
   onLifeDepleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7202053208972721623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895198325027918641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442e999a04b77624185937f1fe38ab20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticle: {fileID: 194062, guid: 8c964320c0ccd6e469ac81a486ac1266, type: 3}
+  meleeParticle: {fileID: 2944396702758532163, guid: e190bf97c041e58448af6b043116cba0,
+    type: 3}
+  fireParticle: {fileID: 100000, guid: 756d99540142b5e4a8d174e18a6310d9, type: 3}
 --- !u!114 &5993295949671446232
 MonoBehaviour:
   m_ObjectHideFlags: 0

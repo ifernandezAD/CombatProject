@@ -2219,6 +2219,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.278
       objectReference: {fileID: 0}
+    - target: {fileID: 7018874861987108732, guid: ba67bc7e4f3235f44ac50cda44cb4348,
+        type: 3}
+      propertyPath: fireParticle
+      value: 
+      objectReference: {fileID: 100000, guid: 756d99540142b5e4a8d174e18a6310d9, type: 3}
+    - target: {fileID: 7018874861987108732, guid: ba67bc7e4f3235f44ac50cda44cb4348,
+        type: 3}
+      propertyPath: meleeParticle
+      value: 
+      objectReference: {fileID: 2944396702758532163, guid: e190bf97c041e58448af6b043116cba0,
+        type: 3}
     - target: {fileID: 7067319939436332563, guid: ba67bc7e4f3235f44ac50cda44cb4348,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2549,6 +2560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followTarget: {fileID: 0}
   holdPositionDistance: 5
+  timeBetweenLookDirectionChange: 2.5
 --- !u!114 &4896764675643287454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3365207087559487621, guid: ba67bc7e4f3235f44ac50cda44cb4348,

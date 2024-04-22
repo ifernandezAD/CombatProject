@@ -5319,7 +5319,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.407, y: 1.163, z: 0.187}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.4070015, y: 1.163, z: 0.18700027}
+  - {x: -0.4070015, y: 1.163, z: 0.1869998}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -6159,6 +6159,7 @@ MonoBehaviour:
   bloodParticle: {fileID: 194062, guid: 8c964320c0ccd6e469ac81a486ac1266, type: 3}
   meleeParticle: {fileID: 2944396702758532163, guid: e190bf97c041e58448af6b043116cba0,
     type: 3}
+  fireParticle: {fileID: 100000, guid: 756d99540142b5e4a8d174e18a6310d9, type: 3}
 --- !u!114 &1541044194883306487
 MonoBehaviour:
   m_ObjectHideFlags: 0
