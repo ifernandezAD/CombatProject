@@ -25,12 +25,17 @@ public class HitCollider : MonoBehaviour, IOffender
 
     private void CheckCollider(Collider other)
     {
-        if (other.TryGetComponent<HurtCollider>(out HurtCollider hurtCollider))
+        if (other.TryGetComponent<HurtCollider>(out HurtCollider hurtCollider) && !IsSameEntity(other.gameObject))
         {
             hitDirection = other.transform.position - transform.position;
             onHitNotified.Invoke(this, hurtCollider);
             hurtCollider.NotifyHit(this);
         }
+    }
+
+    private bool IsSameEntity(GameObject otherGameObject)
+    {
+        return otherGameObject.transform.root == transform.root;
     }
 
     public Transform GetTransform()
