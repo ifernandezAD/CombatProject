@@ -39,7 +39,7 @@ public class SpellWheelButtonController : MonoBehaviour
 
     void Update()
     {
-        UpdateMouseAxis();
+        UpdateMouseDelta();
 
         if (spellWheel.action.WasReleasedThisFrame() && selected)
         {
@@ -48,15 +48,22 @@ public class SpellWheelButtonController : MonoBehaviour
         }
     }
 
-    private void UpdateMouseAxis()
+    private void UpdateMouseDelta()
     {
-        mouseX += Input.GetAxis("Mouse X");
-        mouseY += Input.GetAxis("Mouse Y");
+        // Get the mouse delta (change in mouse position since last frame)
+        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
-        mouseX = Mathf.Clamp(mouseX, -1f, 1f);
-        mouseY = Mathf.Clamp(mouseY, -1f, 1f);
+        // Convert the mouse delta to world space
+        Vector3 mouseDeltaWorld = Camera.main.transform.TransformDirection(new Vector3(mouseDelta.x, mouseDelta.y, 0));
 
-        Debug.Log("Mouse X: " + mouseX + ", Mouse Y: " + mouseY);
+        // Get the position of the transform
+        Vector3 transformPosition = transform.position;
+
+        // Calculate the relative position vector between the transform and the mouse position
+        Vector3 relativePosition = transformPosition + mouseDeltaWorld;
+
+        // Now you have the relative position vector between the transform and the mouse position
+        Debug.Log("Relative Position: " + relativePosition);
     }
 
     public void HoverEnter()
