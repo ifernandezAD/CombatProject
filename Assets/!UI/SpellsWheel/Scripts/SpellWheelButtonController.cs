@@ -25,7 +25,11 @@ public class SpellWheelButtonController : MonoBehaviour
     [Header("Glow Color")]
     [SerializeField] Color glowColor = Color.white;
     [SerializeField, Range(0f, 50f)] float glowIntensity = 20f;
-    
+
+    [Header("Mouse")]
+    private float mouseX;
+    private float mouseY;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -35,11 +39,24 @@ public class SpellWheelButtonController : MonoBehaviour
 
     void Update()
     {
+        UpdateMouseAxis();
+
         if (spellWheel.action.WasReleasedThisFrame() && selected)
         {
             spellNotified?.Invoke();
             spellToActivate.enabled = true;
         }
+    }
+
+    private void UpdateMouseAxis()
+    {
+        mouseX += Input.GetAxis("Mouse X");
+        mouseY += Input.GetAxis("Mouse Y");
+
+        mouseX = Mathf.Clamp(mouseX, -1f, 1f);
+        mouseY = Mathf.Clamp(mouseY, -1f, 1f);
+
+        Debug.Log("Mouse X: " + mouseX + ", Mouse Y: " + mouseY);
     }
 
     public void HoverEnter()
