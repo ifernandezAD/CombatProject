@@ -53,6 +53,7 @@ public class SpellWheelController : MonoBehaviour
         {
             animator.SetBool("OpenSpellWheel", true);
             lockedRotationCamera.SetActive(true);
+            UnlockMouse();
 
             if (canCastSpells)
             {
@@ -64,9 +65,22 @@ public class SpellWheelController : MonoBehaviour
         {
             animator.SetBool("OpenSpellWheel", false);
             lockedRotationCamera.SetActive(false);
+            LockMouse();
             HideSpellWheelEffects();
             TimeManager.instance.ResetTime();
         }
+    }
+
+    private static void LockMouse()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private static void UnlockMouse()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void ShowSpellWheelEffects() { postprocessEffects.SetActive(true); }
