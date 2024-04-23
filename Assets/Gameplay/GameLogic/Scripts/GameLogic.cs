@@ -43,12 +43,26 @@ public class GameLogic : MonoBehaviour
     {
         instance = this;
 
-        playerTransform = GameObject.FindWithTag("Player").transform;
+        FindPlayer();
+
         panickingObjects = FindObjectsOfType<State_Panic>();
 
         foreach (State_Panic panickingObject in panickingObjects)
         {
             panickingObject.InitParent(panicPatrolPointsParent);
+        }
+    }
+
+    private void FindPlayer()
+    {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            playerTransform = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogWarning("No object found with tag 'Player'. PlayerTransform will be null.");
         }
     }
 

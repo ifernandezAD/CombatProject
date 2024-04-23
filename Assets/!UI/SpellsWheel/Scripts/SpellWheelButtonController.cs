@@ -26,9 +26,7 @@ public class SpellWheelButtonController : MonoBehaviour
     [SerializeField] Color glowColor = Color.white;
     [SerializeField, Range(0f, 50f)] float glowIntensity = 20f;
 
-    [Header("Mouse")]
-    private float mouseX;
-    private float mouseY;
+
 
     private void Awake()
     {
@@ -39,31 +37,11 @@ public class SpellWheelButtonController : MonoBehaviour
 
     void Update()
     {
-        UpdateMouseDelta();
-
         if (spellWheel.action.WasReleasedThisFrame() && selected)
         {
             spellNotified?.Invoke();
             spellToActivate.enabled = true;
         }
-    }
-
-    private void UpdateMouseDelta()
-    {
-        // Get the mouse delta (change in mouse position since last frame)
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-
-        // Convert the mouse delta to world space
-        Vector3 mouseDeltaWorld = Camera.main.transform.TransformDirection(new Vector3(mouseDelta.x, mouseDelta.y, 0));
-
-        // Get the position of the transform
-        Vector3 transformPosition = transform.position;
-
-        // Calculate the relative position vector between the transform and the mouse position
-        Vector3 relativePosition = transformPosition + mouseDeltaWorld;
-
-        // Now you have the relative position vector between the transform and the mouse position
-        Debug.Log("Relative Position: " + relativePosition);
     }
 
     public void HoverEnter()

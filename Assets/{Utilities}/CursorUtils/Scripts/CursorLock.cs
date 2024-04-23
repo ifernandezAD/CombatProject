@@ -1,19 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class CursorLock : MonoBehaviour
 {
-    private void Start()
+    public static CursorLock instance { get; private set; }
+    [SerializeField] bool isLocked;
+
+    private void Awake()
     {
-        LockCursor();
+        instance = this;
     }
 
-    
+    private void Start()
+    {
+        if (isLocked) { LockCursor(); }
+        else { UnlockCursor(); }
+    }
+
+
     private static void LockCursor()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private static void UnlockCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
