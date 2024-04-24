@@ -8,6 +8,7 @@ public class HumanDeath : Death
     DecissionMaker decissionMaker;
     AI ai;
     CharacterController characterController;
+   [SerializeField] GameObject weaponContainer;
 
     public bool isDead { get; private set; }
 
@@ -25,9 +26,20 @@ public class HumanDeath : Death
         ShrinkCharacterController();
 
         ai.senseable.DisableSenseables();
+        ai.enabled = false;
+
         DisableAIStateMachine();
+        HideWeapons();
 
         isDead = true;
+    }
+
+    private void HideWeapons()
+    {
+        if (weaponContainer)
+        {
+            weaponContainer.SetActive(false);
+        }   
     }
 
     private void ShrinkCharacterController()
@@ -52,5 +64,4 @@ public class HumanDeath : Death
             }
         }
     }
-
 }
