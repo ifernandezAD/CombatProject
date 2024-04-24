@@ -1395,6 +1395,7 @@ MonoBehaviour:
   - Drunk
   - PushingCar
   - Looking
+  - Seated
   selectedAnimation: Drunk
 --- !u!114 &7888311810090940367
 MonoBehaviour:
