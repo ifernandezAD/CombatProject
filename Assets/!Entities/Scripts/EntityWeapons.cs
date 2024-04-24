@@ -128,8 +128,12 @@ public class EntityWeapons : MonoBehaviour
 
     public int CycleWeapon(int i)
     {
-        if (i >= weapons.Length) { i = -1; }
-        else if (i < -1) { i = weapons.Length - 1; }
+       //if (i >= weapons.Length) { i = -1; }
+       //else if (i < -1) { i = weapons.Length - 1; }
+       //return i;
+
+        if (i >= weapons.Length) { i = 0; }
+        else if (i < 0) { i = weapons.Length - 1; }
         return i;
     }
 
