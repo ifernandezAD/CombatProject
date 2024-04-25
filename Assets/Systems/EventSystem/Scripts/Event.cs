@@ -34,11 +34,19 @@ public class Event : MonoBehaviour
     {
         if (eventTextArray.Length == 0)
         {
+            eventManager.eventTMPro.enabled = false;
             onComplete?.Invoke();
             return;
         }
 
-        ShowTextDelayed(currentTextIndex, onComplete);
+        eventManager.eventTMPro.enabled = true;
+
+
+        ShowTextDelayed(currentTextIndex, () =>
+        {
+            eventManager.eventTMPro.enabled = false;
+            onComplete?.Invoke();
+        });
     }
 
     private void ShowTextDelayed(int index, Action onComplete = null)
@@ -65,6 +73,7 @@ public class Event : MonoBehaviour
 
     private void CheckNextEventCondition(NextEventCondition condition)
     {
+
         switch (condition)
         {
             case NextEventCondition.ByTime:
