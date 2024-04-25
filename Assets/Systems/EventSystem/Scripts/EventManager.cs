@@ -67,20 +67,21 @@ public class EventManager : MonoBehaviour
     }
 
     public int currentEventIndex = 0;
+    private bool allEventsProcessed = false;
     public void ActivateNextEvent()
     {
-        bool isLastEventGameObject = currentEventIndex == eventArray.Length - 1;
-        if (isLastEventGameObject)
-        {
-            eventArray[currentEventIndex].gameObject.SetActive(false);
-            return;
-        }
-
+        if (allEventsProcessed){return;}
+                      
         if (currentEventIndex >= 0 && currentEventIndex < eventArray.Length)
         {
             eventArray[currentEventIndex].gameObject.SetActive(false);
+            currentEventIndex++;
 
-            currentEventIndex = (currentEventIndex + 1) % eventArray.Length;
+            if (currentEventIndex >= eventArray.Length)
+            {
+                allEventsProcessed = true;
+                return;
+            }
 
             eventArray[currentEventIndex].gameObject.SetActive(true);
         }
