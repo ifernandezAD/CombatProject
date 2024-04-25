@@ -65,10 +65,6 @@ public class Event : MonoBehaviour
 
     private void CheckNextEventCondition(NextEventCondition condition)
     {
-
-        bool isLastEvent = currentTextIndex == eventTextArray.Length;
-        if (isLastEvent){return;}
-                          
         switch (condition)
         {
             case NextEventCondition.ByTime:

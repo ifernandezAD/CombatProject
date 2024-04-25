@@ -9,7 +9,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] Transform eventsParent;
     public TextMeshProUGUI eventTMPro;
 
-    private Event[] eventArray;
+    public Event[] eventArray;
 
     [Header("Debug")]
     [SerializeField] bool debugActivateFirstEvent;
@@ -66,9 +66,16 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private int currentEventIndex = 0;
+    public int currentEventIndex = 0;
     public void ActivateNextEvent()
     {
+        bool isLastEventGameObject = currentEventIndex == eventArray.Length - 1;
+        if (isLastEventGameObject)
+        {
+            eventArray[currentEventIndex].gameObject.SetActive(false);
+            return;
+        }
+
         if (currentEventIndex >= 0 && currentEventIndex < eventArray.Length)
         {
             eventArray[currentEventIndex].gameObject.SetActive(false);
