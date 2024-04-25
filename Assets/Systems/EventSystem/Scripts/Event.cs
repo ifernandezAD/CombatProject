@@ -80,8 +80,7 @@ public class Event : MonoBehaviour
                 eventManager.ActivateNextEvent();
                 break;
             case NextEventCondition.ByTrigger:
-                // Handle condition for ByTrigger
-                Debug.Log("Next event condition is ByTrigger");
+                EventTrigger.onTriggerEvent += NextEventConditionByTrigger;
                 break;
             case NextEventCondition.ByAction:
                 // Handle condition for ByAction
@@ -91,5 +90,11 @@ public class Event : MonoBehaviour
                 Debug.LogWarning("Unknown next event condition");
                 break;
         }
+    }
+
+    private void NextEventConditionByTrigger()
+    {
+        eventManager.ActivateNextEvent();
+        EventTrigger.onTriggerEvent -= NextEventConditionByTrigger;
     }
 }
