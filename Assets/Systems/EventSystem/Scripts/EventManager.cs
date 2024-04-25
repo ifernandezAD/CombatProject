@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class EventManager : MonoBehaviour
 {
@@ -10,14 +11,50 @@ public class EventManager : MonoBehaviour
 
     private Event[] eventArray;
 
+    [Header("Debug")]
+    [SerializeField] bool debugActivateFirstEvent;
+    [SerializeField] bool debugActivateNextEvent;
+
+    private void OnValidate()
+    {
+        if (debugActivateFirstEvent)
+        {
+            ActivateFirstEvent();
+            debugActivateFirstEvent = false;
+        }
+
+        if (debugActivateNextEvent)
+        {
+            ActivateNextEvent();
+            debugActivateNextEvent = false;
+        }
+    }
+
     private void Awake()
     {
         InitializeEvents();
     }
 
+    private void Start()
+    {
+        ActivateFirstEvent();
+    }
+
+    private void ActivateFirstEvent()
+    {
+        if (eventArray != null && eventArray.Length > 0)
+        {
+            eventArray[0].gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("No events found or event array is not initialized.");
+        }
+    }
+
     private void InitializeEvents()
     {
-        Event[] eventsInChildren = eventsParent.GetComponentsInChildren<Event>();
+        Event[] eventsInChildren = eventsParent.GetComponentsInChildren<Event>(true);
 
         eventArray = new Event[eventsInChildren.Length];
 
@@ -26,6 +63,23 @@ public class EventManager : MonoBehaviour
             Event currentEvent = eventsInChildren[i];
             currentEvent.Init(this);
             eventArray[i] = currentEvent;
+        }
+    }
+
+    private int currentEventIndex = 0;
+    public void ActivateNextEvent()
+    {
+        if (currentEventIndex >= 0 && currentEventIndex < eventArray.Length)
+        {
+            eventArray[currentEventIndex].gameObject.SetActive(false);
+
+            currentEventIndex = (currentEventIndex + 1) % eventArray.Length;
+
+            eventArray[currentEventIndex].gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Current event index is out of bounds.");
         }
     }
 }
