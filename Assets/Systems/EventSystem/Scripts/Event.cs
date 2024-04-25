@@ -8,6 +8,22 @@ public class Event : MonoBehaviour
     [SerializeField] string[] eventTextArray;
     [SerializeField] float textDisplayTime = 1f;
 
+    [Header ("OnEnable Actions")]
+    [SerializeField] private OnEnableAction enableAction = OnEnableAction.None;
+    private enum OnEnableAction
+    {
+      None,
+      SpawnEventTrigger
+    }
+
+    [Header("OnDisable Actions")]
+    [SerializeField] private OnDisableAction disableAction = OnDisableAction.None;
+    private enum OnDisableAction
+    {
+        None,
+        SpawnEventTrigger
+    }
+
     [Header("Next Event Condition")]
     [SerializeField] private NextEventCondition nextCondition = NextEventCondition.ByTime;
     private enum NextEventCondition
