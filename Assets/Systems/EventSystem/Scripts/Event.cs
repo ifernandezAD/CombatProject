@@ -19,7 +19,8 @@ public class Event : MonoBehaviour
     {
         None,
         SpawnEventTrigger,
-        SpawnEventDummy
+        SpawnEventDummy,
+        LoadNewLevel
     }
 
     [Header("Next Event Condition")]
@@ -28,7 +29,9 @@ public class Event : MonoBehaviour
     {
         ByTime,
         ByTrigger,
-        ByAction
+        ByMeleeHitAction,
+        ByWeaponHitAction,
+        ByFireHitAction
     }
 
     [Header("Show Text Variables")]
@@ -108,12 +111,14 @@ public class Event : MonoBehaviour
             case NextEventCondition.ByTrigger:
                 EventTrigger.onTriggerEvent += NextEventConditionByTrigger;
                 break;
-            case NextEventCondition.ByAction:
-                // Handle condition for ByAction
-                Debug.Log("Next event condition is ByAction");
+            case NextEventCondition.ByMeleeHitAction:
+                EventDummyBehaviour.onHitByMelee += NextEventConditionByHitByMelee;
                 break;
-            default:
-                Debug.LogWarning("Unknown next event condition");
+            case NextEventCondition.ByWeaponHitAction:
+                EventDummyBehaviour.onHitByWeapon += NextEventConditionByHitByWeapon;
+                break;
+            case NextEventCondition.ByFireHitAction:
+                EventDummyBehaviour.onHitByFire += NextEventConditionByHitByFire;
                 break;
         }
     }
@@ -122,6 +127,24 @@ public class Event : MonoBehaviour
     {
         eventManager.ActivateNextEvent();
         EventTrigger.onTriggerEvent -= NextEventConditionByTrigger;
+    }
+
+    private void NextEventConditionByHitByMelee()
+    {
+        eventManager.ActivateNextEvent();
+        EventDummyBehaviour.onHitByMelee -= NextEventConditionByHitByMelee;
+    }
+
+    private void NextEventConditionByHitByWeapon()
+    {
+        eventManager.ActivateNextEvent();
+        EventDummyBehaviour.onHitByWeapon -= NextEventConditionByHitByWeapon;
+    }
+
+    private void NextEventConditionByHitByFire()
+    {
+        eventManager.ActivateNextEvent();
+        EventDummyBehaviour.onHitByFire -= NextEventConditionByHitByFire;
     }
 
     private void CheckOnEnableAction(OnEnableAction enableAction)
@@ -151,6 +174,9 @@ public class Event : MonoBehaviour
                 break;
             case OnDisableAction.SpawnEventDummy:
                 SpawnEventDummy();
+                break;
+            case OnDisableAction.LoadNewLevel:
+                LoadingScreen.LoadScene("Level1");
                 break;
         }
     }
