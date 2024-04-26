@@ -7509,7 +7509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellAudioEvent: {fileID: 11400000, guid: b38123fbfdb959543b02662fe2c728bf, type: 2}
-  spellDuration: 10
+  spellDuration: 15
   spellDyePower: 1
   cigarPrefab: {fileID: 5638559473292548007}
   cigarParticle: {fileID: 7680673673686079221}

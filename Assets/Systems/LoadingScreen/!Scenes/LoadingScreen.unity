@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2ceebbd235a8a478bfbe6c518edf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSceneToLoad: Level1
+  firstSceneToLoad: Tutorial
   debugScene1: PhysicsTestScene
   debugScene2: OutdoorsScene
   debugSwitchScenes: 0

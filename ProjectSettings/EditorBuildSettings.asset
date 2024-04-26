@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Systems/LoadingScreen/!Scenes/LoadingScreen.unity
     guid: 85763480818e3be419772f446a1181bb
   - enabled: 1
+    path: Assets/!!Scenes/Game/Tutorial.unity
+    guid: b487e293693e1034d892725b6aadfc27
+  - enabled: 1
     path: Assets/!!Scenes/Game/Levels/Level1.unity
     guid: 7f1c25b952761de4ebb4a9682fc648d5
   - enabled: 1
